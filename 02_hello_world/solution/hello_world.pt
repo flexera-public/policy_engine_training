@@ -1,0 +1,32 @@
+name "Hello World"
+rs_pt_ver 20180301
+type "policy"
+short_description "Hello World"
+long_description ""
+category "Tutorial"
+severity "low"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+datasource "ds_hello_world" do
+  run_script $js_hello_world
+end
+
+script "js_hello_world", type: "javascript" do
+  result "hello_world"
+  code <<-'EOS'
+  hello_world = {
+    output: "Hello World"
+  }
+EOS
+end
+
+policy "pol_hello_world" do
+  validate $ds_hello_world do
+    summary_template "{{ data.output }}"
+    detail_template "{{ data.output }}"
+    check eq(0, 1)
+  end
+end
