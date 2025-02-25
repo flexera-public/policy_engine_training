@@ -222,6 +222,8 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 * **Scopes**: Leave blank.
 * **Provider**: flexera
 
+Note: Your user in Flexera One will need access to everything in the "Automation" category in order to make proper use of this credential in these lessons.
+
 ## Step 8: Launch VSCode
 
 The final step is to launch VSCode and verify everything works as expected. In all configurations, you should be able to run the following commands to launch VSCode with the repository loaded in:
