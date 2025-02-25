@@ -68,3 +68,15 @@ An escalation block dictates a course of action for an escalation. The fields in
 ## Step 5: Testing
 
 Now that we have a complete policy template, it's time to test it. This time, we're going to do an `fpt check` on the policy template first. This doesn't run the policy template, but tests it for any syntax errors or other problems.
+
+```bash
+fpt check hello_world.pt
+```
+
+If the command completes with no errors or output, that means the policy template has no issues and you should be clear to run the policy template. Since we're testing whether the policy can send an email, we'll want to include an email parameter. Since this parameter is a list, we'll want to format it like a typical list in most programming languages, encapsulated inside of single quotes, as shown below.
+
+```bash
+fpt run hello_world.pt param_email='["not_a_real@emailaddress.com", "also_not_real@emailaddress.com"]'
+```
+
+In [Lesson 05](https://github.com/flexera-public/policy_engine_training/blob/main/05_fpt), we'll use our Hello World policy template to learn a bit more about the fpt command line tool.

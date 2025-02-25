@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "davidanson.vscode-markdownlint",
+    "formulahendry.code-runner",
+    "jamesls.jmespath-vscode",
+    "shopify.ruby-extensions-pack",
+    "shopify.ruby-lsp",
+    "dbaeumer.vscode-eslint",
+    "dotjoshjohnson.xml",
+    "EditorConfig.EditorConfig",
+    "streetsidesoftware.code-spell-checker",
+    "redhat.vscode-yaml",
+    "ms-python.python",
+    "fknop.vscode-npm",
+    "aws-scripting-guy.cform"
+  ]
+}

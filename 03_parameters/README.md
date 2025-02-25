@@ -124,4 +124,4 @@ Detail:
 Hello Jupiter
 ```
 
-In the next lesson, we'll learn about parameters containing lists and how to email incidents.
+In [Lesson 04](https://github.com/flexera-public/policy_engine_training/blob/main/04_escalations), we'll learn about parameters containing lists and how to email incidents.

@@ -31,7 +31,7 @@ To interact with this GitHub repository, you will need the git command line tool
 Git for Windows can be [downloaded and installed directly from the Git website](https://git-scm.com/downloads/win). Simply click the link at the top to get the latest version and run the executable file that downloads. Once you've completed the installation steps below, you can verify that git is installed with the `git -v` command like so:
 
 ```bash
-? git -v
+> git -v
 git version 2.43.0
 ```
 
@@ -72,13 +72,13 @@ Now that we have git installed, we need to clone this repository locally. You ca
 ### Windows - PowerShell
 
 ```powershell
-git clone https://github.com/flexera-public/policy_training $env:USERPROFILE\policy_training
+git clone https://github.com/flexera-public/policy_engine_training $env:USERPROFILE\policy_engine_training
 ```
 
 ### Windows - WSL2 / macOS / Linux
 
 ```bash
-git clone https://github.com/flexera-public/policy_training ~/policy_training
+git clone https://github.com/flexera-public/policy_engine_training ~/policy_engine_training
 ```
 
 ## Step 4: VSCode
@@ -92,7 +92,7 @@ To install VSCode, please follow the instructions on the [VSCode website](https:
 fpt is Flexera's native policy template development and testing tool. Installation will vary depending on your operating system and command line configuration. Once you've completed the installation steps below, you can verify that fpt is installed with the `fpt -v` command like so:
 
 ```bash
-? fpt -v
+> fpt -v
 fpt v1.5.0 - 2022-04-27 21:17:14 - 4a0a2e0052c9081144087448231e8b6fb6306906
 ```
 
@@ -203,15 +203,34 @@ fpt config show
 
 If you run into issues when attempting to use the configuration, simply rerun the `fpt config account` command for the account in question to reconfigure it.
 
-## Step 7: Launch VSCode
+## Step 7: Create an Automation Credential in Flexera One
+
+In order to make calls to the Flexera API via the policy engine, we'll need to create a credential in Flexera One. Credentials can be added in the Automation -> Credentials section of the Flexera One UI. Use the following settings for your credential:
+
+* **Credential Type**: OAuth2
+* **Credential Name**: Can be any arbitrary value. Should be set to something that makes it easy to identify the credential.
+* **Credential Identifier**: Can be any arbitrary value. Whatever identifier makes the most sense.
+* **Credential Description**: Can be any arbitrary value. Describe the credential here for anyone else that might need to know what it is used for.
+* **Grant Type**: Refresh Token
+* **Token URL**: Depends on the region.
+  * **North America**: https://login.flexera.com/oidc/token
+  * **Europe**: https://login.flexera.eu/oidc/token
+  * **APAC**: https://login.flexera.au/oidc/token
+* **Client Authentication Method**: Token
+* **Token**: The API token you generated in Step 6.
+* **Additional Headers**: Leave blank.
+* **Scopes**: Leave blank.
+* **Provider**: flexera
+
+## Step 8: Launch VSCode
 
 The final step is to launch VSCode and verify everything works as expected. In all configurations, you should be able to run the following commands to launch VSCode with the repository loaded in:
 
 ```bash
-cd ~/policy_training
+cd ~/policy_engine_training
 code .
 ```
 
 VSCode should launch. If prompted to install extensions, it is recommended that you install them.
 
-You should now be configured and ready for the tutorial. Please proceed to lesson 02.
+You should now be configured and ready for the tutorial. Please proceed to [Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/02_hello_world).
