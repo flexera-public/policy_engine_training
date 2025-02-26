@@ -8,16 +8,24 @@ You will need access to a command line interface. The native, default command li
 
 Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpreter if you prefer, but the lessons will give instructions using Node.js
 
-In PowerShell, run the following commands to install Node.js:
+In PowerShell, run the following command to install the Node.js repository:
 
 ```powershell
 winget install Schniz.fnm
+```
 
+Once the repository is installed, close and reopen PowerShell and run the following commands to install Node.js:
+
+```powershell
 fnm install 22
+fnm env | Invoke-Expression
+fnm use 22
+```
 
-node -v # Should print "v22.14.0".
+Once Node.js is installed, run the following command to install the Underscore.js library:
 
-npm -v # Should print "10.9.2".
+```powershell
+npm install underscore
 ```
 
 ## Step 3: Git

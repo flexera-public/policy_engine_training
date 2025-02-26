@@ -22,6 +22,12 @@ Using Homebrew, you can install Node.js with the following command:
 brew install node
 ```
 
+Once Node.js is installed, run the following command to install the Underscore.js library:
+
+```zsh
+npm install underscore
+```
+
 ## Step 4: Git
 
 To interact with this GitHub repository, you will need the git command line tool. Using Homebrew, you can install git with the following command:

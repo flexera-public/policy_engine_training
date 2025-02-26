@@ -16,6 +16,12 @@ For Linux, you should install Node.js using the native package manager for your 
 sudo apt update; sudo apt install nodejs -y
 ```
 
+Once Node.js is installed, run the following command to install the Underscore.js library:
+
+```bash
+npm install underscore
+```
+
 ## Step 3: Git
 
 To interact with this GitHub repository, you will need the git command line tool. Please follow the instructions for the specific OS and command line tool you are using.

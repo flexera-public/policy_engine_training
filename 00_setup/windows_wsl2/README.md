@@ -16,6 +16,12 @@ For WSL2, you should install Node.js using the native package manager for whiche
 sudo apt update; sudo apt install nodejs -y
 ```
 
+Once Node.js is installed, run the following command to install the Underscore.js library:
+
+```bash
+npm install underscore
+```
+
 ## Step 3: Git
 
 To interact with this GitHub repository, you will need the git command line tool. For WSL2, you should install git using the native package manager for whichever Linux distribution you opted to use. For the default, Ubuntu, running the following command in WSL2 should install git for you.
