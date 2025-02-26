@@ -10,11 +10,9 @@ These lessons are intended to get someone familiar with policy template developm
 
 These lessons will *not* provide full coverage of every aspect of the policy template language. Once you've completed these lessons and are confident in your understanding of their contents, it is recommended that you review the official documentation for more detail. Scroll down to the Additional Resources section for more information.
 
-```text
-NOTE: Some aspects of this training require access to a functioning Flexera One organization. It is highly recommended that you have access to a UAT or other low risk environment to test in. None of the policy templates developed in these lessons have the potential to do anything destructive, but it is recommended that you not use a production Flexera One organization to avoid cluttering it with training assets.
+**NOTE: Some aspects of this training require access to a functioning Flexera One organization. It is highly recommended that you have access to a UAT or other low risk environment to test in. None of the policy templates developed in these lessons have the potential to do anything destructive, but it is recommended that you not use a production Flexera One organization to avoid cluttering it with training assets.**
 
-If you do not have this access, you can still follow along and write policy templates, but you may need to read along the sections that involve the Flexera One user interface and the fpt command line tool rather than perform those steps directly.
-```
+**If you do not have this access, you can still follow along and write policy templates, but you may need to read along the sections that involve the Flexera One user interface and the fpt command line tool rather than perform those steps directly.**
 
 ## Where to Begin?
 
