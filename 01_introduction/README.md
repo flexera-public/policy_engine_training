@@ -20,7 +20,7 @@ A *credential* is an API key, API token, username/password, or other information
 
 The [Policy Template Language](https://docs.flexera.com/flexera/EN/Automation/PTL.htm) is a domain-specific language (DSL) designed to simplify automation by providing a straight-forward, human readable language focused on the specific function policy templates serve instead of relying on existing broad-use programming languages.
 
-* The basic structure of the language resembles Ruby, with code organized into do-end blocks. It is not Ruby-based, and arbitrary Ruby code is not supported. That said, the superficial similarity to Ruby means that you can choose ?Ruby? in your favorite code editor to ensure that policy code is colored correctly.
+* The basic structure of the language resembles Ruby, with code organized into do-end blocks. It is not Ruby-based, and arbitrary Ruby code is not supported. That said, the superficial similarity to Ruby means that you can choose "Ruby" in your favorite code editor to ensure that policy code is colored correctly.
 
 * Blocks of JavaScript code can be used on an as-needed basis to refine, manipulate, and combine data gathered from APIs.
 

@@ -60,7 +60,7 @@ Now, when the datasource passes `$param_greeting_target` as a parameter, this wi
 
 ## Step 5: Use the Parameter in JavaScript Code
 
-Passing the parameter into the JavaScript block alone doesn't do much. We need to make use of the new `greeting_target` variable in our code. modify the code section of the JavaScript block like so:
+Passing the parameter into the JavaScript block alone doesn't do much. We need to make use of the new `greeting_target` variable in our code. Modify the code section of the JavaScript block like so:
 
 ```javascript
   hello_world = {

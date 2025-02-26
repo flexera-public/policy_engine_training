@@ -56,7 +56,7 @@ This block has the following fields:
 
 * `schemes` is the authorization scheme used by the credential. In most cases, this will be "oauth2"
 * `label` and `description` are the name and short description of the credential that the user will see in the UI for this credential when applying the policy template.
-* `tags` are key:value pairs of metadata for the credential. Most credentials will have a provider tag that indicates what cloud provider, SaaS tool, or service the credential is for. Examples: flexera, azure, aws
+* `tags` are key=value pairs of metadata for the credential. Most credentials will have a provider tag that indicates what cloud provider, SaaS tool, or service the credential is for. Examples: flexera, azure, aws
 
 ## Step 4: Datasource Request
 
@@ -110,7 +110,7 @@ There's a lot going on in this block, so let's go over the various fields:
 * Because we're requesting a list of things from this API, the API is going to respond with JSON that contains a list. The `collect` block is used to grab items from a list and form a new list from that data.
   * The `jmes_path` function retrieves the data stored in a particular JSON key or path from something. The first parameter is the variable, datasource, etc. that contains the JSON we're extracting from, and the second parameter is the path.
   * The `response` reserved word contains the full response from the API.
-  * The "items[*]" path indicates that we want to grab all items contained in a list that is stored in the key "items". If an API is returning a flat list, rather than a JSON object with a key containing a list, you can use "[*]" for the path instead.
+  * The "items[\*]" path indicates that we want to grab all items contained in a list that is stored in the key "items". If an API is returning a flat list, rather than a JSON object with a key containing a list, you can use "[\*]" for the path instead.
 * Within the `collect` block, we have various `field` fields that define the values we're going to store. The first value in each `field` field is the name we're going to use to store the data in, and the second value is where we're going to get that data.
   * It is not required that the name of each field match the JSON key in the API response, but in most cases, it is recommended.
   * The `col_item` reserved word is only valid inside of a `collect` block and represents each item in the list that we're iterating through.
