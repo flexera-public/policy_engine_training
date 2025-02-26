@@ -24,7 +24,7 @@ You should see a brief description of what the run option does and the various f
 
 One of the most useful functions of fpt is the ability to retrieve a datasource and store its contents as a local file. This can be handy for debugging or when you need to know what the output of a specific API call looks like.
 
-Let's test this with our Hello World policy template. First, let's view the help info for retrieve_data:
+Let's test this with our Hello World policy template. First, let's view the help info for *retrieve_data*:
 
 ```bash
 fpt retrieve_data --help
@@ -44,3 +44,37 @@ If the command completed successfully, you should see the message "Wrote datasou
 }
 ```
 
+## Step 3: script
+
+fpt can also be used to run individual scripts within a policy template. This can be useful for quickly debugging scripts. Let's view the help info for *script*:
+
+```bash
+fpt script --help
+```
+
+Based on the help output, functionality for *script* is very similar to *retrieve_data*. We can specify the script we want to run using the `-n` flag and set values for the various parameters in the script. 
+
+One key difference is we can use the @ symbol to indicate a local file as a value for a parameter; this can be used in conjunction with *retrieve_data* to send in datasource data to test a script.
+
+Let's run the script in the Hello World policy template. Run the following command:
+
+```bash
+fpt script 05_fpt/solution/hello_world.pt -n js_hello_world greeting_target="Japan"
+```
+
+If all went according to plan, you should see output that looks like this:
+
+```text
+Running script "js_hello_world" from hello_world.pt and writing hello_world to out.json
+JavaScript finished, duration=12.676µs
+```
+
+The out.json file will contain the contents of the result variable for the script. In this case, it should look like this:
+
+```json
+{
+  "output": "Hello Japan"
+}
+```
+
+Now that we've gone over the most common uses for fpt, move on to [Lesson 06](https://github.com/flexera-public/policy_engine_training/blob/main/06_api), where we will write a brand new policy template and make use of APIs.

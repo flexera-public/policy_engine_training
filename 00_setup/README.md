@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 01 - Initial Setup
+# Flexera Policy Development - Initial Setup
 
 In order to begin this training, you will need to ensure a series of tools are installed for interacting with the Flexera policy engine. These same tools will be used for policy development proper.
 
@@ -235,4 +235,4 @@ code .
 
 VSCode should launch. If prompted to install extensions, it is recommended that you install them.
 
-You should now be configured and ready for the tutorial. Please proceed to [Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/02_hello_world).
+You should now be configured and ready for the tutorial. Please proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction).

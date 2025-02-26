@@ -10,7 +10,7 @@ Once this file has been created, open it in VSCode by clicking on it on the left
 
 ## Step 2: Policy Metadata
 
-The first thing we need to add to the policy template is metadata. This code defines the name of the policy template, the version number, and other important metadata about the policy template. The metadata should always be the first thing in the policy template. Add the following into your newly created `hello_world.pt` file:
+The first thing we need to add to the policy template is metadata. This defines the name of the policy template, the version number, and other important metadata about the policy template. The metadata should always be the first thing in the policy template. Add the following into your newly created `hello_world.pt` file:
 
 ```ruby
 name "Hello World"
@@ -48,7 +48,7 @@ datasource "ds_hello_world" do
 end
 ```
 
-Policy templates follow a straight-forward structure of code blocks. Each block begins with a single line containing the type of block, the name of the block, and the word ?do? to signify that it is a block. This code defines a *datasource* block.
+Policy templates follow a straight-forward structure of code blocks. Each block begins with a single line containing the type of block, the name of the block, and the word `do` to signify that it is a block. This code defines a *datasource* block.
 
 Indented within the block are various fields. In this case, we only have one field, *run_script*, that defines a script that this datasource is going to run. Once the script runs, the data it produces will be stored in the datasource.
 
@@ -126,7 +126,7 @@ This creates a policy block named `pol_hello_world`.
   * `.output` indicates that we want the value of the output key.
 * The `detail_template` field is typically a more thorough description of the incident. In this case, we're setting it to the same value as `summary_template` for simplicity.
 * The `check` field contains a boolean statement that returns either true or false. An incident is raised if the statement is false.
-  * In this case, we're using the policy template language's native eq function to determine if the values 0 and 1 are equal. Since they are not, this will always return false, causing an incident to be raised.
+  * In this case, we're using the policy template language's native `eq` function to determine if the values 0 and 1 are equal. Since they are not, this will always return false, causing an incident to be raised. A full list of functions is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/Functions.htm#automationrefinfo_2159364277_1123433).
 
 When this policy template executes, the check statement should return false, causing the incident to be raised. The incident's title and summary will contain the value of the output field in the datasource, which we set to "Hello World" in the JavaScript block.
 
