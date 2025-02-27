@@ -55,7 +55,7 @@ To install VSCode, please follow the instructions on the [VSCode website](https:
 
 ## Step 6: fpt
 
-fpt is Flexera's native policy template development and testing tool. Installation will vary depending on your operating system and command line configuration. 
+fpt is Flexera's native policy template development and testing tool. Installation will vary depending on your operating system and command line configuration.
 
 Run the following commands to download fpt and configure PowerShell to add it to your PATH. It is recommended that you restart your PowerShell terminal after doing this to ensure the new configurations are in effect.
 
@@ -137,9 +137,9 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 * **Credential Description**: Can be any arbitrary value. Describe the credential here for anyone else that might need to know what it is used for.
 * **Grant Type**: Refresh Token
 * **Token URL**: Depends on the region.
-  * **North America**: https://login.flexera.com/oidc/token
-  * **Europe**: https://login.flexera.eu/oidc/token
-  * **APAC**: https://login.flexera.au/oidc/token
+  * **North America**: https:&#8203;//login.flexera.com/oidc/token
+  * **Europe**: https:&#8203;//login.flexera.eu/oidc/token
+  * **APAC**: https:&#8203;//login.flexera.au/oidc/token
 * **Client Authentication Method**: Token
 * **Token**: The API token you generated in Step 6.
 * **Additional Headers**: Leave blank.
