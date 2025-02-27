@@ -87,7 +87,7 @@ It's not uncommon for some errors to not make themselves known until other error
 
 It looks like we've found 5 errors. Let's start with fixing the first error:
 
-```
+```text
   origin: template: list_policy_templates_broken.pt, line: 43
   problem: Undefined variable or method
   summary: 'auth_flexera' is undefined.
@@ -302,7 +302,7 @@ All three datasources should now be local JSON files. Let's start by looking at 
 ]
 ```
 
-We see more or less the same thing we saw in the fpt run output. We know the values for the `category`, `id`, and `short_description` fields are derived from the "ds_list_policy_templates" datasource, since that's the datasource we're transforming with _.map in the "js_policy_templates_with_lessons" script.
+We see more or less the same thing we saw in the fpt run output. We know the values for the `category`, `id`, and `short_description` fields are derived from the "ds_list_policy_templates" datasource, since that's the datasource we're transforming with \_.map in the "js_policy_templates_with_lessons" script.
 
 Let's take a look at the "datasource_ds_list_policy_templates.json" to see if the problem is with the data coming in.
 

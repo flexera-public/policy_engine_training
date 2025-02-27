@@ -98,7 +98,7 @@ Note that the `policy_templates_with_lessons` list will likely contain policy te
   })
 ```
 
-When using _.filter, _.find, etc. and returning a non-boolean value, the value is considered true if it is not "falsy" e.g. if it's not null, undefined, 0, etc. As a result, the above code should filter down to just those policy templates that had a corresponding lesson in the `ds_policy_lesson_list` list.
+When using \_.filter, \_.find, etc. and returning a non-boolean value, the value is considered true if it is not "falsy" e.g. if it's not null, undefined, 0, etc. As a result, the above code should filter down to just those policy templates that had a corresponding lesson in the `ds_policy_lesson_list` list.
 
 Your completed script should look like this:
 
