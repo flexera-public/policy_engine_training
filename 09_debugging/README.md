@@ -4,7 +4,9 @@ So far, we've only been focused on how to build a policy template, but sometimes
 
 ## Step 1: Copy the Broken Template
 
-For this lesson, we'll be using a pre-written template that is already broken and fixing it. Please copy this template to the root of the repository. You should be able to do this using the below command:
+For this lesson, we'll be using a pre-written template that is already broken and fixing it. You should recognize this template, as it is the one we developed in the previous lesson.
+
+Please copy this template to the root of the repository. You should be able to do this using the below command:
 
 ### Windows (PowerShell)
 
