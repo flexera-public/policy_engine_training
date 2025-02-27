@@ -8,7 +8,7 @@ You will need access to a command line interface. Most Linux distributions come 
 
 ## Step 2: Node.js
 
-Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpeter if you prefer, but the lessons will give instructions using Node.js
+Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpreter if you prefer, but the lessons will give instructions using Node.js
 
 For Linux, you should install Node.js using the native package manager for your distribution. For Ubuntu, running the following command in GNOME Terminal should install Node.js for you.
 
