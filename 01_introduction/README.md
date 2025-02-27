@@ -46,4 +46,4 @@ For example, suppose you wanted to write a policy template that reported on unus
 
 A policy template does not execute in the order in which it is written. The policy engine will look at the policy block to find the datasource that will be assessed, and then will work backwards to find the various other datasources it will need to create that final datasource. It will then execute everything in the appropriate order.
 
-This should be enough for us to dive into developing a very simple policy template. Please proceed to [Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/02_hello_world).
+This should be enough for us to dive into developing a very simple policy template. Please proceed to [Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/02_hello_world/README.md).

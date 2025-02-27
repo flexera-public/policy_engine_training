@@ -79,4 +79,4 @@ If the command completes with no errors or output, that means the policy templat
 fpt run hello_world.pt param_email='["not_a_real@emailaddress.com", "also_not_real@emailaddress.com"]'
 ```
 
-In [Lesson 05](https://github.com/flexera-public/policy_engine_training/blob/main/05_fpt), we'll use our Hello World policy template to learn a bit more about the fpt command line tool.
+In [Lesson 05](https://github.com/flexera-public/policy_engine_training/blob/main/05_fpt/README.md), we'll use our Hello World policy template to learn a bit more about the fpt command line tool.
