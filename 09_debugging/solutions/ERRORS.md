@@ -4,21 +4,17 @@
 
 Line incorrectly begins with "paraeter" instead of "parameter".
 
-## Line 35
-
-There should be a comma after "Hello World" to separate the two keys within the object.
-
 ## Line 43
 
 The reference to the `auth_flexera` credential block is missing the preceding `$` symbol. It should be "$auth_flexera", not "auth_flexera".
 
-## Line 52
-
-Within the jmes_path() function, the first parameter is `response` when it should be `col_item`.
-
 ## Line 61
 
 The second parameter of the `run_script` field should be "ds_policy_lesson_list", not "ds_policy_list".
+
+## Line 71
+
+The variable is incorrectly spelled. It should be "policy_table", not "policy_tablee"
 
 ## Line 74
 

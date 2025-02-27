@@ -10,7 +10,7 @@ info(
   version: "0.2.0"
 )
 
-paraeter "param_email" do
+parameter "param_email" do
   type "list"
   label "Email Addresses"
   description "A list of email addresses to notify."
@@ -40,7 +40,7 @@ end
 
 datasource "ds_list_policy_templates" do
   request do
-    auth auth_flexera
+    auth $auth_flexera
     verb "GET"
     host rs_governance_host
     path join(["/api/governance/projects/", rs_project_id, "/policy_templates"])
@@ -58,7 +58,7 @@ datasource "ds_list_policy_templates" do
 end
 
 datasource "ds_policy_templates_with_lessons" do
-  run_script $js_policy_templates_with_lessons, $ds_policy_list, $ds_list_policy_templates
+  run_script $js_policy_templates_with_lessons, $ds_policy_lesson_list, $ds_list_policy_templates
 end
 
 script "js_policy_templates_with_lessons", type: "javascript" do
@@ -68,10 +68,10 @@ script "js_policy_templates_with_lessons", type: "javascript" do
   policy_table = {}
 
   _.each(policy_lesson_list, function(lesson) {
-    policy_tablee[lesson['name']] = lesson['lesson']
+    policy_table[lesson['name']] = lesson['lesson']
   })
 
-  policy_templates_with_lessons = _.map(policy_lesson_list, function(template) {
+  policy_templates_with_lessons = _.map(policy_templates, function(template) {
     return {
       category: template['category'],
       id: template['id'],
@@ -112,7 +112,7 @@ policy "pol_list_policy_templates" do
   end
 end
 
-escalation "esc_email_list" do
+escalation "esc_email" do
   automatic true
   label "Send Email"
   description "Send incident email"
