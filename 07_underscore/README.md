@@ -408,3 +408,4 @@ When you run the script, you should see the first value and last value of the li
 
 This is far from a complete list of everything Underscore.js has to offer. The above are just the most commonly used functions. It is recommended that you read the [Underscore.js documentation](https://underscorejs.org/) to get a better sense of everything it can do, and use this as a reference if you encounter any Underscore.js functions that you do not recognize.
 
+After doing so, please move on to [Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/08_relational_data), where we will make use of some of this functionality to relate some data sets.

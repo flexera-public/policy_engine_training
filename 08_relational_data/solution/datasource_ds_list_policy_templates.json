@@ -1,0 +1,14 @@
+[
+  {
+    "category": "Tutorial",
+    "id": "60170dbd4582b9963de482bd",
+    "name": "Hello World",
+    "short_description": "Hello World"
+  },
+  {
+    "category": "Tutorial",
+    "id": "70dbd01b48294b58d963de26",
+    "name": "List Policy Templates",
+    "short_description": "Lists all policy templates uploaded to the Flexera organization."
+  }
+]
