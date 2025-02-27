@@ -52,7 +52,7 @@ fpt can also be used to run individual scripts within a policy template. This ca
 fpt script --help
 ```
 
-Based on the help output, functionality for *script* is very similar to *retrieve_data*. We can specify the script we want to run using the `-n` flag and set values for the various parameters in the script. 
+Based on the help output, functionality for *script* is very similar to *retrieve_data*. We can specify the script we want to run using the `-n` flag and set values for the various parameters in the script.
 
 One key difference is we can use the @ symbol to indicate a local file as a value for a parameter; this can be used in conjunction with *retrieve_data* to send in datasource data to test a script.
 
