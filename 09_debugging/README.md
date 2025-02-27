@@ -25,7 +25,7 @@ cp 09_debugging/solutions/list_policy_templates_broken.pt .
 Let's begin by running fpt check against the policy template. You should get an error back:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 1 syntax error found:
   origin: template: list_policy_templates_broken.pt, line: 13
@@ -52,7 +52,7 @@ paraeter "param_email" do
 This should be "parameter", not "paraeter". Correct this, save the file, and run fpt check once again. You should get the below response:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 5 syntax errors found:
   origin: template: list_policy_templates_broken.pt, line: 43
@@ -113,7 +113,7 @@ The issue here is that we didn't precede "auth_flexera" with the `$` symbol. Bec
 Now run fpt check again and verify that the error is gone:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 3 syntax errors found:
   origin: template: list_policy_templates_broken.pt, line: 61
@@ -170,7 +170,7 @@ And sure enough, if you try to find "ds_policy_list" anywhere in the policy temp
 Now when you run fpt check, we should be down to a single syntax error:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 1 syntax error found:
   origin: template: list_policy_templates_broken.pt, line: 94
