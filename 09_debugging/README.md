@@ -243,7 +243,7 @@ fpt run list_policy_templates_broken.pt --credentials="auth_flexera=your_credent
 
 The policy template should now complete execution without issue.
 
-## Step 3: Fixing Other Errors
+## Step 4: Fixing Other Errors
 
 We're not quite done yet. The policy template no longer has any syntax errors, and runs without generating any runtime errors, but if we scroll up through the output from the run, we'll see the following:
 
