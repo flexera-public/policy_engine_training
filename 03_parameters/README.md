@@ -14,6 +14,8 @@ info(
 )
 ```
 
+Note that, while you can version policy templates however you like, we generally recommend using [semantic versioning](https://semver.org/).
+
 ## Step 2: Create a Parameter Block
 
 Below the policy template's metadata, but above the datasource, add the following:
