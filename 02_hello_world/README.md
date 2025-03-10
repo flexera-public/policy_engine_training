@@ -145,8 +145,8 @@ This command will upload the policy template to the Flexera One organization you
 ```text
 Policy evaluation successful
 1 validations failed and created incidents:
-Incident /api/governance/projects/7954/incidents/67c610a66272a88b53450495
-Link: https://app.flexera.com/orgs/6/policy/projects/7954/incidents/67c610a66272a88b53450495
+Incident /api/governance/projects/12345/incidents/67c610a66272a88b53450495
+Link: https://app.flexera.com/orgs/43210/policy/projects/12345/incidents/67c610a66272a88b53450495
 Severity: low
 Category: Tutorial
 Items: 1

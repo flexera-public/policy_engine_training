@@ -1,0 +1,120 @@
+name "List Policy Templates (Broken)"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all policy templates uploaded to the Flexera organization."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.2.0"
+)
+
+paraeter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+credentials "auth_flexera" do
+  schemes "oauth2"
+  label "Flexera"
+  description "Select Flexera One OAuth2 credentials"
+  tags "provider=flexera"
+end
+
+datasource "ds_policy_lesson_list" do
+  run_script $js_policy_lesson_list
+end
+
+script "js_policy_lesson_list", type: "javascript" do
+  result "list"
+  code <<-'EOS'
+  list = [
+    { name: "Hello World", lesson: "Lesson 02" },
+    { name: "List Policy Templates", lesson: "Lesson 06" }
+  ]
+EOS
+end
+
+datasource "ds_list_policy_templates" do
+  request do
+    auth auth_flexera
+    verb "GET"
+    host rs_governance_host
+    path join(["/api/governance/projects/", rs_project_id, "/policy_templates"])
+    header "Api-Version", "1.0"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "items[*]") do
+      field "category", jmes_path(col_item, "category")
+      field "id", jmes_path(col_item, "id")
+      field "name", jmes_path(col_item, "name")
+      field "short_description", jmes_path(col_item, "short_description")
+    end
+  end
+end
+
+datasource "ds_policy_templates_with_lessons" do
+  run_script $js_policy_templates_with_lessons, $ds_policy_list, $ds_list_policy_templates
+end
+
+script "js_policy_templates_with_lessons", type: "javascript" do
+  parameters "policy_lesson_list", "policy_templates"
+  result "policy_templates_with_lessons_filtered"
+  code <<-'EOS'
+  policy_table = {}
+
+  _.each(policy_lesson_list, function(lesson) {
+    policy_tablee[lesson['name']] = lesson['lesson']
+  })
+
+  policy_templates_with_lessons = _.map(policy_lesson_list, function(template) {
+    return {
+      category: template['category'],
+      id: template['id'],
+      name: template['name'],
+      short_description: template['short_description'],
+      lesson: policy_table[template['name']]
+    }
+  })
+
+  policy_templates_with_lessons_filtered = _.filter(policy_templates_with_lessons, function(template) {
+    return template['lesson']
+  })
+EOS
+end
+
+policy "pol_list_policy_templates" do
+  validate_each $ds_policy_templates_with_lessons do
+    summary_template "{{ len data }} Policy Templates With Lessons Found"
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+    export do
+      field "id" do
+        label "ID"
+      end
+      field "name" do
+        label "Name"
+      end
+      field "category" do
+        label "Category"
+      end
+      field "short_description" do
+        label "Description"
+      end
+      field "lesson" do
+        label "Lesson"
+      end
+    end
+  end
+end
+
+escalation "esc_email_list" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end

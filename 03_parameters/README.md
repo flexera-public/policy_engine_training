@@ -14,6 +14,8 @@ info(
 )
 ```
 
+Note that, while you can version policy templates however you like, we generally recommend using [semantic versioning](https://semver.org/).
+
 ## Step 2: Create a Parameter Block
 
 Below the policy template's metadata, but above the datasource, add the following:
@@ -60,7 +62,7 @@ Now, when the datasource passes `$param_greeting_target` as a parameter, this wi
 
 ## Step 5: Use the Parameter in JavaScript Code
 
-Passing the parameter into the JavaScript block alone doesn't do much. We need to make use of the new `greeting_target` variable in our code. modify the code section of the JavaScript block like so:
+Passing the parameter into the JavaScript block alone doesn't do much. We need to make use of the new `greeting_target` variable in our code. Modify the code section of the JavaScript block like so:
 
 ```javascript
   hello_world = {
@@ -93,8 +95,8 @@ If all went according to plan, you should see the same thing you saw when runnin
 ```text
 Policy evaluation successful
 1 validations failed and created incidents:
-Incident /api/governance/projects/7954/incidents/67c616c68ff63cc546ff82ee
-Link: https://app.flexera.com/orgs/6/policy/projects/7954/incidents/67c616c68ff63cc546ff82ee
+Incident /api/governance/projects/12345/incidents/67c616c68ff63cc546ff82ee
+Link: https://app.flexera.compolicy/projects/12345/incidents/67c616c68ff63cc546ff82ee
 Severity: low
 Category: Tutorial
 Items: 1
@@ -114,8 +116,8 @@ Now when the policy template executions, we should see "Jupiter" in place of "Wo
 ```text
 Policy evaluation successful
 1 validations failed and created incidents:
-Incident /api/governance/projects/7954/incidents/67c617458ff63cc546ff82ef
-Link: https://app.flexera.com/orgs/6/policy/projects/7954/incidents/67c617458ff63cc546ff82ef
+Incident /api/governance/projects/12345/incidents/67c617458ff63cc546ff82ef
+Link: https://app.flexera.com/orgs/43210/policy/projects/12345/incidents/67c617458ff63cc546ff82ef
 Severity: low
 Category: Tutorial
 Items: 1
