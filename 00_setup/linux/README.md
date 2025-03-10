@@ -8,7 +8,7 @@ You will need access to a command line interface. Most Linux distributions come 
 
 ## Step 2: Node.js
 
-Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpeter if you prefer, but the lessons will give instructions using Node.js
+Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpreter if you prefer, but the lessons will give instructions using Node.js
 
 For Linux, you should install Node.js using the native package manager for your distribution. For Ubuntu, running the following command in GNOME Terminal should install Node.js for you.
 
@@ -130,9 +130,9 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 * **Credential Description**: Can be any arbitrary value. Describe the credential here for anyone else that might need to know what it is used for.
 * **Grant Type**: Refresh Token
 * **Token URL**: Depends on the region.
-  * **North America**: https://login.flexera.com/oidc/token
-  * **Europe**: https://login.flexera.eu/oidc/token
-  * **APAC**: https://login.flexera.au/oidc/token
+  * **North America**: https:&#8203;//login.flexera.com/oidc/token
+  * **Europe**: https:&#8203;//login.flexera.eu/oidc/token
+  * **APAC**: https:&#8203;//login.flexera.au/oidc/token
 * **Client Authentication Method**: Token
 * **Token**: The API token you generated in Step 6.
 * **Additional Headers**: Leave blank.

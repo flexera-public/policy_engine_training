@@ -38,9 +38,9 @@ object_list = [
 ]
 ```
 
-## Step 4: _.each
+## Step 4: \_.each
 
-_.each is used to iterate through a list without having to manually craft a for loop. The first argument is the list that you're iterating through, and the second argument is a function whose only argument is the name used for each item in the list while iterating.
+\_.each is used to iterate through a list without having to manually craft a for loop. The first argument is the list that you're iterating through, and the second argument is a function whose only argument is the name used for each item in the list while iterating.
 
 Let's try it out. Add this to the end of your script:
 
@@ -52,7 +52,7 @@ _.each(number_list, function(number) {
 })
 ```
 
-The _.each function will loop through our number list and log each number to the screen. Run the following command and you should see the following output:
+The \_.each function will loop through our number list and log each number to the screen. Run the following command and you should see the following output:
 
 ```text
 > node learn_underscore.js
@@ -67,9 +67,9 @@ The number list:
 6
 ```
 
-## Step 5: _.filter
+## Step 5: \_.filter
 
-_.filter is used to find all items in a list that matches some criteria and returns a list containing them. The first argument is the list that you're iterating through, and the second argument is a function that returns a true or false boolean value to indicate whether the given item in the list should be included in the result.
+\_.filter is used to find all items in a list that matches some criteria and returns a list containing them. The first argument is the list that you're iterating through, and the second argument is a function that returns a true or false boolean value to indicate whether the given item in the list should be included in the result.
 
 We're going to take our number list and filter only for numbers divisible by 2. Delete the code we added in step 4 and replace it with this:
 
@@ -90,11 +90,11 @@ Run the script again to test:
 The filtered number list:  [ 2, 8, 4, 6 ]
 ```
 
-## Step 6: _.reject
+## Step 6: \_.reject
 
-_.reject is the inverted version of _.filter. Instead of filtering for the entries in a list that match, it removes the entries that match and keeps the rest.
+\_.reject is the inverted version of \_.filter. Instead of filtering for the entries in a list that match, it removes the entries that match and keeps the rest.
 
-Let's test this out. Replace _.filter with _.reject in the script like so:
+Let's test this out. Replace \_.filter with \_.reject in the script like so:
 
 ```javascript
 filtered_list = _.reject(number_list, function(number) {
@@ -111,11 +111,11 @@ Now we should only get odd numbers instead of even ones. Run the script again to
 The filtered number list:  [ 5, 3, 7, 1 ]
 ```
 
-## Step 7: _.find
+## Step 7: \_.find
 
-_.find is very similar to filter, except instead of returning a list containing all of the matching items, it returns only the first item that matches instead. This is useful for situations where you know the item you're looking for is only going to appear once in a list.
+\_.find is very similar to filter, except instead of returning a list containing all of the matching items, it returns only the first item that matches instead. This is useful for situations where you know the item you're looking for is only going to appear once in a list.
 
-Let's test this out. Replace _.reject with _.find in the script like so:
+Let's test this out. Replace \_.reject with \_.find in the script like so:
 
 ```javascript
 filtered_list = _.find(number_list, function(number) {
@@ -132,9 +132,9 @@ Now we should get only the first number that matches. Run the script again to te
 The filtered number list:  2
 ```
 
-## Step 8: _.map
+## Step 8: \_.map
 
-_.map will take every item in a list, perform an operation on it, and return a list containing the transformed elements. This effectively allows you to transform all of the data in a list in the same way for each item.
+\_.map will take every item in a list, perform an operation on it, and return a list containing the transformed elements. This effectively allows you to transform all of the data in a list in the same way for each item.
 
 Let's try it out. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 
@@ -190,9 +190,9 @@ People:  [
 ]
 ```
 
-## Step 9: _.contains
+## Step 9: \_.contains
 
-_.contains will return either true or false based on whether a list contains a specific value. The first parameter is the list and the second parameter is the value we're testing.
+\_.contains will return either true or false based on whether a list contains a specific value. The first parameter is the list and the second parameter is the value we're testing.
 
 Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 
@@ -209,11 +209,11 @@ Contains 7:  true
 Contains 11:  false
 ```
 
-## Step 10: _.compact and _.uniq
+## Step 10: \_.compact and \_.uniq
 
-_.uniq will take a list and remove any redundant values so that it contains only unique values. For example, if the string "peacock" appears in the list 3 times, the list returned by _.uniq will only contain the first instance of that value and dispense with the other two.
+\_.uniq will take a list and remove any redundant values so that it contains only unique values. For example, if the string "peacock" appears in the list 3 times, the list returned by \_.uniq will only contain the first instance of that value and dispense with the other two.
 
-_.compact will take a list and return a version of it with all falsy values removed. In JavaScript, the following values are considered "falsy":
+\_.compact will take a list and return a version of it with all falsy values removed. In JavaScript, the following values are considered "falsy":
 
 * false
 * null
@@ -257,9 +257,9 @@ Unique list:  [
 ]
 ```
 
-## Step 11: _.pluck
+## Step 11: \_.pluck
 
-_.pluck will produce a list consisting of all of the values of a specific key in a list of objects. This saves you the time of having to do this with _.map. This is useful when you only need one field from a list of objects in order to do further operations with it.
+\_.pluck will produce a list consisting of all of the values of a specific key in a list of objects. This saves you the time of having to do this with \_.map. This is useful when you only need one field from a list of objects in order to do further operations with it.
 
 Let's give it a go. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 
@@ -279,9 +279,9 @@ Names:  [ 'moe', 'larry', 'curly' ]
 Ages:  [ 40, 50, 60 ]
 ```
 
-## Step 12: _.sortBy
+## Step 12: \_.sortBy
 
-_.sortBy takes a list of objects and returns a sorted list. The first parameter is the list, and the second parameter is either a key to sort the objects by, or a function to define how to sort the list.
+\_.sortBy takes a list of objects and returns a sorted list. The first parameter is the list, and the second parameter is either a key to sort the objects by, or a function to define how to sort the list.
 
 Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 
@@ -320,9 +320,9 @@ Number list sorted by divisibility by 3:  [
 ]
 ```
 
-## Step 13: _.groupBy
+## Step 13: \_.groupBy
 
-_.groupBy will take every item in a list and categorize them as sublists within an object based on some criteria. Similar to _.sortBy, the second parameter can either be a field that you want to group by, or a function that groups everything by some value you return.
+\_.groupBy will take every item in a list and categorize them as sublists within an object based on some criteria. Similar to \_.sortBy, the second parameter can either be a field that you want to group by, or a function that groups everything by some value you return.
 
 Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 
@@ -366,9 +366,9 @@ Object list grouped:  {
 Number list grouped:  { false: [ 5, 7, 2, 8, 4, 1 ], true: [ 3, 6 ] }
 ```
 
-## Step 14: _.size and _.keys
+## Step 14: \_.size and \_.keys
 
-_.size returns the length of a list and _.keys returns a list of keys in an object. Functionally, they are identical to the .length method lists natively have and the Object.keys() function built into JavaScript.
+\_.size returns the length of a list and \_.keys returns a list of keys in an object. Functionally, they are identical to the .length method lists natively have and the Object.keys() function built into JavaScript.
 
 Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 
@@ -389,9 +389,9 @@ Object keys:  [ 'name', 'age' ]
 Object keys:  [ 'name', 'age' ]
 ```
 
-## Step 15: _.first and _.last
+## Step 15: \_.first and \_.last
 
-_.first and _.last return the first and last values of a list respectively. They are for convenience and replicate functionality that already exists in JavaScript natively.
+\_.first and \_.last return the first and last values of a list respectively. They are for convenience and replicate functionality that already exists in JavaScript natively.
 
 Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
 

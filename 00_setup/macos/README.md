@@ -134,9 +134,9 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 * **Credential Description**: Can be any arbitrary value. Describe the credential here for anyone else that might need to know what it is used for.
 * **Grant Type**: Refresh Token
 * **Token URL**: Depends on the region.
-  * **North America**: https://login.flexera.com/oidc/token
-  * **Europe**: https://login.flexera.eu/oidc/token
-  * **APAC**: https://login.flexera.au/oidc/token
+  * **North America**: https:&#8203;//login.flexera.com/oidc/token
+  * **Europe**: https:&#8203;//login.flexera.eu/oidc/token
+  * **APAC**: https:&#8203;//login.flexera.au/oidc/token
 * **Client Authentication Method**: Token
 * **Token**: The API token you generated in Step 6.
 * **Additional Headers**: Leave blank.

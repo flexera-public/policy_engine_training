@@ -25,7 +25,7 @@ cp 09_debugging/solutions/list_policy_templates_broken.pt .
 Let's begin by running fpt check against the policy template. You should get an error back:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 1 syntax error found:
   origin: template: list_policy_templates_broken.pt, line: 13
@@ -52,7 +52,7 @@ paraeter "param_email" do
 This should be "parameter", not "paraeter". Correct this, save the file, and run fpt check once again. You should get the below response:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 5 syntax errors found:
   origin: template: list_policy_templates_broken.pt, line: 43
@@ -87,7 +87,7 @@ It's not uncommon for some errors to not make themselves known until other error
 
 It looks like we've found 5 errors. Let's start with fixing the first error:
 
-```
+```text
   origin: template: list_policy_templates_broken.pt, line: 43
   problem: Undefined variable or method
   summary: 'auth_flexera' is undefined.
@@ -113,7 +113,7 @@ The issue here is that we didn't precede "auth_flexera" with the `$` symbol. Bec
 Now run fpt check again and verify that the error is gone:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 3 syntax errors found:
   origin: template: list_policy_templates_broken.pt, line: 61
@@ -170,7 +170,7 @@ And sure enough, if you try to find "ds_policy_list" anywhere in the policy temp
 Now when you run fpt check, we should be down to a single syntax error:
 
 ```text
-? fpt check list_policy_templates_broken.pt
+> fpt check list_policy_templates_broken.pt
 Checking list_policy_templates_broken.pt
 1 syntax error found:
   origin: template: list_policy_templates_broken.pt, line: 94
@@ -243,7 +243,7 @@ fpt run list_policy_templates_broken.pt --credentials="auth_flexera=your_credent
 
 The policy template should now complete execution without issue.
 
-## Step 3: Fixing Other Errors
+## Step 4: Fixing Other Errors
 
 We're not quite done yet. The policy template no longer has any syntax errors, and runs without generating any runtime errors, but if we scroll up through the output from the run, we'll see the following:
 
@@ -302,7 +302,7 @@ All three datasources should now be local JSON files. Let's start by looking at 
 ]
 ```
 
-We see more or less the same thing we saw in the fpt run output. We know the values for the `category`, `id`, and `short_description` fields are derived from the "ds_list_policy_templates" datasource, since that's the datasource we're transforming with _.map in the "js_policy_templates_with_lessons" script.
+We see more or less the same thing we saw in the fpt run output. We know the values for the `category`, `id`, and `short_description` fields are derived from the "ds_list_policy_templates" datasource, since that's the datasource we're transforming with \_.map in the "js_policy_templates_with_lessons" script.
 
 Let's take a look at the "datasource_ds_list_policy_templates.json" to see if the problem is with the data coming in.
 

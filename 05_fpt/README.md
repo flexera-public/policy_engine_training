@@ -52,7 +52,7 @@ fpt can also be used to run individual scripts within a policy template. This ca
 fpt script --help
 ```
 
-Based on the help output, functionality for *script* is very similar to *retrieve_data*. We can specify the script we want to run using the `-n` flag and set values for the various parameters in the script. 
+Based on the help output, functionality for *script* is very similar to *retrieve_data*. We can specify the script we want to run using the `-n` flag and set values for the various parameters in the script.
 
 One key difference is we can use the @ symbol to indicate a local file as a value for a parameter; this can be used in conjunction with *retrieve_data* to send in datasource data to test a script.
 
@@ -76,5 +76,21 @@ The out.json file will contain the contents of the result variable for the scrip
   "output": "Hello Japan"
 }
 ```
+
+## Common Errors
+
+Occasionally, something will go wrong when using fpt. Most errors are self-explanatory and easy to fix, but there are a couple that may be a bit perplexing and these are described below.
+
+### ERROR: Data Retrieval can't take longer than 2m0s
+
+While policy templates running in the Flexera platform only timeout if they take longer than an hour to execute (or if an individual datasource takes longer than 30 minutes), fpt can only run for 2 minutes and will give this error if execution takes longer than that.
+
+There's no way to extend this limit, so workarounds are necessary. The best workaround is to shrink the data set you're working with, either by filtering down the data using parameters already in your policy template, or by adding temporary debug code that shrinks data sets to enable execution to complete more quickly.
+
+### ERROR: credential: not found
+
+This error usually means you've specified a credential that does not exist. Make sure the credential exists, and make sure you're using the credential *identifier*, not the name, in your fpt command if the two aren't identical.
+
+This can also happen if you've configured the wrong host in fpt for your account. This most commonly happens for users on the app.flexera.com shard, since there are two possible hosts; governance-3.rightscale.com and governance-4.rightscale.com. This can be fixed by rerunning the fpt config command and setting the correct host.
 
 Now that we've gone over the most common uses for fpt, move on to [Lesson 06](https://github.com/flexera-public/policy_engine_training/blob/main/06_api), where we will write a brand new policy template and make use of APIs.
