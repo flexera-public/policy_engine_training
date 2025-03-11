@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 11 - Iterating
+# Flexera Policy Development - Lesson 12 - Iterating
 
 Very often, you will need to iterate through a list of items and make an API request for each one. For example, if you wanted a list of every virtual machine in a Microsoft Azure tenant, you would first need to make a request to get a list of Azure subscriptions, and then make a request for each subscription to get a list of virtual machines for each one.
 
@@ -166,4 +166,4 @@ If you scroll up through the output, you should see the following line, and afte
 ### Datasource **ds\_policy\_templates\_with\_created\_at**
 ```
 
-That's it for Lesson 11. Please move on to [Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_optimization/README.md), where we will learn how to properly optimize a policy template.
+That's it for Lesson 12. Please move on to [Lesson 13](https://github.com/flexera-public/policy_engine_training/blob/main/13_optimization/README.md), where we will learn how to properly optimize a policy template.

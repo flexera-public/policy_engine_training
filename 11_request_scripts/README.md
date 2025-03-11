@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 10 - Request Scripts
+# Flexera Policy Development - Lesson 11 - Request Scripts
 
 While most REST API requests made in the policy engine are made by specifying various fields in a `request` block within the datasource, it is also possible to call a `script` block within a `request` block instead. This can be useful for a handful of scenarios:
 
@@ -72,4 +72,4 @@ fpt run list_policy_templates.pt --credentials="auth_flexera=your_credential_ide
 
 The policy template should complete execution just as it did before we changed it. This means the `script` block is working as expected.
 
-That's it for Lesson 10. Please move on to [Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/11_iterating/README.md), where we will learn how to iterate through a datasource to make several API calls.
+That's it for Lesson 11. Please move on to [Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_iterating/README.md), where we will learn how to iterate through a datasource to make several API calls.

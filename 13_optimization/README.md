@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 12 - Optimization
+# Flexera Policy Development - Lesson 13 - Optimization
 
 When dealing with small data sets, you may never experience any pressure to optimize your policy templates. As the amount of data your policy template manages grows, however, you might find that you run into problems of scale. In particular, it is possible for a policy template to run out of memory, at which point execution will fail. Policy templates also have a hard limit of 1 hour for total execution time, and 30 minutes for the execution time of individual datasources.
 
@@ -46,7 +46,7 @@ mystring = mylist.join('')
 
 ### Make Use of Underscore.js
 
-Underscore.js, discussed in detail in [Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/07_underscore/README.md), is a JavaScript library that adds a lot of Python-like functionality, and it is included in the Policy Engine. In most cases, if a task can be completed using an underscore.js function instead of manually, the former will not only be more efficient from a development perspective, but it will execute more quickly as well due to Underscore.js routines being well-optimized.
+Underscore.js, discussed in detail in [Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/08_underscore/README.md), is a JavaScript library that adds a lot of Python-like functionality, and it is included in the Policy Engine. In most cases, if a task can be completed using an underscore.js function instead of manually, the former will not only be more efficient from a development perspective, but it will execute more quickly as well due to Underscore.js routines being well-optimized.
 
 ### Reduce Looping (Especially Nested Looping)
 
@@ -105,6 +105,6 @@ policy_templates_with_lessons = _.map(policy_templates, function(template) {
 })
 ```
 
-No policy work this time! You've completed Lesson 12.
+No policy work this time! You've completed Lesson 13.
 
 **This is a work in progress. New lessons coming soon!**
