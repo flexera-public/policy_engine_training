@@ -178,7 +178,7 @@ end
 Let's test it! First, as usual, do an fpt check to make sure there are no syntax errors or other code problems:
 
 ```bash
-fpt check list_policy_templates
+fpt check list_policy_templates.pt
 ```
 
 Before we run the policy template, let's make use of some of the additional fpt functionality discussed in Lesson 05. Let's retrieve the `ds_policy_lesson_list` and `ds_list_policy_templates` datasources using retrieve_data. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process.
