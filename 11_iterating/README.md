@@ -165,3 +165,5 @@ If you scroll up through the output, you should see the following line, and afte
 ```text
 ### Datasource **ds\_policy\_templates\_with\_created\_at**
 ```
+
+That's it for Lesson 11. Please move on to [Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_optimization/README.md), where we will learn how to properly optimize a policy template.

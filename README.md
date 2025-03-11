@@ -54,3 +54,6 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. It is r
 * **[Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/07_underscore/README.md) - Underscore.js:** Learn more about the Underscore.js library included in the policy engine.
 * **[Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/08_relational_data/README.md) - Relational Data:** Learn how to relate data from two different datasources.
 * **[Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/09_debugging/README.md) - Debugging:** Learn the flow and process for debugging malfunctioning policy templates.
+* **[Lesson 10](https://github.com/flexera-public/policy_engine_training/blob/main/10_request_scripts/README.md) - Request Scripts:** Learn how to encapsulate API requests within script blocks.
+* **[Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/11_iterating/README.md) - Iterating:** Learn how to iterate through a datasource to make multiple API requests.
+* **[Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_optimization/README.md) - Optimization:** Learn how to optimize policy templates for lower memory usage and faster execution.
