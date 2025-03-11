@@ -1,0 +1,28 @@
+# Git directories
+.git/
+
+# Common files to ignore
+*.log
+*.tmp
+*.temp
+*.cache
+
+# Build outputs
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Sensitive files
+*.env
+*.key
+*secret*
+credentials.*
+
+# Large binary files
+*.zip
+*.tar
+*.gz
+*.mp4
+*.pdf

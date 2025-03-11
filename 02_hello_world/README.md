@@ -155,4 +155,4 @@ Detail:
 Hello World
 ```
 
-Congratulations on your first policy template! In [Lesson 03](https://github.com/flexera-public/policy_engine_training/blob/main/03_parameters), we'll take a look at parameters.
+Congratulations on your first policy template! In [Lesson 03](https://github.com/flexera-public/policy_engine_training/blob/main/03_parameters/README.md), we'll take a look at parameters.

@@ -66,7 +66,7 @@ If all went according to plan, you should see output that looks like this:
 
 ```text
 Running script "js_hello_world" from hello_world.pt and writing hello_world to out.json
-JavaScript finished, duration=12.676µs
+JavaScript finished, duration=12.676ï¿½s
 ```
 
 The out.json file will contain the contents of the result variable for the script. In this case, it should look like this:
@@ -93,4 +93,4 @@ This error usually means you've specified a credential that does not exist. Make
 
 This can also happen if you've configured the wrong host in fpt for your account. This most commonly happens for users on the app.flexera.com shard, since there are two possible hosts; governance-3.rightscale.com and governance-4.rightscale.com. This can be fixed by rerunning the fpt config command and setting the correct host.
 
-Now that we've gone over the most common uses for fpt, move on to [Lesson 06](https://github.com/flexera-public/policy_engine_training/blob/main/06_api), where we will write a brand new policy template and make use of APIs.
+Now that we've gone over the most common uses for fpt, move on to [Lesson 06](https://github.com/flexera-public/policy_engine_training/blob/main/06_api/README.md), where we will write a brand new policy template and make use of APIs.

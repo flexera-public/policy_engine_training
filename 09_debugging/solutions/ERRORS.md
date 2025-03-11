@@ -20,6 +20,6 @@ The variable is incorrectly spelled. It should be "policy_table", not "policy_ta
 
 The _.map function is mapping `policy_lesson_list` when it should be mapping `policy_templates`.
 
-## Line 94/115
+## Lines 94/115
 
 The escalation block is named `esc_email_list` but is referenced as `esc_email` in the policy block.

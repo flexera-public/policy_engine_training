@@ -159,4 +159,4 @@ code .
 
 VSCode should launch. If prompted to install extensions, it is recommended that you install them.
 
-You should now be configured and ready for the tutorial. Please proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction).
+You should now be configured and ready for the tutorial. Please proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md).

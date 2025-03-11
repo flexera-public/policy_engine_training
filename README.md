@@ -16,7 +16,7 @@ These lessons will *not* provide full coverage of every aspect of the policy tem
 
 ## Where to Begin?
 
-It is recommended that you begin by following the steps in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup) guide to create a functioning development environment on your local workstation, and then proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction).
+It is recommended that you begin by following the steps in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/README.md) guide to create a functioning development environment on your local workstation, and then proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md).
 
 ## Additional Resources
 
@@ -35,3 +35,22 @@ General Resources:
 * [Underscore.js](https://underscorejs.org/): Documentation for the Underscore.js library.
 * [Team Treehouse](https://teamtreehouse.com/): Training on various programming languages. JavaScript is used in policy templates, and general coding knowledge is a requirement for policy development.
 * [LinkedIn Learning](https://www.linkedin.com/learning/): Training on JavaScript, public clouds, APIs, and other concepts relevant to the policy engine.
+
+## Syllabus
+
+Note: Each lesson builds upon ideas and concepts in the previous lesson. It is recommended that you proceed in order rather than skip around.
+
+* **[Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/README.md)**
+  * **[Windows (PowerShell)](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/windows_powershell/README.md)**
+  * **[Windows (WSL2)](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/windows_wsl2/README.md)**
+  * **[macOS](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/macos/README.md)**
+  * **[Linux](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/linux/README.md)**
+* **[Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md) - Introduction:** A basic description of policy templates, what they do, and how they are used.
+* **[Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/02_hello_world/README.md) - Hello World:** Create a very basic policy template.
+* **[Lesson 03](https://github.com/flexera-public/policy_engine_training/blob/main/03_parameters/README.md) - Parameters:** Learn how to enable user input in policy templates with parameters.
+* **[Lesson 04](https://github.com/flexera-public/policy_engine_training/blob/main/04_escalations/README.md) - Escalations:** Learn how to escalate incidents in policy templates.
+* **[Lesson 05](https://github.com/flexera-public/policy_engine_training/blob/main/05_fpt/README.md) - fpt:** Deep dive into the fpt command line tool.
+* **[Lesson 06](https://github.com/flexera-public/policy_engine_training/blob/main/06_api/README.md) - APIs:** Learn how to call REST APIs within a policy template.
+* **[Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/07_underscore/README.md) - Underscore.js:** Learn more about the Underscore.js library included in the policy engine.
+* **[Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/08_relational_data/README.md) - Relational Data:** Learn how to relate data from two different datasources.
+* **[Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/09_debugging/README.md) - Debugging:** Learn the flow and process for debugging malfunctioning policy templates.

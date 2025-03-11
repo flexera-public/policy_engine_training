@@ -218,4 +218,4 @@ fpt retrieve_data list_policy_templates.pt param_email='["not_a_real@emailaddres
 
 This should create a file named datasource_ds_list_policy_templates that contains the list of policy templates stored in that datasource. Note that your list may differ from the example in this repository; your Flexera organization may contain additional policy templates.
 
-Please move on to [Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/07_underscore), where we will learn a bit about some additional JavaScript functionality in the policy engine.
+Please move on to [Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/07_underscore/README.md), where we will learn a bit about some additional JavaScript functionality in the policy engine.
