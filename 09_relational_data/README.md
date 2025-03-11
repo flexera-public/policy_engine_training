@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 08 - Relational Data
+# Flexera Policy Development - Lesson 09 - Relational Data
 
 One of the powerful things about the policy engine is its ability to combine and transform data from multiple sources into a single report. In this lesson, we will build upon the `list_policy_templates.pt` policy template to make it report policy templates along side which lesson in this training they correspond to.
 
@@ -178,7 +178,7 @@ end
 Let's test it! First, as usual, do an fpt check to make sure there are no syntax errors or other code problems:
 
 ```bash
-fpt check list_policy_templates
+fpt check list_policy_templates.pt
 ```
 
 Before we run the policy template, let's make use of some of the additional fpt functionality discussed in Lesson 05. Let's retrieve the `ds_policy_lesson_list` and `ds_list_policy_templates` datasources using retrieve_data. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process.
@@ -222,4 +222,4 @@ Items: 2
 Summary: 2 Policy Templates With Lessons Found
 ```
 
-Please move on to [Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/09_debugging/README.md), where we will go over some common pitfalls of policy template development and how to debug a broken policy template.
+Please move on to [Lesson 10](https://github.com/flexera-public/policy_engine_training/blob/main/10_debugging/README.md), where we will go over some common pitfalls of policy template development and how to debug a broken policy template.

@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 07 - Underscore.js
+# Flexera Policy Development - Lesson 08 - Underscore.js
 
 In order to overcome some of the syntactic limitations of JavaScript, the JavaScript interpreter included in the policy template language is bundled with the [Underscore.js](https://underscorejs.org/) library. This library adds a lot of functionality common in other high-level programming languages.
 
@@ -408,4 +408,4 @@ When you run the script, you should see the first value and last value of the li
 
 This is far from a complete list of everything Underscore.js has to offer. The above are just the most commonly used functions. It is recommended that you read the [Underscore.js documentation](https://underscorejs.org/) to get a better sense of everything it can do, and use this as a reference if you encounter any Underscore.js functions that you do not recognize.
 
-After doing so, please move on to [Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/08_relational_data/README.md), where we will make use of some of this functionality to relate some data sets.
+After doing so, please move on to [Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/09_relational_data/README.md), where we will make use of some of this functionality to relate some data sets.
