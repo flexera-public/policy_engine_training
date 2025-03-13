@@ -77,6 +77,22 @@ The out.json file will contain the contents of the result variable for the scrip
 }
 ```
 
+## Step 4: Managing Multiple Organizations
+
+Some users may need to do work for multiple Flexera organizations. Maybe you're a Flexera employee or contractor working with several clients. Maybe you're a Flexera user but have both a UAT and a production organization.
+
+fpt allows you to work with multiple organizations by adding each one as its own account. You should be able to see the account you added during the initial setup with this command:
+
+```bash
+fpt config show
+```
+
+This should list every account you've added. You can add more accounts just like you added the first one with the "fpt config account" command. When performing a retrieve_data or run on a policy template, you can specify the account with the --account parameter, like so:
+
+```bash
+fpt run policy_template.pt --account-"myaccount"
+```
+
 ## Common Errors
 
 Occasionally, something will go wrong when using fpt. Most errors are self-explanatory and easy to fix, but there are a couple that may be a bit perplexing and these are described below.
