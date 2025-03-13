@@ -58,3 +58,5 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. It is r
 * **[Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/11_request_scripts/README.md) - Request Scripts:** Learn how to encapsulate API requests within script blocks.
 * **[Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_iterating/README.md) - Iterating:** Learn how to iterate through a datasource to make multiple API requests.
 * **[Lesson 13](https://github.com/flexera-public/policy_engine_training/blob/main/13_optimization/README.md) - Optimization:** Learn how to optimize policy templates for lower memory usage and faster execution.
+* **[Lesson 14](https://github.com/flexera-public/policy_engine_training/blob/main/14_misc/README.md) - Miscellaneous:** Learn a few miscellaneous things not covered in previous lessons.
+* **[Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_cwf/README.md) - Cloud Workflow:** Learn about how Cloud Workflow language can be used to add policy actions.

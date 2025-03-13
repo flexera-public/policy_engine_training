@@ -105,6 +105,4 @@ policy_templates_with_lessons = _.map(policy_templates, function(template) {
 })
 ```
 
-No policy work this time! You've completed Lesson 13.
-
-**This is a work in progress. New lessons coming soon!**
+No policy work this time! You've completed Lesson 13. Please move on to [Lesson 14](https://github.com/flexera-public/policy_engine_training/blob/main/14_misc/README.md).

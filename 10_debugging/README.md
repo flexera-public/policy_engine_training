@@ -203,7 +203,7 @@ Now if you run fpt check on the policy template, you should get no syntax errors
 
 ## Step 3: Fixing Runtime Errors
 
-Now that we've fixed all the syntax errors, let's run the policy template. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process.
+Now that we've fixed all the syntax errors, let's run the policy template. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process, both in this lesson and in future lessons.
 
 ```bash
 fpt run list_policy_templates_broken.pt --credentials="auth_flexera=your_credential_identifier"
