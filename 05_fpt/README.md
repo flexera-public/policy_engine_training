@@ -90,7 +90,7 @@ fpt config show
 This should list every account you've added. You can add more accounts just like you added the first one with the "fpt config account" command. When performing a retrieve_data or run on a policy template, you can specify the account with the --account parameter, like so:
 
 ```bash
-fpt run policy_template.pt --account-"myaccount"
+fpt run policy_template.pt --account="myaccount"
 ```
 
 ## Common Errors
