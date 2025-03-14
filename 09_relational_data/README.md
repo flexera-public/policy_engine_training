@@ -1,6 +1,6 @@
 # Flexera Policy Development - Lesson 09 - Relational Data
 
-One of the powerful things about the policy engine is its ability to combine and transform data from multiple sources into a single report. In this lesson, we will build upon the `list_policy_templates.pt` policy template to make it report policy templates along side which lesson in this training they correspond to.
+One of the powerful things about the policy engine is its ability to combine and transform data from multiple sources into a single report. In this lesson, we will build upon the "list_policy_templates.pt" policy template to make it report policy templates along side which lesson in this training they correspond to.
 
 ## Step 1: Update the Version
 
@@ -16,7 +16,7 @@ info(
 
 Next, let's add a datasource that contains a list of policy names and which lessons they correspond to. While we're manually creating this data, in the real world you will often be pulling this data from a REST API.
 
-Place the following datasource and script after your parameters and before the `ds_list_policy_templates` datasource:
+Place the following datasource and script after your parameters and before the "ds_list_policy_templates" datasource:
 
 ```ruby
 datasource "ds_policy_lesson_list" do
@@ -38,7 +38,7 @@ end
 
 We now have a list of policy templates and which lessons they correspond to, and a list of all of the policy templates in the organization. The next step is to relate the data in these two datasources to produce the final data that will show up in the incident.
 
-Underneath the `ds_list_policy_templates` datasource, add the following new datasource and script:
+Underneath the "ds_list_policy_templates" datasource, add the following new datasource and script:
 
 ```ruby
 datasource "ds_policy_templates_with_lessons" do
@@ -53,7 +53,7 @@ EOS
 end
 ```
 
-We now need to begin writing our script. We know that the `name` field in the policy lesson list corresponds to the `name` field in the list of policy templates we retrieved from the Flexera REST API.
+We now need to begin writing our script. We know that the "name" field in the policy lesson list corresponds to the "name" field in the list of policy templates we retrieved from the Flexera REST API.
 
 First, let's create a table whose keys are the policy template names, and whose values are the lessons they belong to. Add the following code to the start of the `script` block:
 
@@ -88,9 +88,9 @@ Next, we're going to take the list of policy templates we obtained from the API 
   })
 ```
 
-We're making use of the _.map function to create a new list. The objects in the new list are identical to the old list but with the addition of the new `lesson` key. We're using the `policy_table` object we created earlier to get the lesson using each template's name.
+We're making use of the _.map function to create a new list. The objects in the new list are identical to the old list but with the addition of the new "lesson" key. We're using the "policy_table" object we created earlier to get the lesson using each template's name.
 
-Note that the `policy_templates_with_lessons` list will likely contain policy templates that do not correspond to these lessons. In those cases, the value of `policy_table[template['name']]` will be *undefined*. Let's filter those out by adding the following code next:
+Note that the "policy_templates_with_lessons" list will likely contain policy templates that do not correspond to these lessons. In those cases, the value of "policy_table[template['name']]" will be *undefined*. Let's filter those out by adding the following code next:
 
 ```javascript
   policy_templates_with_lessons_filtered = _.filter(policy_templates_with_lessons, function(template) {
@@ -98,7 +98,7 @@ Note that the `policy_templates_with_lessons` list will likely contain policy te
   })
 ```
 
-When using \_.filter, \_.find, etc. and returning a non-boolean value, the value is considered true if it is not "falsy" e.g. if it's not null, undefined, 0, etc. As a result, the above code should filter down to just those policy templates that had a corresponding lesson in the `ds_policy_lesson_list` list.
+When using \_.filter, \_.find, etc. and returning a non-boolean value, the value is considered true if it is not falsy e.g. if it's not null, undefined, 0, etc. As a result, the above code should filter down to just those policy templates that had a corresponding lesson in the "ds_policy_lesson_list" datasource.
 
 Your completed script should look like this:
 
@@ -134,9 +134,9 @@ policy "pol_list_policy_templates" do
     summary_template "{{ len data }} Policy Templates With Lessons Found"
 ```
 
-Note that there are two changes. First, we're now validating the `ds_policy_templates_with_lessons` datasource. Second, we've updated the `summary_template` to read "Policy Templates With Lessons Found".
+Note that there are two changes. First, we're now validating the "ds_policy_templates_with_lessons" datasource. Second, we've updated the `summary_template` to read "Policy Templates With Lessons Found".
 
-We still need to include the lesson in the incident though. Add the following `block` to the end of your `export` block:
+We still need to include the lesson in the incident though. Add the following `field` block to the end of your `export` block:
 
 ```ruby
       field "lesson" do
@@ -181,7 +181,7 @@ Let's test it! First, as usual, do an fpt check to make sure there are no syntax
 fpt check list_policy_templates.pt
 ```
 
-Before we run the policy template, let's make use of some of the additional fpt functionality discussed in Lesson 05. Let's retrieve the `ds_policy_lesson_list` and `ds_list_policy_templates` datasources using retrieve_data. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process, both in this lesson and in future lessons.
+Before we run the policy template, let's make use of some of the additional fpt functionality discussed in Lesson 05. Let's retrieve the "ds_policy_lesson_list" and "ds_list_policy_templates" datasources using retrieve_data. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process, both in this lesson and in future lessons.
 
 ```bash
 fpt retrieve_data list_policy_templates.pt --credentials="auth_flexera=your_credential_identifier" -n ds_policy_lesson_list

@@ -4,7 +4,7 @@ So far, we've only been focused on how to build a policy template, but sometimes
 
 ## Step 1: Copy the Broken Template
 
-For this lesson, we'll be using a pre-written template that is already broken and fixing it. You should recognize this template, as it is the one we developed in the previous lesson.
+For this lesson, we'll be using a pre-written template that is already broken and fixing it. You should recognize this template, as it is the one we developed in the previous lesson, albeit with some modifications to break it.
 
 Please copy this template to the root of the repository. You should be able to do this using the below command:
 
@@ -102,7 +102,7 @@ When we look at line 43 in the template, we can see a reference to the "auth_fle
     verb "GET"
 ```
 
-The issue here is that we didn't precede "auth_flexera" with the `$` symbol. Because of this, the policy engine tried to parse it as a built-in method or reserved word. Correct this by adding the `$` symbol and saving the file.
+The issue here is that we didn't precede "auth_flexera" with the `$` symbol. Because of this, the policy engine tried to parse it as a built-in function or reserved word. Correct this by adding the `$` symbol and saving the file.
 
 ```ruby
   request do
@@ -161,7 +161,7 @@ The error was reported for line 61, so let's compare this to line 61 in the poli
 
 Notice how the first and third items in the list correspond to the parameters in the policy template, but the second item says "nil". This means that the second parameter doesn't actually reference a valid value.
 
-And sure enough, if you try to find "ds_policy_list" anywhere in the policy template, you'll discover it doesn't exist. In this case, this parameter is supposed to be the `ds_policy_lesson_list` datasource. Let's correct this:
+And sure enough, if you try to find "ds_policy_list" anywhere in the policy template, you'll discover it doesn't exist. In this case, this parameter is supposed to be the "ds_policy_lesson_list" datasource. Let's correct this:
 
 ```ruby
   run_script $js_policy_templates_with_lessons, $ds_policy_lesson_list, $ds_list_policy_templates
@@ -271,7 +271,7 @@ Validation of **$ds\_policy\_templates\_with\_lessons** failed
 ```
 ````
 
-These are the two items that would appear in the policy incident, but for some reason, only the `lesson` and `name` fields have values. Everything else is null, which is definitely not correct.
+These are the two items that would appear in the policy incident, but for some reason, only the "lesson" and "name" fields have values. Everything else is null, which is definitely not correct.
 
 This doesn't cause any problems on a technical level; the policy template is able to complete execution and raise an incident. The end user of this policy template probably wants to see these values though.
 
@@ -281,7 +281,7 @@ To diagnose this, let's do a retrieve_data. We will be omitting the `-n` flag so
 fpt retrieve_data list_policy_templates_broken.pt --credentials="auth_flexera=your_credential_identifier"
 ```
 
-All three datasources should now be local JSON files. Let's start by looking at the "datasource_ds_policy_templates_with_lessons" file, which corresponds to the datasource that gets validated at the end of execution.
+All three datasources should now be local JSON files. Let's start by looking at the "datasource_ds_policy_templates_with_lessons.json" file, which corresponds to the datasource that gets validated at the end of execution.
 
 ```json
 [
@@ -302,7 +302,7 @@ All three datasources should now be local JSON files. Let's start by looking at 
 ]
 ```
 
-We see more or less the same thing we saw in the fpt run output. We know the values for the `category`, `id`, and `short_description` fields are derived from the "ds_list_policy_templates" datasource, since that's the datasource we're transforming with \_.map in the "js_policy_templates_with_lessons" script.
+We see more or less the same thing we saw in the fpt run output. We know the values for the "category", "id", and "short_description" fields are derived from the "ds_list_policy_templates" datasource, since that's the datasource we're transforming with \_.map in the "js_policy_templates_with_lessons" script.
 
 Let's take a look at the "datasource_ds_list_policy_templates.json" to see if the problem is with the data coming in.
 
@@ -358,7 +358,7 @@ From the above, we can infer that something is happening during the execution of
   console.log(policy_templates_with_lessons_filtered)
 ```
 
-The `console.log()` function will output information to the screen. In this case, we're outputting the contents of each variable as the script progresses to see if we can identify exactly where the problem is.
+The "console.log()" function will output information to the screen. In this case, we're outputting the contents of each variable as the script progresses to see if we can identify exactly where the problem is.
 
 Now run the script with the following command:
 
@@ -366,7 +366,7 @@ Now run the script with the following command:
 fpt script list_policy_templates_broken.pt -n js_policy_templates_with_lessons policy_lesson_list=@datasource_ds_policy_lesson_list.json policy_templates=@datasource_ds_list_policy_templates.json
 ```
 
-In the output, we should see the `console.log()` results:
+In the output, we should see the "console.log()" results:
 
 ```text
 console.log: "policy_table:"
@@ -401,7 +401,7 @@ console.log: >
   ]
 ```
 
-The `policy_table` variable looks correct, but the `policy_templates_with_lessons` variable is missing the keys that are coming back as null. If we look at the code, we see that this should not be the case:
+The "policy_table" variable looks correct, but the "policy_templates_with_lessons" variable is missing the keys that are coming back as null. If we look at the code, we see that this should not be the case:
 
 ```javascript
   policy_templates_with_lessons = _.map(policy_lesson_list, function(template) {
@@ -415,9 +415,9 @@ The `policy_table` variable looks correct, but the `policy_templates_with_lesson
   })
 ```
 
-The variable `template` represents each value of the list we're iterating through. The keys we're referencing for `template` in the return statement look to be the correct keys that *should* contain the data. This must mean the list we're iterating through is a list of items that lack these keys.
+The variable "template" represents each value of the list we're iterating through. The keys we're referencing for "template" in the return statement look to be the correct keys that *should* contain the data. This must mean the list we're iterating through is a list of items that lack these keys.
 
-What is the list we're iterating through? It looks like `policy_lesson_list`, *which is not the correct list*. We're supposed to be iterating through the list of policy templates we retrieved from Flexera's APIs. Let's fix this by changing the _.map statement to the below:
+What is the list we're iterating through? It looks like "policy_lesson_list", *which is not the correct list*. We're supposed to be iterating through the list of policy templates we retrieved from Flexera's APIs. Let's fix this by changing the \_.map statement to the below:
 
 ```javascript
   policy_templates_with_lessons = _.map(policy_templates, function(template) {
