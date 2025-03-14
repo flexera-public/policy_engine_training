@@ -2,7 +2,7 @@
 
 One of the powerful things about the policy engine is its ability to combine and transform data from multiple sources into a single report. In this lesson, we will build upon the "list_policy_templates.pt" policy template to make it report policy templates along side which lesson in this training they correspond to.
 
-## Step 1: Update the Version
+## Step 1: Update The Version
 
 It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the `info` block like so:
 

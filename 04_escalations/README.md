@@ -4,7 +4,7 @@ Policy templates can perform escalations based on raised incidents. The most com
 
 In this lesson, we're going to edit the "hello_world.pt" policy template to perform such an escalation.
 
-## Step 1: Update the Version
+## Step 1: Update The Version
 
 Just like before, let's update the policy template to version `0.3.0` by updating the `info` block like so:
 

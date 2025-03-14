@@ -2,7 +2,7 @@
 
 In this lesson, we'll go over some best practices when it comes to formatting your policy templates. Following formatting guidelines will make your templates readable to others and easier to update. We will modify the "list_policy_templates.pt" policy template to bring it up to standard.
 
-## Step 1: Update the Version
+## Step 1: Update The Version
 
 It's considered best practice to use [semantic versioning](https://semver.org/) when versioning your policy templates. Let's update the policy template to version `0.5.1` by updating the `info` block like so:
 

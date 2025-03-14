@@ -6,7 +6,7 @@ Go template syntax can be used to interpolate values; the text produced by this 
 
 You've already seen some of this before with "{{ len data }}"; in this lesson, we'll add some additional Go template syntax and Markdown to the "list_policy_templates.pt" policy template.
 
-## Step 1: Update the Version
+## Step 1: Update The Version
 
 As usual, let's update the policy template to version `0.6.0` by updating the `info` block like so:
 
@@ -37,7 +37,7 @@ end
 
 This new datasource will gather all of the metadata for the policy template as it executes. The "policy_id" reserved word will contain the id of the applied policy itself.
 
-Note the lack of a `result` block. When there is no `result` block, the policy engine will simply assume the response is in JSON and parse the JSON as-is.
+Note the lack of a `result` block. When there is no `result` block, the policy engine will simply assume the response is in JSON and parse the JSON as-is. You can view the structure of the JSON produced by this API request in the [Flexera Policy API Documentation](https://reference.rightscale.com/governance-policies/#/AppliedPolicy/AppliedPolicy_show).
 
 ## Step 3: Modify Summary
 
