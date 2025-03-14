@@ -1,8 +1,8 @@
 # Flexera Policy Development - Lesson 18 - Local JavaScript Testing
 
-While fpt's script functionality is very useful, it can sometimes be a bit awkward to use and limiting when testing complex `script` blocks. For that reason, you may sometimes want to test your JavaScript directly with a local JavaScript interpreter such as node.js. In this lesson, we'll walk through how to do this using the "list_policy_templates.pt" policy template we've been developing.
+While fpt's script functionality is very useful, it can sometimes be a bit awkward to use and limiting when testing complex `script` blocks. For that reason, you may sometimes want to test your JavaScript directly with a local JavaScript interpreter such as Node.js. In this lesson, we'll walk through how to do this using the "list_policy_templates.pt" policy template we've been developing.
 
-NOTE: The version of JavaScript in the policy engine is several years old. Some newer syntax, such as "let", is not supported even though it may work when using a newer interpreter locally. Bear this in mind during development.
+**NOTE: The version of JavaScript in the policy engine is several years old. Some newer syntax, such as "let", is not supported even though it may work when using a newer interpreter locally. Bear this in mind during development.**
 
 ## Step 1: Retrieving Datasources
 
@@ -26,7 +26,7 @@ var _ = require('underscore')
 
 This ensures that the Underscore.js library is included. This happens automatically in the policy engine but we have to include it manually when running a local JavaScript file through an interpreter.
 
-If you followed the setup guide included in these lessons, you should already have node.js installed with the Underscore.js library. If you're using a different interpreter, be sure to install the Underscore.js library.
+If you followed the setup guide included in these lessons, you should already have Node.js installed with the Underscore.js library. If you're using a different interpreter, be sure to install the Underscore.js library.
 
 ## Step 3: Add Parameters
 
@@ -83,7 +83,7 @@ It is recommended that you use the `JSON.stringify` function when outputting JSO
 
 ## Step 6: Run Script
 
-It's time to run our script! Run the script using node.js with the following command:
+It's time to run our script! Run the script using Node.js with the following command:
 
 ```bash
 node js_policy_templates_with_lessons.js
@@ -162,4 +162,4 @@ Now when we run the script, we should only see the value of the "policy_table" v
 }
 ```
 
-That's it for now. Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md) for more information on how to learn about the policy engine and policy template language.
+That's it for now. Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/README.md) to learn more about Go template syntax.

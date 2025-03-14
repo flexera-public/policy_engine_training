@@ -18,7 +18,7 @@ If you're gathering a large set of data and then filtering it down in a `script`
 
 ## JavaScript Coding Practices
 
-There’s no escaping the occasional need to use JavaScript blocks to manipulate data. In those cases, good coding practices can significantly reduce policy execution time.
+There’s no escaping the occasional need to use `script` blocks to manipulate data. In those cases, good coding practices can significantly reduce policy execution time.
 
 ### String Combining / Concatenation
 

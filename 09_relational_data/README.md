@@ -4,7 +4,7 @@ One of the powerful things about the policy engine is its ability to combine and
 
 ## Step 1: Update the Version
 
-It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the info block like so:
+It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -55,7 +55,7 @@ end
 
 We now need to begin writing our script. We know that the `name` field in the policy lesson list corresponds to the `name` field in the list of policy templates we retrieved from the Flexera REST API.
 
-First, let's create a table whose keys are the policy template names, and whose values are the lessons they belong to. Add the following code to the start of the script block:
+First, let's create a table whose keys are the policy template names, and whose values are the lessons they belong to. Add the following code to the start of the `script` block:
 
 ```javascript
   policy_table = {}
@@ -126,7 +126,7 @@ Your completed script should look like this:
 
 ## Step 4: Policy Block
 
-We now need to modify our policy block to look at the correct datasource. Modify the beginning of the policy block to look like the below:
+We now need to modify our `policy` block to look at the correct datasource. Modify the beginning of the `policy` block to look like the below:
 
 ```ruby
 policy "pol_list_policy_templates" do
@@ -144,7 +144,7 @@ We still need to include the lesson in the incident though. Add the following `b
       end
 ```
 
-Your completed policy block should look like this:
+Your completed `policy` block should look like this:
 
 ```ruby
 policy "pol_list_policy_templates" do

@@ -6,7 +6,7 @@ In this lesson, we'll modify the "list_policy_templates.pt" policy template to i
 
 ## Step 1: Update the Version
 
-As usual, let's update the policy template to version `0.4.0` by updating the info block like so:
+As usual, let's update the policy template to version `0.4.0` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -34,7 +34,7 @@ Notice how we're iterating through the smaller list of policy templates that hav
 
 ## Step 3: Add the Request Block
 
-Next, we're going to fill out our request block. Modify the request block in the new datasource to look like the below:
+Next, we're going to fill out our `request` block. Modify the `request` block in the new datasource to look like the below:
 
 ```ruby
   request do
@@ -55,7 +55,7 @@ More information about this specific API call is in [our documentation](https://
 
 ## Step 4: Add the Result Block
 
-Next, modify the result block in the new datasource to look like the below so we can properly store the results:
+Next, modify the `result` block in the new datasource to look like the below so we can properly store the results:
 
 ```ruby
   result do

@@ -147,7 +147,7 @@ Let's tackle this error next:
 
 This error can be a bit confusing the first time you see it because it looks self-contradictory. What does it mean to say that something "must be an array" but is something "which is an array"?
 
-It's actually far simpler than it seems though. This error typically occurs when your run_script field has an error in one of its parameters. Notice the list in the error message:
+It's actually far simpler than it seems though. This error typically occurs when your `run_script` field has an error in one of its parameters. Notice the list in the error message:
 
 ```text
 [$js_policy_templates_with_lessons, nil, $ds_list_policy_templates]
@@ -181,19 +181,19 @@ Checking list_policy_templates_broken.pt
 ERROR: compilation errors occurred
 ```
 
-This error is telling us that an escalate field has an invalid argument. If we look at line 94 in the policy template, we'll find this:
+This error is telling us that an `escalate` field has an invalid argument. If we look at line 94 in the policy template, we'll find this:
 
 ```ruby
     escalate $esc_email
 ```
 
-This *looks* correct, but if you search for any references to "esc_email" in the policy template, you won't find any. If you scroll down to the escalation block on line 115, you'll notice it has a different name:
+This *looks* correct, but if you search for any references to "esc_email" in the policy template, you won't find any. If you scroll down to the `escalation` block on line 115, you'll notice it has a different name:
 
 ```ruby
 escalation "esc_email_list" do
 ```
 
-Either name is fine, but they need to match so that the escalate field references a valid escalation block. Modify line 115 so that the escalation block is named "esc_email" so that they match:
+Either name is fine, but they need to match so that the `escalate` field references a valid `escalation` block. Modify line 115 so that the `escalation` block is named "esc_email" so that they match:
 
 ```ruby
 escalation "esc_email" do
@@ -223,7 +223,7 @@ Location:
 
 Runtime errors will indicate the datasource and, if relevant, script that the error occurred on. In this case, we know the error occurred in the `js_policy_templates_with_lessons` script.
 
-When the error is within a JavaScript block, the error will be a JavaScript error. In this case, it looks like we're trying to reference "policy_tablee", which is not defined.
+When the error is within a `script` block, the error will be a JavaScript error. In this case, it looks like we're trying to reference "policy_tablee", which is not defined.
 
 This pretty straightforwardly looks like a typo. If we search for "policy_tablee" in the policy template, we find this code:
 

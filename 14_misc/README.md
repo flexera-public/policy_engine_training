@@ -4,7 +4,7 @@ In this lesson, we're going to cover a collection of things that are not large e
 
 ## Step 1: Update the Version
 
-As usual, let's update the policy template to version `0.5.0` by updating the info block like so:
+As usual, let's update the policy template to version `0.5.0` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -14,7 +14,7 @@ info(
 
 ## Step 2: Add Parameter Category
 
-First, we're going to add a category field to our email parameter. Modify the parameter to match the below:
+First, we're going to add a `category` field to our email parameter. Modify the parameter to match the below:
 
 ```ruby
 parameter "param_email" do
@@ -26,7 +26,7 @@ parameter "param_email" do
 end
 ```
 
-Currently, the category parameter does not have any effect, but it is likely that a future UI update in Flexera One will label and sort parameters by their category in the UI for ease of use. For this reason, it is recommended that you include this field and use it to group your parameters together by function.
+Currently, the `category` field does not have any effect, but it is likely that a future UI update in Flexera One will label and sort parameters by their category in the UI for ease of use. For this reason, it is recommended that you include this field and use it to group your parameters together by function.
 
 ## Step 3: Add allowed_pattern to Parameter
 
@@ -87,7 +87,7 @@ There is also a `max_value` field you can use to specify a maximum value, and bo
 
 ## Step 5: Use Limit Parameter
 
-Of course, this new parameter won't actually do anything unless we use it. Modify both the `run_script` field for the "ds_policy_templates_with_lessons" datasource and the `parameters` field for the "js_policy_templates_with_lessons" script block to use the new parameter. See below:
+Of course, this new parameter won't actually do anything unless we use it. Modify both the `run_script` field for the "ds_policy_templates_with_lessons" datasource and the `parameters` field for the "js_policy_templates_with_lessons" `script` block to use the new parameter. See below:
 
 ```ruby
 datasource "ds_policy_templates_with_lessons" do
@@ -168,7 +168,7 @@ Since policy templates can be considered resources, let's add this statement to 
       field "id" do
 ```
 
-Your fully modified policy block should look like this:
+Your fully modified `policy` block should look like this:
 
 ```ruby
 policy "pol_list_policy_templates" do

@@ -36,7 +36,7 @@ Based on the help information, we know we can use the `-n` flag to specify the d
 fpt retrieve_data hello_world.pt -n ds_hello_world
 ```
 
-If the command completed successfully, you should see the message "Wrote datasource_ds_hello_world.json" and a new file, datasource_ds_hello_world.json, should have appeared in VSCode. Click on the file and it should look like this:
+If the command completed successfully, you should see the message "Wrote datasource_ds_hello_world.json" and a new file, "datasource_ds_hello_world.json", should have appeared in VSCode. Click on the file and it should look like this:
 
 ```json
 {
@@ -66,10 +66,10 @@ If all went according to plan, you should see output that looks like this:
 
 ```text
 Running script "js_hello_world" from hello_world.pt and writing hello_world to out.json
-JavaScript finished, duration=12.676�s
+JavaScript finished, duration=12.676s
 ```
 
-The out.json file will contain the contents of the result variable for the script. In this case, it should look like this:
+The "out.json" file will contain the contents of the result variable for the script. In this case, it should look like this:
 
 ```json
 {

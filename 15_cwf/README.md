@@ -69,7 +69,7 @@ define delete_snapshots($data, $param_azure_endpoint) return $all_responses do
 end
 ```
 
-The `define` reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The `return` reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a script block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
+The `define` reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The `return` reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a `script` block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
 
 We won't go into the details of Cloud Workflow language here, but at a surface level, you can likely see that we're iterating through $data and calling another Cloud Workflow block named "delete_snapshot" for each item in the list. We're then raising an error in the UI if any errors occurred.
 

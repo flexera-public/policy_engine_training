@@ -33,6 +33,7 @@ Resources specific to Flexera and the Policy Engine:
 General Resources:
 
 * [Underscore.js](https://underscorejs.org/): Documentation for the Underscore.js library.
+* [Go Template](https://pkg.go.dev/text/template): Information on Go template syntax.
 * [Team Treehouse](https://teamtreehouse.com/): Training on various programming languages. JavaScript is used in policy templates, and general coding knowledge is a requirement for policy development.
 * [LinkedIn Learning](https://www.linkedin.com/learning/): Training on JavaScript, public clouds, APIs, and other concepts relevant to the policy engine.
 
@@ -63,4 +64,5 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. It is r
 * **[Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md) - Best Practices:** Learn some best practices for policy template formatting.
 * **[Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/17_xml/README.md) - XML & Text Responses:** Learn how to parse XML and text responses from APIs.
 * **[Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md) - Local JavaScript Testing:** Learn how to test script blocks locally using node.js.
-* **[Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_further_learning/README.md) - Further Learning:** Learn where to go to continue learning about policy development.
+* **[Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/README.md) - Go Template Syntax:** Learn how to use Go template syntax in incidents.
+* **[Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/20_further_learning/README.md) - Further Learning:** Learn where to go to continue learning about policy development.
