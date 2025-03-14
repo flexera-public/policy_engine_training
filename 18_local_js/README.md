@@ -163,4 +163,3 @@ Now when we run the script, we should only see the value of the "policy_table" v
 ```
 
 That's it for now. Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md) for more information on how to learn about the policy engine and policy template language.
-
