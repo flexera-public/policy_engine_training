@@ -4,7 +4,7 @@ Sometimes you need to enable the user to manipulate what the policy template is 
 
 In this lesson, we're going to edit the "hello_world.pt" policy template created in Lesson 02 so that the user can decide who or what the policy template is saying hello to.
 
-## Step 1: Update The Version
+## Step 1: Update the Version
 
 It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the `info` block like so:
 

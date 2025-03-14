@@ -4,7 +4,7 @@ Very often, you will need to iterate through a list of items and make an API req
 
 In this lesson, we'll modify the "list_policy_templates.pt" policy template to iterate through our list of policy templates to obtain the date and time the policy template was added to the Flexera organization.
 
-## Step 1: Update The Version
+## Step 1: Update the Version
 
 As usual, let's update the policy template to version `0.4.0` by updating the `info` block like so:
 

@@ -6,7 +6,7 @@ Go template syntax can be used to interpolate values; the text produced by this 
 
 You've already seen some of this before with "{{ len data }}"; in this lesson, we'll add some additional Go template syntax and Markdown to the "list_policy_templates.pt" policy template.
 
-## Step 1: Update The Version
+## Step 1: Update the Version
 
 As usual, let's update the policy template to version `0.6.0` by updating the `info` block like so:
 

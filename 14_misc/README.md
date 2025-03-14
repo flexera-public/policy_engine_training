@@ -2,7 +2,7 @@
 
 In this lesson, we're going to cover a collection of things that are not large enough, in and of themselves, to warrant an entire lesson. We will continue to modify the "list_policy_templates.pt" policy template to add various bits of new functionality.
 
-## Step 1: Update The Version
+## Step 1: Update the Version
 
 As usual, let's update the policy template to version `0.5.0` by updating the `info` block like so:
 

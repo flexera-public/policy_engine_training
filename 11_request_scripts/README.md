@@ -8,7 +8,7 @@ While most REST API requests made in the policy engine are made by specifying va
 
 Let's modify the "list_policy_templates.pt" policy template to use a `script` block for an API request.
 
-## Step 1: Update The Version
+## Step 1: Update the Version
 
 As usual, let's update the policy template to version `0.3.0` by updating the `info` block like so:
 
