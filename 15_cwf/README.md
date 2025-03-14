@@ -45,7 +45,7 @@ escalation "esc_delete_snapshot" do
 end
 ```
 
-Notice that the `automatic` field, rather than being set directly to "true" like it was for our "list_policy_templates.pt" policy template, it uses the `contains()` function. The statement `contains($param_automatic_action, "Delete Snapshots")` will only return "true" if the user selected "Delete Snapshots" for the parameter. Otherwise, it will return false and the escalation will not be automatic.
+Notice that the `automatic` field, rather than being set directly to "true" like it was for our "list_policy_templates.pt" policy template, it uses the `contains` function. The statement "contains($param_automatic_action, "Delete Snapshots")" will only return "true" if the user selected "Delete Snapshots" for the parameter. Otherwise, it will return false and the escalation will not be automatic.
 
 We also have a new field, `run`, which specifies a Cloud Workflow block to run along with some parameters. The first parameter, `data`, will contain the full set of data from the policy incident, or if the user is selecting resources in the UI, it will contain data for the specific resources they selected. The second parameter just contains a parameter that will be used to determine which API endpoint to use when making requests to Azure.
 

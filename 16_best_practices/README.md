@@ -31,7 +31,9 @@ Additionally, we recommend ordering these groups within a policy template to fol
 
 Review the "list_policy_templates.pt" policy template and you'll see it already follows this order.
 
-Each section after the policy metadata should have a comments indicating the beginning of the section. Let's modify the policy template accordingly. Before your `parameter` blocks, add the following comments:
+Each section after the policy metadata should have a comments indicating the beginning of the section. Comments can be added to a policy template using the `#` character. Comments can be on their own line or at the end of an existing line containing policy template language code. Note that, to comment within your JavaScript code inside of `script` blocks, you'll need to use `//` instead.
+
+Let's modify the policy template accordingly. Before your `parameter` blocks, add the following comments:
 
 ```ruby
 ###############################################################################
@@ -55,7 +57,7 @@ parameter "param_email" do
   label "Email Addresses"
 ```
 
-Now add equivalent comments to the appropriate sections throughout the policy template. You can copy and paste from the below:
+Now add equivalent comments to the appropriate sections throughout the policy template. You can copy and paste from below:
 
 ```ruby
 ###############################################################################

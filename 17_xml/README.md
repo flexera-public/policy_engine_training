@@ -61,6 +61,6 @@ EOS
 end
 ```
 
-To be clear, the above is only an example and is in no way a complete CSV parsing implementation. For example, the above would fail if the CSV file had entries contained within `"` quotes. This is just a demonstration to show how you might have to parse and reformat data retrieved as plain text.
+The above is only an example and is in no way a complete CSV parsing implementation. For example, the above would fail if the CSV file had entries contained within `"` quotes. This is just a demonstration to show how you might have to parse and reformat data retrieved as plain text.
 
 Please proceed to [Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md), where we will learn about how to test `script` blocks locally.

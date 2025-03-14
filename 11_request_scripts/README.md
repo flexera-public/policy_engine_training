@@ -20,7 +20,7 @@ info(
 
 ## Step 2: Update the Datasource
 
-The first thing we need to do is update the `request` block on the datasource to call a script. Modify the `request` block for the `ds_list_policy_templates` datasource on line 42 to the following, replacing all of the fields with a single `run_script` field:
+The first thing we need to do is update the `request` block on the datasource to call a script. Modify the `request` block for the "ds_list_policy_templates" datasource on line 42 to the following, replacing all of the fields with a single `run_script` field:
 
 ```ruby
   request do

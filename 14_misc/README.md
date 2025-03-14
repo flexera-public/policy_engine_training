@@ -49,7 +49,7 @@ end
 
 Regex itself is outside of the scope of these lessons, but the regex above should only match valid email addresses. Your regex pattern should always be contained within two `/` characters.
 
-Similar to `allowed_pattern`, there is also `allowed_values`, which lets you specify a set of hard values. Consider the following example from our policy catalog (**but do not add it to the "list_policy_templates.pt" policy**):
+Similar to `allowed_pattern`, there is also `allowed_values`, which lets you specify a set of hard values. Consider the following example from our policy catalog (**but do not add it to the "list_policy_templates.pt" policy template**):
 
 ```ruby
 parameter "param_azure_endpoint" do
