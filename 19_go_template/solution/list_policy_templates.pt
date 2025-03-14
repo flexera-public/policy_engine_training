@@ -149,6 +149,7 @@ datasource "ds_policy_templates_with_created_at" do
     field "id", val(iter_item, "id")
     field "name", val(iter_item, "name")
     field "short_description", val(iter_item, "short_description")
+    field "lesson", val(iter_item, "lesson")
     field "policy_name", val($ds_applied_policy, "name")
     field "created_at", jmes_path(response, "created_at")
   end
@@ -161,30 +162,20 @@ end
 policy "pol_list_policy_templates" do
   validate_each $ds_policy_templates_with_created_at do
     summary_template "{{ with index data 0 }}{{ .policy_name }}{{ end }}: {{ len data }} Policy Templates With Lessons Found"
+    detail_template <<-'EOS'
+![Flexera](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/solution/flexera.png "Flexera")
+
+## {{ len data }} Policy Templates Found
+
+| ID | Name | Category | Lesson | Created At |
+| -- | ---- | -------- | ------ | ---------- |
+{{ range data -}}
+  | {{ .id }} | {{ .name }} | {{ .category }} | {{ .lesson }} | {{ .created_at }} |
+{{ end -}}
+EOS
     check eq(val(item, "name"), "")
     escalate $esc_email
     hash_exclude "id"
-    export do
-      resource_level true
-      field "id" do
-        label "ID"
-      end
-      field "name" do
-        label "Name"
-      end
-      field "category" do
-        label "Category"
-      end
-      field "short_description" do
-        label "Description"
-      end
-      field "lesson" do
-        label "Lesson"
-      end
-      field "created_at" do
-        label "Created At"
-      end
-    end
   end
 end
 

@@ -140,6 +140,7 @@ datasource "ds_policy_templates_with_created_at" do
     field "id", val(iter_item, "id")
     field "name", val(iter_item, "name")
     field "short_description", val(iter_item, "short_description")
+    field "lesson", val(iter_item, "lesson")
     field "created_at", jmes_path(response, "created_at")
   end
 end
