@@ -2,7 +2,7 @@
 
 This Github repository contains lessons and resources intended to train someone on policy development.
 
-**This is a work in progress. New lessons coming soon!**
+**This is a work in progress. Please use the [Issues](https://github.com/flexera-public/policy_engine_training/issues) page both for errors and general feedback.**
 
 ## About The Lessons
 

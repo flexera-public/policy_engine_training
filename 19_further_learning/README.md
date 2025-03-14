@@ -1,10 +1,12 @@
 # Flexera Policy Development - Lesson 19 - Further Learning
 
-Congratulations! If you've made it this far, and followed along with all of the lessons, you should have a good basic grasp of policy development. Before proceeding, it is recommended that you take some time to experiment! Make your own changes to "hello_world.pt" or "list_policy_templates.pt" and see what happens when you run them. Experiment with making new policy templates that use various Flexera APIs. This will solidify what you've learned here, and you can always come back to these lessons as a reference if you get stuck.
+Congratulations! If you've made it this far, and followed along with all of the lessons, you should have a good basic grasp of policy development. Before proceeding, it is recommended that you take some time to experiment! Make your own changes to "hello_world.pt" or "list_policy_templates.pt" and see what happens when you run them. Experiment with making new policy templates that use various Flexera APIs.
+
+This will solidify what you've learned here, and you can always come back to these lessons as a reference if you get stuck. Inside this repository, each lesson includes a "solution" directory that contains all of the artifacts produced during the lesson that you can use to start over if you break something.
 
 ## Policy Template Language Documentation
 
-The [Policy Template Language Documentation](https://docs.flexera.com/flexera/EN/Automation/PTL.htm) is very useful...if you already grasp how everything works. Fortunately, you should now be in a place where you don't need the docs to tach you that, so you should read through them to learn more detailed information, including additional fields and functionality, about the policy template language.
+The [Policy Template Language Documentation](https://docs.flexera.com/flexera/EN/Automation/PTL.htm) is very useful...if you already grasp how everything works. Fortunately, you should now be in a place where you don't need the docs to teach you that, so you should read through them to learn more detailed information, including additional fields and functionality, about the policy template language.
 
 While all of the information in the documentation is useful, it's worth reviewing the following in particular:
 
