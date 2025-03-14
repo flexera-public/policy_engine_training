@@ -122,7 +122,7 @@ Detail:
 | 70dbd01b48294b58d963de26 | List Policy Templates | Tutorial | Lesson 06 | 2025-03-06T16:05:08Z |
 ```
 
-Note how the Go template syntax was replaced with the values we wanted. We're now looking at Markdown-formatted text. This text, when viewed in the Flexera One UI or in an incident email, will be converted to HTML and look like this:
+Note how the Go template syntax was replaced with the values we wanted. We're now looking at Markdown-formatted text. This text, when viewed in the Flexera One UI or in an incident email, will be converted to HTML and look something like this:
 
 ![Markdown Example](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/solution/markdown.png "Markdown Example")
 
