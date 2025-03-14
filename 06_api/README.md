@@ -202,7 +202,7 @@ It's time to test! As usual, let's start by running a check to make sure we have
 fpt check list_policy_templates
 ```
 
-Assuming there are no errors, let's run the policy template. Since this policy template has a credential, we have to specify the credential in our run statement. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process.
+Assuming there are no errors, let's run the policy template. Since this policy template has a credential, we have to specify the credential in our run statement. Be sure to replace "your_credential_identifier" in the below command with the ID of the credential you created during the setup process, both in this lesson and in future lessons.
 
 ```bash
 fpt run list_policy_templates.pt param_email='["not_a_real@emailaddress.com", "also_not_real@emailaddress.com"]' --credentials="auth_flexera=your_credential_identifier"
