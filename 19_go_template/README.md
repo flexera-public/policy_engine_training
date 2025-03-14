@@ -118,12 +118,16 @@ Detail:
 
 | ID | Name | Category | Lesson | Created At |
 | -- | ---- | -------- | ------ | ---------- |
-| 6601dbd2b9d482358e09bd74 | Hello World | Tutorial | Lesson 02 | 2024-03-25T20:17:19Z |
-| 67c9c7b5df70036692533615 | List Policy Templates | Tutorial | Lesson 06 | 2025-03-06T16:05:08Z |
+| 60170dbd4582b9963de482bd | Hello World | Tutorial | Lesson 02 | 2024-03-25T20:17:19Z |
+| 70dbd01b48294b58d963de26 | List Policy Templates | Tutorial | Lesson 06 | 2025-03-06T16:05:08Z |
 ```
 
 Note how the Go template syntax was replaced with the values we wanted. We're now looking at Markdown-formatted text. This text, when viewed in the Flexera One UI or in an incident email, will be converted to HTML and look like this:
 
 ![Markdown Example](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/solution/markdown.png "Markdown Example")
+
+## A Note On HTML
+
+HTML is not legitimately supported by the policy engine and it is not recommended that you put HTML code in your `detail_template` field. *Some* HTML will render correctly when an incident is emailed, but the raw HTML code will be displayed instead when viewing the incident in the Flexera One UI. [Markdown](https://www.markdownguide.org/) should be used instead.
 
 Please proceed to [Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/20_further_learning/README.md) for more information on how to learn about the policy engine and policy template language.

@@ -516,14 +516,14 @@ Validation of **$ds\_policy\_templates\_with\_lessons** failed
 [
   {
     "category": "Tutorial",
-    "id": "6601dbd2b9d482358e09bd74",
+    "id": "60170dbd4582b9963de482bd",
     "lesson": "Lesson 02",
     "name": "Hello World",
     "short_description": "Hello World"
   },
   {
     "category": "Tutorial",
-    "id": "67c9c7b5df70036692533615",
+    "id": "70dbd01b48294b58d963de26",
     "lesson": "Lesson 06",
     "name": "List Policy Templates",
     "short_description": "Lists all policy templates uploaded to the Flexera organization."

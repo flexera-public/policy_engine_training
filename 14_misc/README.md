@@ -226,7 +226,7 @@ If you scroll up through the output, you should see that only one item was retur
   {
     "category": "Tutorial",
     "created_at": "2024-03-25T20:17:19Z",
-    "id": "6601dbd2b9d482358e09bd74",
+    "id": "60170dbd4582b9963de482bd",
     "name": "Hello World",
     "short_description": "Hello World"
   }
