@@ -59,7 +59,7 @@ One key difference is we can use the @ symbol to indicate a local file as a valu
 Let's run the script in the Hello World policy template. Run the following command:
 
 ```bash
-fpt script 05_fpt/solution/hello_world.pt -n js_hello_world greeting_target="Japan"
+fpt script hello_world.pt -n js_hello_world greeting_target="Japan"
 ```
 
 If all went according to plan, you should see output that looks like this:

@@ -61,4 +61,4 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. It is r
 * **[Lesson 14](https://github.com/flexera-public/policy_engine_training/blob/main/14_misc/README.md) - Miscellaneous:** Learn a few miscellaneous things not covered in previous lessons.
 * **[Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_cwf/README.md) - Cloud Workflow:** Learn about how Cloud Workflow language can be used to add policy actions.
 * **[Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md) - Best Practices:** Learn some best practices for policy template formatting.
-* **[Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/16_xml/README.md) - XML & Text Reponses:** Learn how to parse XML and text responses from APIs.
+* **[Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/16_xml/README.md) - XML & Text Responses:** Learn how to parse XML and text responses from APIs.
