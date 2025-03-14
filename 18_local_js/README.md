@@ -153,7 +153,7 @@ Now temporarily comment out the output so that it doesn't get in the way of obse
 // console.log(JSON.stringify(result, null, 2))
 ```
 
-Now when we run the script, we should only see the value of the "policy_table" variable after we've added data to it with the _.each loop. Run the script and you should see this output:
+Now when we run the script, we should only see the value of the "policy_table" variable after we've added data to it with the \_.each loop. Run the script and you should see this output:
 
 ```text
 {
@@ -162,4 +162,5 @@ Now when we run the script, we should only see the value of the "policy_table" v
 }
 ```
 
+That's it for now. Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md) for more information on how to learn about the policy engine and policy template language.
 
