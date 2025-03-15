@@ -122,11 +122,11 @@ This creates a `policy` block named "pol_hello_world".
 * The `validate` field indicates that we're checking the contents of `$ds_hello_world` to determine if an incident should be raised.
 * The `summary_template` field is the title or subject of the incident if it is raised. We are using Go template syntax to interpolate the contents of the datasource.
   * {{ }} indicates that we want to show the value of a variable.
-  * `data` is a reserved word that refers to the contents of whatever datasource we're validating. In this case, `$ds_hello_world`.
+  * "data" is a reserved word that refers to the contents of whatever datasource we're validating. In this case, `$ds_hello_world`.
   * `.output` indicates that we want the value of the output key.
 * The `detail_template` field is typically a more thorough description of the incident. In this case, we're setting it to the same value as `summary_template` for simplicity.
 * The `check` field contains a boolean statement that returns either true or false. An incident is raised if the statement is false.
-  * In this case, we're using the policy template language's native `eq` function to determine if the values 0 and 1 are equal. Since they are not, this will always return false, causing an incident to be raised. A full list of functions is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/Functions.htm#automationrefinfo_2159364277_1123433).
+  * In this case, we're using the policy template language's native "eq" function to determine if the values 0 and 1 are equal. Since they are not, this will always return false, causing an incident to be raised. A full list of functions is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/Functions.htm#automationrefinfo_2159364277_1123433).
 
 When this policy template executes, the check statement should return false, causing the incident to be raised. The incident's title and summary will contain the value of the output field in the datasource, which we set to "Hello World" in the `script` block.
 

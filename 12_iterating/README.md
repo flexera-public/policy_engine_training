@@ -47,7 +47,7 @@ Next, we're going to fill out our `request` block. Modify the `request` block in
   end
 ```
 
-Notice the `iter_item` reserved word. When a datasource is iterating through a list, each item in the list is referred to as `iter_item`. In this case, we're making sure to put the value of the `id` field for each item in the list at the end of the path we're requesting so that we're requesting information for each policy template in the list.
+Notice the "iter_item" reserved word. When a datasource is iterating through a list, each item in the list is referred to as "iter_item". In this case, we're making sure to put the value of the `id` field for each item in the list at the end of the path we're requesting so that we're requesting information for each policy template in the list.
 
 Also notice the new `query` field. This field allows us to specify query parameters for API requests. In this case, setting the view parameter to "extended" will give us additional information about the policy template. Note that, when using a `script` block for the API request, this field must be "query_params" instead of "query".
 
@@ -70,9 +70,9 @@ Next, modify the `result` block in the new datasource to look like the below so 
 
 You'll notice that we're not using a `collect` statement. This is because each individual API request is only requesting information for a *single* policy template. This means the API response is not going to contain a list. When all of the requests are finished, the results of each individual request will be compiled into a list automatically and then stored in the datasource.
 
-This is also why the `field` statement for "created_at" uses the `response` reserved word instead of `col_item`. `col_item` is only valid within a collect statement, and in this case, we're pulling the value directly from the API response.
+This is also why the `field` statement for "created_at" uses the "response" reserved word instead of "col_item". "col_item" is only valid within a collect statement, and in this case, we're pulling the value directly from the API response.
 
-Note also that the rest of the `field` statements are pulling values from `iter_item`. This means they will contain information stored in the datasource we're iterating through rather than information from the API call being made. Only the "created_at" field contains information from the API call.
+Note also that the rest of the `field` fields are pulling values from "iter_item". This means they will contain information stored in the datasource we're iterating through rather than information from the API call being made. Only the "created_at" field contains information from the API call.
 
 Your completed datasource should look like this:
 
