@@ -220,7 +220,7 @@ fpt run list_policy_templates.pt param_limit=1 --credentials="auth_flexera=your_
 
 If you scroll up through the output, you should see that only one item was returned:
 
-````
+````text
 1 items failed check:
 
 ```json
