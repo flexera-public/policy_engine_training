@@ -28,6 +28,8 @@ end
 
 Currently, the `category` field does not have any effect, but it is likely that a future UI update in Flexera One will label and sort parameters by their category in the UI for ease of use. For this reason, it is recommended that you include this field and use it to group your parameters together by function.
 
+You can categorize your parameters however you like, but it is recommended that you use a consistent set of category values across your policy templates to make things easier for your users. If you're not sure what values to use, the [Flexera Policy Templates GitHub Repository](https://github.com/flexera-public/policy_templates) provides many examples that may help.
+
 ## Step 3: Add allowed_pattern to Parameter
 
 The policy engine lets your restrict user input with a regex pattern. This is useful when you want to ensure that the user only enters values for a parameter that make sense for that parameter's specific purpose.
@@ -158,7 +160,7 @@ Let's add a `hash_exclude` field in our `validate_each` block for the "id" data 
 
 ## Step 7: Add Resource Level to Export
 
-When writing policy templates that report individual resources, it is recommended that you add the `resource_level` field and set it to "true". This will allow the user to perform actions against individual resources or groups of resources in the UI if your policy has actions. When setting `resource_level` to true, your `export` block must contain an "id" field.
+When writing policy templates that report individual resources, it is recommended that you add the `resource_level` field and set it to "true". This will allow the user to perform actions against individual resources in the UI if your policy template has actions. When setting `resource_level` to true, your `export` block must contain an "id" field.
 
 Since policy templates can be considered resources, let's add this statement to our policy like so:
 

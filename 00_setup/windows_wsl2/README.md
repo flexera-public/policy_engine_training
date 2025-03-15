@@ -6,6 +6,8 @@ You will need access to a command line interface. Windows offers a Linux command
 
 Note that there is wide variation among Linux distributions, including what software they include and how software should be installed. The steps in this Initial Setup guide focus on Ubuntu, which is the default for WSL2; please adjust as needed for your distribution if using something else.
 
+**NOTE: You may need Administrator level access to Windows to install some software.**
+
 ## Step 2: Node.js
 
 Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpreter if you prefer, but the lessons will give instructions using Node.js
