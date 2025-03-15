@@ -14,7 +14,7 @@ info(
 )
 ```
 
-Note that, while you can version policy templates however you like, we generally recommend using [semantic versioning](https://semver.org/).
+Note that, while you can version policy templates however you like, we generally recommend using [semantic versioning](https://github.com/flexera-public/policy_templates/blob/master/VERSIONING.md).
 
 ## Step 2: Create a Parameter Block
 
