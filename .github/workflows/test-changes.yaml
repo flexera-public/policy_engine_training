@@ -1,0 +1,53 @@
+name: Test Changes
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+  # Workflow dispatch trigger allows manually running workflow
+  workflow_dispatch: {}
+
+jobs:
+  policy_test:
+    name: "Change Test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Github repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 100 # https://github.com/danger/danger/issues/913
+      - name: Install node.js libraries
+        shell: bash -l {0} # https://github.com/actions/virtual-environments/issues/4
+        run: |
+          nvm install
+          nvm use
+          npm install
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12.5
+          cache: 'pip' # caching pip dependencies
+      - name: Install Python libraries
+        run: pip install -r requirements.txt
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # ruby-version: 2.4.1 # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Install Ruby libraries
+        shell: bash -l {0} # https://github.com/actions/virtual-environments/issues/4
+        run: bundle install --without documentation --path bundle
+      - name: Install Aspell
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aspell
+      - name: Run Tests
+        shell: bash -l {0} # https://github.com/actions/virtual-environments/issues/4
+        run: |
+          bundle exec danger --verbose
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
