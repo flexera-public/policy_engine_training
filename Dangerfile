@@ -54,8 +54,8 @@ puts Time.now.strftime("%H:%M:%S.%L") + " * Testing Github pull request..."
 
 #test = github_pr_bad_title?(github); warn test if test
 test = github_pr_missing_summary?(github); fail test if test
-#test = github_pr_missing_labels?(github); fail test if test
-#test = github_pr_missing_ready_label?(github); message test if test
+test = github_pr_missing_labels?(github); fail test if test
+test = github_pr_missing_ready_label?(github); message test if test
 
 ###############################################################################
 # Modified Important Files Testing
