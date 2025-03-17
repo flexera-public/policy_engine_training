@@ -105,4 +105,4 @@ end
 
 This Cloud Workflow block takes a single snapshot and then issues a delete request to the Azure API, deleting that snapshot. As the "delete_snapshots" Cloud Workflow block called by the `escalation` block iterates through the list of snapshots, they will be deleted one by one.
 
-## THIS IS A WORK IN PROGRESS. MORE LESSONS COMING SOON
+Please proceed to [Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md), where we will learn about some policy template best practices.

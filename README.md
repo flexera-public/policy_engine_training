@@ -2,7 +2,7 @@
 
 This Github repository contains lessons and resources intended to train someone on policy development.
 
-**This is a work in progress. New lessons coming soon!**
+**This is a work in progress. Please use the [Issues](https://github.com/flexera-public/policy_engine_training/issues) page both for errors and general feedback.**
 
 ## About The Lessons
 
@@ -60,3 +60,7 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. It is r
 * **[Lesson 13](https://github.com/flexera-public/policy_engine_training/blob/main/13_optimization/README.md) - Optimization:** Learn how to optimize policy templates for lower memory usage and faster execution.
 * **[Lesson 14](https://github.com/flexera-public/policy_engine_training/blob/main/14_misc/README.md) - Miscellaneous:** Learn a few miscellaneous things not covered in previous lessons.
 * **[Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_cwf/README.md) - Cloud Workflow:** Learn about how Cloud Workflow language can be used to add policy actions.
+* **[Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md) - Best Practices:** Learn some best practices for policy template formatting.
+* **[Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/17_xml/README.md) - XML & Text Responses:** Learn how to parse XML and text responses from APIs.
+* **[Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md) - Local JavaScript Testing:** Learn how to test script blocks locally using node.js.
+* **[Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_further_learning/README.md) - Further Learning:** Learn where to go to continue learning about policy development.
