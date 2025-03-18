@@ -58,7 +58,7 @@ echo 'export PATH=$PATH:$HOME/fpt' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Once you've completed the installation steps above, you can verify that fpt is installed with the `fpt -v` command like so:
+Once you've completed the installation steps above, you can verify that fpt is installed with the `fpt -v` command, like so:
 
 ```bash
 > fpt -v
@@ -79,7 +79,7 @@ The first thing you'll need is an API token for Flexera One. [Follow the documen
 
 #### Obtain Flexera One Project ID
 
-What the `fpt` tool refers to as an Account ID is actually the Project ID. You can obtain this from the address bar in your browser while visiting the Automation -> Templates page. For example, for the following URL, the Project ID would be **78901**. Save this information somewhere secure for later use.
+What the `fpt` tool refers to as an Account ID is actually the Project ID. You can obtain this from the address bar in your browser while visiting the Automation → Templates page. For example, for the following URL, the Project ID would be **78901**. Save this information somewhere secure for later use.
 
 ```url
 https://app.flexera.com/orgs/23456/automation/projects/78901/policy-templates
@@ -120,7 +120,7 @@ If you run into issues when attempting to use the configuration, simply rerun th
 
 ## Step 8: Create an Automation Credential in Flexera One
 
-In order to make calls to the Flexera API via the policy engine, we'll need to create a credential in Flexera One. Credentials can be added in the Automation -> Credentials section of the Flexera One UI. Use the following settings for your credential:
+In order to make calls to the Flexera API via the policy engine, we'll need to create a credential in Flexera One. Credentials can be added in the Automation → Credentials section of the Flexera One UI. Use the following settings for your credential:
 
 * **Credential Type**: OAuth2
 * **Credential Name**: Can be any arbitrary value. Should be set to something that makes it easy to identify the credential.
@@ -141,13 +141,13 @@ Note: Your user in Flexera One will need access to everything in the "Automation
 
 ## Step 9: Launch VSCode
 
-The final step is to launch VSCode and verify everything works as expected. In all configurations, you should be able to run the following commands to launch VSCode with the repository loaded in:
+The final step is to launch VSCode and verify everything works as expected. You should be able to run the following commands to launch VSCode with the repository loaded in:
 
 ```bash
 cd ~/policy_engine_training
 code .
 ```
 
-VSCode should launch. If prompted to install extensions, it is recommended that you install them.
+VSCode should launch. This repository contains configuration files for VSCode to recommend certain extensions to assist in policy template development, so if you are prompted to install extensions, it is recommended that you install them.
 
 You should now be configured and ready for the tutorial. Please proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md).

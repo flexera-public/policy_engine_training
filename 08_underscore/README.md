@@ -10,7 +10,7 @@ Underscore.js functions begin with an `_.` followed by the name of the function.
 
 ## Step 1: Create an empty JavaScript file
 
-Either in VSCode or your command line, create a new file called `learn_underscore.js` inside the root directory of the GitHub repository. In VSCode, you can right-click in the empty space in the Explorer section then click `New File` to create this file.
+Either in VSCode or your command line, create a new file called "learn_underscore.js" inside the root directory of the GitHub repository. In VSCode, you can right-click in the empty space in the Explorer section then click "New File" to create this file.
 
 Once this file has been created, open it in VSCode by clicking on it on the left.
 
@@ -81,7 +81,7 @@ filtered_list = _.filter(number_list, function(number) {
 console.log("The filtered number list: ", filtered_list)
 ```
 
-The % operator is similar to the / operator, but instead of doing full floating point division, it returns the remainder. This means `number % 2` should always return 0 if a number is divisible by 2.
+The % operator is similar to the / operator, but instead of doing full floating point division, it returns the remainder. This means "number % 2" should always return 0 if a number is divisible by 2.
 
 Run the script again to test:
 
@@ -136,7 +136,7 @@ The filtered number list:  2
 
 \_.map will take every item in a list, perform an operation on it, and return a list containing the transformed elements. This effectively allows you to transform all of the data in a list in the same way for each item.
 
-Let's try it out. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's try it out. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 transformed_list = _.map(object_list, function(person) {
@@ -149,21 +149,21 @@ transformed_list = _.map(object_list, function(person) {
 console.log("Ages in days: ", JSON.stringify(transformed_list, null, 2))
 ```
 
-Now run the script and you should see each item in the list transformed. Instead of having an `age` key, you will see an `age_in_days` key instead with the age expressed in days instead of years, and instead of a `name` key, you should see a `name_capitalized` key with the name shown in uppercase letters.
+Now run the script and you should see each item in the list transformed. Instead of having an "age" key, you will see an "age_in_days" key instead with the age expressed in days instead of years, and instead of a "name" key, you should see a "name_capitalized" key with the name shown in uppercase letters.
 
 ```text
 > node learn_underscore.js
 Ages in days:  [
   {
-    "name": "moe",
+    "name_capitalized": "MOE",
     "age_in_days": 14600
   },
   {
-    "name": "larry",
+    "name_capitalized": "LARRY",
     "age_in_days": 18250
   },
   {
-    "name": "curly",
+    "name_capitalized": "CURLY",
     "age_in_days": 21900
   }
 ]
@@ -194,14 +194,14 @@ People:  [
 
 \_.contains will return either true or false based on whether a list contains a specific value. The first parameter is the list and the second parameter is the value we're testing.
 
-Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 console.log("Contains 7: ", _.contains(number_list, 7))
 console.log("Contains 11: ", _.contains(number_list, 11))
 ```
 
-When you run the script, you should see that the first call of _.contains comes back "true" and the second one comes back "false". This is because the variable `number_list` does contain a value of 7 but does not contain a value of 11.
+When you run the script, you should see that the first call of _.contains comes back "true" and the second one comes back "false". This is because the variable "number_list" does contain a value of 7 but does not contain a value of 11.
 
 ```text
 > node learn_underscore.js
@@ -213,7 +213,7 @@ Contains 11:  false
 
 \_.uniq will take a list and remove any redundant values so that it contains only unique values. For example, if the string "peacock" appears in the list 3 times, the list returned by \_.uniq will only contain the first instance of that value and dispense with the other two.
 
-\_.compact will take a list and return a version of it with all falsy values removed. In JavaScript, the following values are considered "falsy":
+\_.compact will take a list and return a version of it with all falsy values removed. In JavaScript, the following values are considered falsy:
 
 * false
 * null
@@ -222,7 +222,7 @@ Contains 11:  false
 * 0
 * "" (empty string)
 
-Let's try these out. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's try these out. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 dirty_list = [ 1, 2, 3, null, 4, 5, 0, undefined, 6, 7, 7, 7, 8, 9, 9, 9, 10, "" ]
@@ -234,7 +234,7 @@ console.log("Clean list: ", clean_list)
 console.log("Unique list: ", unique_list)
 ```
 
-When you run the script, you should see that `clean_list` has all of the previously-described falsy values removed, and `unique_list` does not contain the extra values of 7 and 9.
+When you run the script, you should see that "clean_list" has all of the previously-described falsy values removed, and "unique_list" does not contain the extra values of 7 and 9.
 
 ```text
 > node learn_underscore.js
@@ -261,7 +261,7 @@ Unique list:  [
 
 \_.pluck will produce a list consisting of all of the values of a specific key in a list of objects. This saves you the time of having to do this with \_.map. This is useful when you only need one field from a list of objects in order to do further operations with it.
 
-Let's give it a go. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's give it a go. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 names = _.pluck(object_list, 'name')
@@ -271,7 +271,7 @@ console.log("Names: ", names)
 console.log("Ages: ", ages)
 ```
 
-When you run the script, you should see that the new `names` and `ages` variables contain lists with only the values of the `name` and `age` keys from the `object_list` variable.
+When you run the script, you should see that the new "names" and "ages" variables contain lists with only the values of the "name" and "age" keys from the "object_list" variable.
 
 ```text
 > node learn_underscore.js
@@ -283,7 +283,7 @@ Ages:  [ 40, 50, 60 ]
 
 \_.sortBy takes a list of objects and returns a sorted list. The first parameter is the list, and the second parameter is either a key to sort the objects by, or a function to define how to sort the list.
 
-Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's try both. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 object_list_name_sorted = _.sortBy(object_list, "name")
@@ -324,7 +324,7 @@ Number list sorted by divisibility by 3:  [
 
 \_.groupBy will take every item in a list and categorize them as sublists within an object based on some criteria. Similar to \_.sortBy, the second parameter can either be a field that you want to group by, or a function that groups everything by some value you return.
 
-Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's try both. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 object_list_grouped = _.groupBy(object_list, "name")
@@ -337,9 +337,9 @@ console.log("Object list grouped: ", JSON.stringify(object_list_grouped, null, 2
 console.log("Number list grouped: ", number_list_grouped)
 ```
 
-When you run the script, you should see that `object_list_grouped` is an object. Each key in this object corresponds to a name in the original list, and contains a list of every value from the list whose name matched that key.
+When you run the script, you should see that "object_list"_grouped` is an object. Each key in this object corresponds to a name in the original list, and contains a list of every value from the list whose name matched that key.
 
-`number_list_grouped`, by contrast, has two keys, true and false, that contain the numbers that are and are not divisible by 3 respectively.
+"number_list_grouped", by contrast, has two keys, true and false, that contain the numbers that are and are not divisible by 3 respectively.
 
 ```text
 > node learn_underscore.js
@@ -370,7 +370,7 @@ Number list grouped:  { false: [ 5, 7, 2, 8, 4, 1 ], true: [ 3, 6 ] }
 
 \_.size returns the length of a list and \_.keys returns a list of keys in an object. Functionally, they are identical to the .length method lists natively have and the Object.keys() function built into JavaScript.
 
-Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's try both. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 console.log("Object list size: ", object_list.length)
@@ -379,7 +379,7 @@ console.log("Object keys: ", Object.keys(object_list[0]))
 console.log("Object keys: ", _.keys(object_list[0]))
 ```
 
-When you run the script, you should see the number of values in the `object_list` list returned, as well as the keys for the first value in that list. Note how the native JavaScript functionality for each produces identical results.
+When you run the script, you should see the number of values in the "object_list" list returned, as well as the keys for the first value in that list. Note how the native JavaScript functionality for each produces identical results.
 
 ```text
 > node learn_underscore.js
@@ -393,7 +393,7 @@ Object keys:  [ 'name', 'age' ]
 
 \_.first and \_.last return the first and last values of a list respectively. They are for convenience and replicate functionality that already exists in JavaScript natively.
 
-Let's try both. Delete everything in the test script below the `number_list` and `object_list` variables and replace it with the below:
+Let's try both. Delete everything in the test script below the "number_list" and "object_list" variables and replace it with the below:
 
 ```javascript
 console.log("First number: ", number_list[0])

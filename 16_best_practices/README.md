@@ -4,7 +4,7 @@ In this lesson, we'll go over some best practices when it comes to formatting yo
 
 ## Step 1: Update the Version
 
-It's considered best practice to use [semantic versioning](https://semver.org/) when versioning your policy templates. Let's update the policy template to version `0.5.1` by updating the info block like so:
+It's considered best practice to use [semantic versioning](https://semver.org/) when versioning your policy templates. Let's update the policy template to version `0.5.1` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -16,7 +16,7 @@ We're changing the patch version instead of the minor version because our change
 
 ## Step 2: Policy Block Order & Comments
 
-You should always keep policy blocks of the same type, such as `credentials` blocks, `parameter` blocks, etc. in a group next to each other. The only exception are `datasource` and `script` blocks, where it is recommended that the `script` block immediately follow the `datasource` block calling the script.
+You should always keep `policy` blocks of the same type, such as `credentials` blocks, `parameter` blocks, etc. in a group next to each other. The only exception are `datasource` and `script` blocks, where it is recommended that the `script` block immediately follow the `datasource` block calling the script.
 
 Additionally, we recommend ordering these groups within a policy template to follow a logical flow like the below. This ensures that, when reading the policy template from top to bottom, you can follow what the policy template will do upon execution.
 
@@ -31,7 +31,9 @@ Additionally, we recommend ordering these groups within a policy template to fol
 
 Review the "list_policy_templates.pt" policy template and you'll see it already follows this order.
 
-Each section after the policy metadata should have a comments indicating the beginning of the section. Let's modify the policy template accordingly. Before your parameter blocks, add the following comments:
+Each section after the policy metadata should have a comments indicating the beginning of the section. Comments can be added to a policy template using the `#` character. Comments can be on their own line or at the end of an existing line containing policy template language code. Note that, to comment within your JavaScript code inside of `script` blocks, you'll need to use `//` instead.
+
+Let's modify the policy template accordingly. Before your `parameter` blocks, add the following comments:
 
 ```ruby
 ###############################################################################
@@ -55,7 +57,7 @@ parameter "param_email" do
   label "Email Addresses"
 ```
 
-Now add equivalent comments to the appropriate sections throughout the policy template. You can copy and paste from the below:
+Now add equivalent comments to the appropriate sections throughout the policy template. You can copy and paste from below:
 
 ```ruby
 ###############################################################################

@@ -1,12 +1,12 @@
 # Flexera Policy Development - Lesson 03 - Parameters
 
-Sometimes you need to enable the user to manipulate what the policy template is going to do. This is done via parameter blocks, which allow the user to specify values that have an impact on what the policy template does.
+Sometimes you need to enable the user to manipulate what the policy template is going to do. This is done via `parameter` blocks, which allow the user to specify values that have an impact on what the policy template does.
 
-In this lesson, we're going to edit the `hello_world.pt` policy template created in Lesson 02 so that the user can decide who or what the policy template is saying hello to.
+In this lesson, we're going to edit the "hello_world.pt" policy template created in Lesson 02 so that the user can decide who or what the policy template is saying hello to.
 
 ## Step 1: Update the Version
 
-It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the info block like so:
+It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -18,7 +18,7 @@ Note that, while you can version policy templates however you like, we generally
 
 ## Step 2: Create a Parameter Block
 
-Below the policy template's metadata, but above the datasource, add the following:
+Below the policy template's metadata, but above the `datasource` block, add the following:
 
 ```ruby
 parameter "param_greeting_target" do
@@ -29,7 +29,7 @@ parameter "param_greeting_target" do
 end
 ```
 
-This creates a parameter block with the following fields:
+This creates a `parameter` block with the following fields:
 
 * `type` determines what kind of information the user is going to enter into the parameter. In this case, a string.
 * `label` is the name of the parameter that the user will see in the user interface.
@@ -38,7 +38,7 @@ This creates a parameter block with the following fields:
 
 ## Step 3: Add the Parameter to our Datasource Block
 
-Now that we have a parameter block, let's add it to our datasource block. Add the parameter to the `run_script` field of the `ds_hello_world` datasource like so:
+Now that we have a `parameter` block, let's add it to our datasource block. Add the parameter to the `run_script` field of the "ds_hello_world" datasource like so:
 
 ```ruby
 datasource "ds_hello_world" do
@@ -48,9 +48,9 @@ end
 
 Now the datasource will send the contents of the parameter to the script.
 
-## Step 4: Add the Parameter to our JavaScript Block
+## Step 4: Add the Parameter to our Script Block
 
-A datasource can only send a parameter to a script if the script is configured to accept it. Add a new line between the `script` and `result` lines of the JavaScript block with the parameter like so:
+A datasource can only send a parameter to a script if the script is configured to accept it. Add a new line between the `script` and `result` lines of the `script` block with the parameter like so:
 
 ```ruby
 script "js_hello_world", type: "javascript" do
@@ -58,11 +58,11 @@ script "js_hello_world", type: "javascript" do
   result "hello_world"
 ```
 
-Now, when the datasource passes `$param_greeting_target` as a parameter, this will be stored in the `greeting_target` variable when the JavaScript block executes.
+Now, when the datasource passes `$param_greeting_target` as a parameter, this will be stored in the "greeting_target" variable when the `script` block executes.
 
 ## Step 5: Use the Parameter in JavaScript Code
 
-Passing the parameter into the JavaScript block alone doesn't do much. We need to make use of the new `greeting_target` variable in our code. Modify the code section of the JavaScript block like so:
+Passing the parameter into the `script` block alone doesn't do much. We need to make use of the new "greeting_target" variable in our code. Modify the code section of the `script` block like so:
 
 ```javascript
   hello_world = {
@@ -70,9 +70,9 @@ Passing the parameter into the JavaScript block alone doesn't do much. We need t
   }
 ```
 
-Now the value of the output key will be the string "Hello " followed by whatever the user specified for the parameter we added.
+Now the value of the "output" key will be the string "Hello " followed by whatever the user specified for the parameter we added.
 
-Your `hello_world.pt` file should now look similar or identical to the one in the `03_parameters/solution` directory of the repository.
+Your "hello_world.pt" file should now look similar or identical to the one in the `03_parameters/solution` directory of the repository.
 
 ## Step 6: Testing
 

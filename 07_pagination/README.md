@@ -2,7 +2,7 @@
 
 Sometimes a REST API will return results in a paginated fashion where additional API calls need to be made to retrieve the additional pages. Different APIs handle this differently, and the policy engine uses `pagination` blocks to define how to handle pagination for a particular API call.
 
-Since these lessons are focusing very specifically on the Flexera policy API, where pagination is not used, this lesson will use examples from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to show how pagination blocks work. It is also recommended that you read the [official documentation](https://docs.flexera.com/flexera/EN/Automation/RetrieveData.htm#automationrefinfo_2830531361_1127423) for more detail.
+Since these lessons are focusing very specifically on the Flexera policy API, where pagination is not used, this lesson will use examples from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to show how `pagination` blocks work. It is also recommended that you read the [official documentation](https://docs.flexera.com/flexera/EN/Automation/RetrieveData.htm#automationrefinfo_2830531361_1127423) for more detail.
 
 ## Example: Microsoft Azure
 
@@ -93,7 +93,7 @@ Not every API handles pagination the same way. For this reason, different field 
 
 ### header
 
-The `header` field can be used to get the next page from a field in the API's response header. You would just specify the name of the header field like so:
+The `header` field can be used to get the next page from a field in the API's response header. You would just specify the name of the "header" field expected in the response like so:
 
 ```ruby
   get_page_marker do
@@ -127,7 +127,7 @@ The `query` field should be used when the data gathered in the `get_page_marker`
 
 ### header
 
-The `header` field should be used when the data gathered in the `get_page_marker` block is the value for a header field. The field should be set to the header field that we need to set the value for:
+The `header` field should be used when the data gathered in the `get_page_marker` block is the value for a "header" field. The field should be set to the "header" field that we need to set the value for:
 
 ```ruby
   set_page_marker do
@@ -137,7 +137,7 @@ The `header` field should be used when the data gathered in the `get_page_marker
 
 ### body_field
 
-The `body_field` field should be used when the data gathered in the `get_page_marker` block is the value for a field in the JSON body of the request. The field should be set to the body field that we need to set the value for:
+The `body_field` field should be used when the data gathered in the `get_page_marker` block is the value for a field in the JSON body of the request. The field should be set to the "body" field that we need to set the value for:
 
 ```ruby
   set_page_marker do
@@ -159,8 +159,8 @@ The `uri` field should be used when the data gathered in the `get_page_marker` b
 
 All of the above is of course not very useful unless you know how the API in question handles pagination! There are two main sources of information for this:
 
-* The documentation for the API in question should contain information on how pagination works. You can then write a pagination block that matches the documentation.
-* You can make a call to the API directly via a tool like Postman and review the response and experiment to figure out how the pagination works and then make the appropriate pagination block.
+* The documentation for the API in question should contain information on how pagination works. You can then write a `pagination` block that matches the documentation.
+* You can make a call to the API directly via a tool like Postman and review the response and experiment to figure out how the pagination works and then make the appropriate `pagination` block.
 * For major cloud providers in particular, you can likely find examples in existing policy templates in our [Policy Catalog](https://github.com/flexera-public/policy_templates) that you can just copy and paste into your policy template.
 
 That's it for pagination. Please move on to [Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/08_underscore/README.md) to learn more about the Underscore.js library.

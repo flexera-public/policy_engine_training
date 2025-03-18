@@ -7,15 +7,34 @@ severity "low"
 category "Tutorial"
 default_frequency "weekly"
 info(
-  version: "0.4.0"
+  version: "0.6.0"
 )
+
+###############################################################################
+# Parameters
+###############################################################################
 
 parameter "param_email" do
   type "list"
   label "Email Addresses"
+  category "Policy Settings"
   description "A list of email addresses to notify."
+  allowed_pattern /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,24})+)$/
   default []
 end
+
+parameter "param_limit" do
+  type "number"
+  label "Result Limit"
+  category "Policy Settings"
+  description "Limit the number of results to return."
+  min_value 1
+  default 100
+end
+
+###############################################################################
+# Authentication
+###############################################################################
 
 credentials "auth_flexera" do
   schemes "oauth2"
@@ -24,14 +43,27 @@ credentials "auth_flexera" do
   tags "provider=flexera"
 end
 
+###############################################################################
+# Datasources & Scripts
+###############################################################################
+
+datasource "ds_applied_policy" do
+  request do
+    auth $auth_flexera
+    host rs_governance_host
+    path join(["/api/governance/projects/", rs_project_id, "/applied_policies/", policy_id])
+    header "Api-Version", "1.0"
+  end
+end
+
 datasource "ds_policy_lesson_list" do
   run_script $js_policy_lesson_list
 end
 
 script "js_policy_lesson_list", type: "javascript" do
-  result "list"
+  result "result"
   code <<-'EOS'
-  list = [
+  result = [
     { name: "Hello World", lesson: "Lesson 02" },
     { name: "List Policy Templates", lesson: "Lesson 06" }
   ]
@@ -54,14 +86,14 @@ datasource "ds_list_policy_templates" do
 end
 
 script "js_list_policy_templates", type: "javascript" do
-  parameters "verb", "governance_host", "project_id"
+  parameters "verb", "rs_governance_host", "rs_project_id"
   result "request"
   code <<-'EOS'
   request = {
     auth: "auth_flexera",
     verb: verb,
-    host: governance_host,
-    path: "/api/governance/projects/" + project_id + "/policy_templates",
+    host: rs_governance_host,
+    path: "/api/governance/projects/" + rs_project_id + "/policy_templates",
     headers: {
       "API-Version": "1.0"
     }
@@ -70,20 +102,20 @@ EOS
 end
 
 datasource "ds_policy_templates_with_lessons" do
-  run_script $js_policy_templates_with_lessons, $ds_policy_lesson_list, $ds_list_policy_templates
+  run_script $js_policy_templates_with_lessons, $ds_policy_lesson_list, $ds_list_policy_templates, $param_limit
 end
 
 script "js_policy_templates_with_lessons", type: "javascript" do
-  parameters "policy_lesson_list", "policy_templates"
-  result "policy_templates_with_lessons_filtered"
+  parameters "ds_policy_lesson_list", "ds_list_policy_templates", "param_limit"
+  result "result"
   code <<-'EOS'
   policy_table = {}
 
-  _.each(policy_lesson_list, function(lesson) {
+  _.each(ds_policy_lesson_list, function(lesson) {
     policy_table[lesson['name']] = lesson['lesson']
   })
 
-  policy_templates_with_lessons = _.map(policy_templates, function(template) {
+  policy_templates_with_lessons = _.map(ds_list_policy_templates, function(template) {
     return {
       category: template['category'],
       id: template['id'],
@@ -93,9 +125,11 @@ script "js_policy_templates_with_lessons", type: "javascript" do
     }
   })
 
-  policy_templates_with_lessons_filtered = _.filter(policy_templates_with_lessons, function(template) {
+  result = _.filter(policy_templates_with_lessons, function(template) {
     return template['lesson']
   })
+
+  result = result.slice(0, param_limit)
 EOS
 end
 
@@ -116,37 +150,38 @@ datasource "ds_policy_templates_with_created_at" do
     field "name", val(iter_item, "name")
     field "short_description", val(iter_item, "short_description")
     field "lesson", val(iter_item, "lesson")
+    field "policy_name", val($ds_applied_policy, "name")
     field "created_at", jmes_path(response, "created_at")
   end
 end
 
+###############################################################################
+# Policy
+###############################################################################
+
 policy "pol_list_policy_templates" do
   validate_each $ds_policy_templates_with_created_at do
-    summary_template "{{ len data }} Policy Templates With Lessons Found"
+    summary_template "{{ with index data 0 }}{{ .policy_name }}{{ end }}: {{ len data }} Policy Templates With Lessons Found"
+    detail_template <<-'EOS'
+![Flexera](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/solution/flexera.png "Flexera")
+
+## {{ len data }} Policy Templates Found
+
+| ID | Name | Category | Lesson | Created At |
+| -- | ---- | -------- | ------ | ---------- |
+{{ range data -}}
+  | {{ .id }} | {{ .name }} | {{ .category }} | {{ .lesson }} | {{ .created_at }} |
+{{ end -}}
+EOS
     check eq(val(item, "name"), "")
     escalate $esc_email
-    export do
-      field "id" do
-        label "ID"
-      end
-      field "name" do
-        label "Name"
-      end
-      field "category" do
-        label "Category"
-      end
-      field "short_description" do
-        label "Description"
-      end
-      field "lesson" do
-        label "Lesson"
-      end
-      field "created_at" do
-        label "Created At"
-      end
-    end
+    hash_exclude "id"
   end
 end
+
+###############################################################################
+# Escalations
+###############################################################################
 
 escalation "esc_email" do
   automatic true

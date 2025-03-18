@@ -4,13 +4,13 @@ While most REST API requests made in the policy engine are made by specifying va
 
 * Sometimes you might need to do some logic for the API call that will determine headers, query parameters, or the path of the API call. A common use case here is when you need to send in a date range; if your `request` block calls a script, a script can calculate the date values to send in.
 
-* The verb field in a `request` block will only take a string; it cannot reference a parameter or datasource, which means it can't be dynamically determined during execution. You *can* do this in a `script` block though. This can be relevant in situations where, for example, you might need to do either a POST or a PATCH request depending on whether you are creating a new item or modifying an existing one.
+* The `verb` field in a `request` block will only take a string; it cannot reference a parameter or datasource, which means it can't be dynamically determined during execution. You *can* do this in a `script` block though. This can be relevant in situations where, for example, you might need to do either a POST or a PATCH request depending on whether you are creating a new item or modifying an existing one.
 
 Let's modify the "list_policy_templates.pt" policy template to use a `script` block for an API request.
 
 ## Step 1: Update the Version
 
-As usual, let's update the policy template to version `0.3.0` by updating the info block like so:
+As usual, let's update the policy template to version `0.3.0` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -20,7 +20,7 @@ info(
 
 ## Step 2: Update the Datasource
 
-The first thing we need to do is update the `request` block on the datasource to call a script. Modify the `request` block for the `ds_list_policy_templates` datasource on line 42 to the following, replacing all of the fields with a single `run_script` field:
+The first thing we need to do is update the `request` block on the datasource to call a script. Modify the `request` block for the "ds_list_policy_templates" datasource on line 42 to the following, replacing all of the fields with a single `run_script` field:
 
 ```ruby
   request do
@@ -28,7 +28,7 @@ The first thing we need to do is update the `request` block on the datasource to
   end
 ```
 
-Notice how, in this instance, the `run_script` field is *inside* of a request block. This will execute the script and then the result of the script will be used by the datasource to call a REST API. The parameters we are passing are all information that we will need to create the API request. Note that, in this instance, we're passing the raw string "GET" as a parameter; parameters for a `run_script` statement can include string or numerical values in addition to variables.
+Notice how, in this instance, the `run_script` field is *inside* of a `request` block. This will execute the script and then the result of the script will be used by the datasource to call a REST API. The parameters we are passing are all information that we will need to create the API request. Note that, in this instance, we're passing the raw string "GET" as a parameter; parameters for a `run_script` statement can include string or numerical values in addition to variables.
 
 **NOTE: The REST API call is not made during execution of the `script` block. JavaScript executed within the `script` block is entirely self-contained and has no access to the internet. The result of the `script` block contains the information about the REST API call and is passed to the policy engine, which then makes the API call the same as it would with the method previously used.**
 

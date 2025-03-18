@@ -18,7 +18,7 @@ If you're gathering a large set of data and then filtering it down in a `script`
 
 ## JavaScript Coding Practices
 
-There’s no escaping the occasional need to use JavaScript blocks to manipulate data. In those cases, good coding practices can significantly reduce policy execution time.
+There’s no escaping the occasional need to use `script` blocks to manipulate data. In those cases, good coding practices can significantly reduce policy execution time.
 
 ### String Combining / Concatenation
 
@@ -70,7 +70,7 @@ _.each(ds_employees, function(employee) {
 
 The above code iterates through each employee, and for each of those iterations, it iterates through a full list of expenses to find one that matches. This is extremely inefficient; searching a list by checking each item one by one is very slow. If each list were 1000 items long, this would result in over a million loops!
 
-Here is an example of how to do it more efficiently using an object. In this example, the key in `expense_object` correlates to the "id" field in `ds_employees`. This means we don't have to do a loop through the entire expenses list for each employee, significantly improving speed of execution:
+Here is an example of how to do it more efficiently using an object. In this example, the key in "expense_object" correlates to the "id" field in "ds_employees". This means we don't have to do a loop through the entire expenses list for each employee, significantly improving speed of execution:
 
 ```javascript
 result = []

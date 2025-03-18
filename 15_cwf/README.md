@@ -45,9 +45,9 @@ escalation "esc_delete_snapshot" do
 end
 ```
 
-Notice that the `automatic` field, rather than being set directly to "true" like it was for our "list_policy_templates.pt" policy template, it uses the `contains()` function. The statement `contains($param_automatic_action, "Delete Snapshots")` will only return "true" if the user selected "Delete Snapshots" for the parameter. Otherwise, it will return false and the escalation will not be automatic.
+Notice that the `automatic` field uses the "contains" function instead of being set directly to "true" like it was for our "list_policy_templates.pt" policy template. The statement "contains($param_automatic_action, "Delete Snapshots")" will only return "true" if the user selected "Delete Snapshots" for the parameter. Otherwise, it will return false and the escalation will not be automatic.
 
-We also have a new field, `run`, which specifies a Cloud Workflow block to run along with some parameters. The first parameter, `data`, will contain the full set of data from the policy incident, or if the user is selecting resources in the UI, it will contain data for the specific resources they selected. The second parameter just contains a parameter that will be used to determine which API endpoint to use when making requests to Azure.
+We also have a new field, `run`, which specifies a Cloud Workflow block to run along with some parameters. The first parameter, "data", will contain the full set of data from the policy incident, or if the user is selecting resources in the UI, it will contain data for the specific resources they selected. The second parameter just contains a parameter that will be used to determine which API endpoint to use when making requests to Azure.
 
 ## Cloud Workflow Block
 
@@ -69,9 +69,9 @@ define delete_snapshots($data, $param_azure_endpoint) return $all_responses do
 end
 ```
 
-The `define` reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The `return` reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a script block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
+The `define` reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The `return` reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a `script` block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
 
-We won't go into the details of Cloud Workflow language here, but at a surface level, you can likely see that we're iterating through $data and calling another Cloud Workflow block named "delete_snapshot" for each item in the list. We're then raising an error in the UI if any errors occurred.
+We won't go into the details of Cloud Workflow language here, but at a surface level, you can likely see that we're iterating through "$data" and calling another Cloud Workflow block named "delete_snapshot" for each item in the list. We're then raising an error in the UI if any errors occurred.
 
 Let's take a look at the "delete_snapshot" block being called above:
 
@@ -103,6 +103,6 @@ define delete_snapshot($instance, $param_azure_endpoint) return $response do
 end
 ```
 
-This Cloud Workflow block takes a single snapshot and then issues a delete request to the Azure API, deleting that snapshot. As the "delete_snapshots" Cloud Workflow block called by the `escalation` block iterates through the list of snapshots, they will be deleted one by one.
+This Cloud Workflow block takes a single snapshot instance as a parameter and then issues a delete request to the Azure API, deleting that snapshot. As the "delete_snapshots" Cloud Workflow block called by the `escalation` block iterates through the list of snapshots, they will be deleted one by one.
 
 Please proceed to [Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md), where we will learn about some policy template best practices.

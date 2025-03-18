@@ -2,11 +2,11 @@
 
 Policy templates can perform escalations based on raised incidents. The most common form of escalation is an email. When an incident is escalated via email, the incident itself will be emailed to a list of email addresses.
 
-In this lesson, we're going to edit the `hello_world.pt` policy template to perform such an escalation.
+In this lesson, we're going to edit the "hello_world.pt" policy template to perform such an escalation.
 
 ## Step 1: Update the Version
 
-Just like before, let's update the policy template to version `0.3.0` by updating the info block like so:
+Just like before, let's update the policy template to version `0.3.0` by updating the `info` block like so:
 
 ```ruby
 info(
@@ -16,7 +16,7 @@ info(
 
 ## Step 2: Create a Parameter Block
 
-Above the existing parameter block, add the following new parameter block:
+Above the existing `parameter` block, add the following new `parameter` block:
 
 ```ruby
 parameter "param_email" do
@@ -31,7 +31,7 @@ Unlike the other parameter, this parameter has a `type` of list. This means the 
 
 ## Step 3: Add Escalation to Policy Block
 
-We're now going to add an `escalate` field to the policy block. Update the policy block like so, with the escalate field right after the check field:
+We're now going to add an `escalate` field to the policy block. Update the policy block like so, with the `escalate` field right after the `check` field:
 
 ```ruby
 policy "pol_hello_world" do
@@ -48,7 +48,7 @@ Now when an incident is raised, the policy template will escalate to `$esc_email
 
 ## Step 4: Add Escalation Block
 
-At the end of the policy template, add the following escalation block:
+At the end of the policy template, add the following `escalation` block:
 
 ```ruby
 escalation "esc_email" do
@@ -59,7 +59,7 @@ escalation "esc_email" do
 end
 ```
 
-An escalation block dictates a course of action for an escalation. The fields indicate the following:
+An `escalation` block dictates a course of action for an escalation. The fields indicate the following:
 
 * `automatic` contains a boolean statement that indicates whether the escalation happens automatically when an incident is raised. In this case, it is set to "true", so it will.
 * `label` and `description` contain the short and long form descriptions of what the escalation does for the UI.

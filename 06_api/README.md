@@ -8,7 +8,7 @@ Note: To actually run the policy template we will be creating in this lesson, yo
 
 ## Step 1: Create an empty Policy Template
 
-Either in VSCode or your command line, create a new file called `list_policy_templates.pt` inside the root directory of the GitHub repository. In VSCode, you can right-click in the empty space in the Explorer section then click `New File` to create this file.
+Either in VSCode or your command line, create a new file called "list_policy_templates.pt" inside the root directory of the GitHub repository. In VSCode, you can right-click in the empty space in the Explorer section then click "New File" to create this file.
 
 Once this file has been created, open it in VSCode by clicking on it on the left.
 
@@ -39,7 +39,7 @@ end
 
 ## Step 3: Credentials
 
-For this policy template, we're going to add a credentials block. This allows the policy template to authenticate to a REST API. When the user applies the policy template, this credentials block will prompt the user to select a credential that they have stored in the Automation -> Credentials section of Flexera One.
+For this policy template, we're going to add a `credentials` block. This allows the policy template to authenticate to a REST API. When the user applies the policy template, this `credentials` block will prompt the user to select a credential that they have stored in the Automation → Credentials section of Flexera One.
 
 Add the following to the policy template below the email parameter:
 
@@ -62,7 +62,7 @@ This block has the following fields:
 
 So far, we've only used datasources to run JavaScript. Their primary use, however, is in making API calls. In this policy template, we're going to make an API call to retrieve a list of policy templates. You can learn more about this API call in the [documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_index).
 
-Underneath the credentials block, add the following code:
+Underneath the `credentials` block, add the following code:
 
 ```ruby
 datasource "ds_list_policy_templates" do
@@ -76,12 +76,12 @@ datasource "ds_list_policy_templates" do
 end
 ```
 
-As you've seen previously with the validate block inside of the policy block, blocks can contain blocks. In this case, the datasource block, instead of having a run_script field, has a request block.
+As you've seen previously with the `validate` block inside of the `policy` block, blocks can contain blocks. In this case, the `datasource` block, instead of having a `run_script` field, has a `request` block.
 
-The request block provides the details needed to make a call to a REST API. This block has the following fields:
+The `request` block provides the details needed to make a call to a REST API. This block has the following fields:
 
-* `auth` contains the name of the credential block used for authenticating to the API. In rare situations where an API does not require authentication, this field can be omitted.
-* `verb` contains the specific HTTP request that we're going to make. If the verb field is not present, the policy engine will assume we're making a GET request. Examples: GET, POST, PATCH
+* `auth` contains the name of the `credentials` block used for authenticating to the API. In rare situations where an API does not require authentication, this field can be omitted.
+* `verb` contains the specific HTTP request that we're going to make. If the `verb` field is not present, the policy engine will assume we're making a GET request. Examples: GET, POST, PATCH
 * `host` contains the fully-qualified domain name of the API that we're making the request to. Examples: api.flexera.com, management.azure.com
   * In this specific instance, we're making use of the reserved word `rs_governance_host`. Reserved words are constants built into the policy template language that are populated with a value upon policy execution. In this case, `rs_governance_host` will always be populated with the appropriate host for making API requests to the Flexera Governance API. A full list of reserved words is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/ReservedWordReference.htm#automationrefinfo_2159364277_1123431).
 * `path` contains the URL path that we're making the request against. Examples: /optima/orgs/12345/billUploads, /subscriptions/
@@ -90,7 +90,7 @@ The request block provides the details needed to make a call to a REST API. This
 
 ## Step 5: Datasource Result
 
-We've defined the request but not how to parse the response from the API. As shown in the [documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_index), this API responds with JSON, and the policy engine natively supports parsing JSON and XML. To parse the JSON from the response, add the following result block inside of the datasource, underneath the request block:
+We've defined the request but not how to parse the response from the API. As shown in the [documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_index), this API responds with JSON, and the policy engine natively supports parsing JSON and XML. To parse the JSON from the response, add the following `result` block inside of the datasource, underneath the `request` block:
 
 ```ruby
   result do
@@ -116,7 +116,7 @@ There's a lot going on in this block, so let's go over the various fields:
   * The `col_item` reserved word is only valid inside of a `collect` block and represents each item in the list that we're iterating through.
   * The `jmes_path` function is being used to retrieve specific keys from each item.
 
-The result of this result block will be a list of objects that each have a "category" key, "id" key, "name" key, and "short_description" key. The values of these keys will correspond to the values of the equivalently-named keys in each item in the list the API returned.
+The result of this `result` block will be a list of objects that each have a "category" key, "id" key, "name" key, and "short_description" key. The values of these keys will correspond to the values of the equivalently-named keys in each item in the list the API returned.
 
 Your final, complete datasource should look like this:
 
@@ -143,7 +143,7 @@ end
 
 ## Step 6: Policy Block
 
-Now that we have our list of policy templates, we need to raise an incident. Add the following policy block after your datasource:
+Now that we have our list of policy templates, we need to raise an incident. Add the following `policy` block after your datasource:
 
 ```ruby
 policy "pol_list_policy_templates" do
@@ -169,7 +169,7 @@ policy "pol_list_policy_templates" do
 end
 ```
 
-You'll notice some new fields in this policy block. Let's go over them:
+You'll notice some new fields in this `policy` block. Let's go over them:
 
 * `validate_each` works similarly to `validate`. The difference is that the validation will run against each item in a list rather than against the entire datasource. This is the recommended approach when validating a datasource that contains a list.
 * The `summary_template` field contains a new Go templating construct. `len` returns the number of items in a list and `data` refers to the full contents of the datasource. As a result, `{{ len data }}` will be converted to a number representing the number of policy templates in the incident.
@@ -177,13 +177,13 @@ You'll notice some new fields in this policy block. Let's go over them:
   * In this case, we're using the `val` function to check the `name` field of each item to see if is an empty string. If it's not, the check statement resolves to false, and that item is included in the incident. Since every policy template has a name, this should mean every policy template in our list will be included in the incident.
 * Instead of a `detail_template` field, we have an `export` block. This will create a table in the incident.
   * Every `export` block contains a series of `field` blocks. The name of each `field` block corresponds to a key in each item of the list.
-    * Note: You can use the `path` field within a `field` block to specify the key if you need the key to be different than the name of the field itself. This is only necessary for a handful of niche use cases.
+    * You can use the `path` field within a `field` block to specify the key if you need the key to be different than the name of the field itself. This is only necessary for a handful of niche use cases.
   * Each `field` block contains a `label` field that dictates what that column in the incident table will be labelled. This is generally something more human-readable than the name of the key itself.
   * Every `validate` or `validate_each` block must contain either a `detail_template` field, an `export` block, or both. If both are present, the table produced by the `export` block will appear beneath the text of the `detail_template` in the incident.
 
-## Step 7: Email Block
+## Step 7: Email Escalation Block
 
-Finally, let's add an escalation block to the end. This is the same email block we used for the Hello World policy template.
+Finally, let's add an `escalation` block to the end. This is the same `escalation` block we used for the Hello World policy template.
 
 ```ruby
 escalation "esc_email" do
@@ -216,6 +216,6 @@ Finally, let's store the list of policies locally to review at our leisure using
 fpt retrieve_data list_policy_templates.pt param_email='["not_a_real@emailaddress.com", "also_not_real@emailaddress.com"]' --credentials="auth_flexera=your_credential_identifier" -n ds_list_policy_templates
 ```
 
-This should create a file named datasource_ds_list_policy_templates that contains the list of policy templates stored in that datasource. Note that your list may differ from the example in this repository; your Flexera organization may contain additional policy templates.
+This should create a file named "datasource_ds_list_policy_templates.json" that contains the list of policy templates stored in that datasource. Note that your list may differ from the example in this repository; your Flexera organization may contain additional policy templates.
 
 Please move on to [Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/07_pagination/README.md), where we will learn about API pagination.
