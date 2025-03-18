@@ -124,7 +124,7 @@ Detail:
 
 Note how the Go template syntax was replaced with the values we wanted. We're now looking at Markdown-formatted text. This text, when viewed in the Flexera One UI or in an incident email, will be converted to HTML and look something like this:
 
-![Markdown Example](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/solution/markdown.png "Markdown Example")
+![Markdown Example](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/19_go_template/solution/markdown.png "Markdown Example")
 
 ## A Note On HTML
 

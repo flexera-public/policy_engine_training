@@ -6,7 +6,7 @@ Since Flexera's APIs all use JSON, we will be using examples from the [Flexera P
 
 ## XML Responses
 
-If a REST API is going to provide results in xml, you will need to set the `encoding` field to "xml". You will also need to use the `xpath` function, which is the xml equivalent of the `jmes_path` function you've seen before. Consider the below example:
+If a REST API is going to provide results in xml, you will need to set the `encoding` field to "xml". You will also need to use the "xpath" function, which is the xml equivalent of the "jmes_path" function you've seen before. Consider the below example:
 
 ```ruby
 result do
@@ -18,9 +18,9 @@ result do
 end
 ```
 
-Paths should follow xml conventions rather than JSON ones, using `/` characters where appropriate. Unlike the `jmes_path` function, you can specify a third parameter for the `xpath` function to indicate whether you're parsing a "simple_element" (e.g. a single data item) or an "array". If unspecified, this defaults to "simple_element", which is why you don't see this parameter being specified in the `field` fields.
+Paths should follow xml conventions rather than JSON ones, using `/` characters where appropriate. Unlike the "jmes_path" function, you can specify a third parameter for the "xpath" function to indicate whether you're parsing a "simple_element" (e.g. a single data item) or an "array". If unspecified, this defaults to "simple_element", which is why you don't see this parameter being specified in the `field` fields.
 
-Otherwise, functionality is very similar to parsing JSON, including when to use a `collect` block and when to use the reserved words `response` and `col_item`.
+Otherwise, functionality is very similar to parsing JSON, including when to use a `collect` block and when to use the reserved words "response" and "col_item".
 
 ## Text Responses
 

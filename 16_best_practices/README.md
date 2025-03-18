@@ -4,7 +4,7 @@ In this lesson, we'll go over some best practices when it comes to formatting yo
 
 ## Step 1: Update the Version
 
-It's considered best practice to use [semantic versioning](https://semver.org/) when versioning your policy templates. Let's update the policy template to version `0.5.1` by updating the `info` block like so:
+It's considered best practice to use [semantic versioning](https://github.com/flexera-public/policy_templates/blob/master/VERSIONING.md) when versioning your policy templates. Let's update the policy template to version `0.5.1` by updating the `info` block like so:
 
 ```ruby
 info(

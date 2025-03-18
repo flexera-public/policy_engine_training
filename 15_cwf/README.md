@@ -2,7 +2,7 @@
 
 So far, we've only used `escalation` blocks to send emails, but they can do more than just that. Sometimes a user doesn't simply want a report of problems that they need to fix; they want to be able to quickly and easily action on them. `escalation` blocks, combined with Flexera's [Cloud Workflow Language](https://docs.flexera.com/flexera/EN/Automation/CWL.htm), can be used to allow the user to take direct action from the Flexera One user interface or even automatically upon policy execution to do things like resize or delete cloud resources.
 
-The Cloud Workflow Language was originally developed for Flexera's CMP product but was extended to enable policy templates to take actions on cloud resources. This lesson will not be a deep dive into the Cloud Workflow Language itself so much as a demonstration of how it is used in policy templates. Because actions are potentially destructive, we won't build and run a policy template in this lesson, but instead we'll use an example from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to explain how it works.
+The Cloud Workflow Language was originally developed for Flexera's Cloud Management Platform product but was extended to enable policy templates to take actions on cloud resources. This lesson will not be a deep dive into the Cloud Workflow Language itself so much as a demonstration of how it is used in policy templates. Because actions are potentially destructive, we won't build and run a policy template in this lesson, but instead we'll use an example from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to explain how it works.
 
 ## Parameter Block
 
@@ -69,7 +69,7 @@ define delete_snapshots($data, $param_azure_endpoint) return $all_responses do
 end
 ```
 
-The `define` reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The `return` reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a `script` block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
+The "define" reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The "return" reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a `script` block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
 
 We won't go into the details of Cloud Workflow language here, but at a surface level, you can likely see that we're iterating through "$data" and calling another Cloud Workflow block named "delete_snapshot" for each item in the list. We're then raising an error in the UI if any errors occurred.
 

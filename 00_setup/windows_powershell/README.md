@@ -4,6 +4,8 @@
 
 You will need access to a command line interface. The native, default command line application for Windows is PowerShell. Simply type *PowerShell* in the application search and you should find it right away.
 
+**NOTE: You may need Administrator level access to Windows to install some software.**
+
 ## Step 2: Node.js
 
 Node.js will be used in some lessons as a simple way to quickly run JavaScript files. You can use a different interpreter if you prefer, but the lessons will give instructions using Node.js

@@ -85,8 +85,8 @@ The `request` block provides the details needed to make a call to a REST API. Th
 * `host` contains the fully-qualified domain name of the API that we're making the request to. Examples: api.flexera.com, management.azure.com
   * In this specific instance, we're making use of the reserved word `rs_governance_host`. Reserved words are constants built into the policy template language that are populated with a value upon policy execution. In this case, `rs_governance_host` will always be populated with the appropriate host for making API requests to the Flexera Governance API. A full list of reserved words is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/ReservedWordReference.htm#automationrefinfo_2159364277_1123431).
 * `path` contains the URL path that we're making the request against. Examples: /optima/orgs/12345/billUploads, /subscriptions/
-  * The `rs_project_id` reserved word will always be populated with the Flexera project that the policy template is being executed within. This value is needed for some API calls to Flexera APIs.
-  * The `join` function is being used to combine a list of strings into a single string. Functions, like reserved words, are built into the policy template language. A full list of functions is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/Functions.htm#automationrefinfo_2159364277_1123433)
+  * The "rs_project_id" reserved word will always be populated with the Flexera project that the policy template is being executed within. This value is needed for some API calls to Flexera APIs.
+  * The "join" function is being used to combine a list of strings into a single string. Functions, like reserved words, are built into the policy template language. A full list of functions is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/Functions.htm#automationrefinfo_2159364277_1123433)
 
 ## Step 5: Datasource Result
 
@@ -108,13 +108,13 @@ There's a lot going on in this block, so let's go over the various fields:
 
 * `encoding` describes the data format that the API is going to respond with. The supported values are "json", "xml", and "text".
 * Because we're requesting a list of things from this API, the API is going to respond with JSON that contains a list. The `collect` block is used to grab items from a list and form a new list from that data.
-  * The `jmes_path` function retrieves the data stored in a particular JSON key or path from something. The first parameter is the variable, datasource, etc. that contains the JSON we're extracting from, and the second parameter is the path.
-  * The `response` reserved word contains the full response from the API.
+  * The "jmes_path" function retrieves the data stored in a particular JSON key or path from something. The first parameter is the variable, datasource, etc. that contains the JSON we're extracting from, and the second parameter is the path.
+  * The "response" reserved word contains the full response from the API.
   * The "items[\*]" path indicates that we want to grab all items contained in a list that is stored in the key "items". If an API is returning a flat list, rather than a JSON object with a key containing a list, you can use "[\*]" for the path instead.
 * Within the `collect` block, we have various `field` fields that define the values we're going to store. The first value in each `field` field is the name we're going to use to store the data in, and the second value is where we're going to get that data.
   * It is not required that the name of each field match the JSON key in the API response, but in most cases, it is recommended.
-  * The `col_item` reserved word is only valid inside of a `collect` block and represents each item in the list that we're iterating through.
-  * The `jmes_path` function is being used to retrieve specific keys from each item.
+  * The "col_item" reserved word is only valid inside of a `collect` block and represents each item in the list that we're iterating through.
+  * The "jmes_path" function is being used to retrieve specific keys from each item.
 
 The result of this `result` block will be a list of objects that each have a "category" key, "id" key, "name" key, and "short_description" key. The values of these keys will correspond to the values of the equivalently-named keys in each item in the list the API returned.
 
@@ -172,9 +172,9 @@ end
 You'll notice some new fields in this `policy` block. Let's go over them:
 
 * `validate_each` works similarly to `validate`. The difference is that the validation will run against each item in a list rather than against the entire datasource. This is the recommended approach when validating a datasource that contains a list.
-* The `summary_template` field contains a new Go templating construct. `len` returns the number of items in a list and `data` refers to the full contents of the datasource. As a result, `{{ len data }}` will be converted to a number representing the number of policy templates in the incident.
-* The `item` reserved word is only valid in the `check` field when using `validate_each` and refers to each individual item in the list that we're iterating through.
-  * In this case, we're using the `val` function to check the `name` field of each item to see if is an empty string. If it's not, the check statement resolves to false, and that item is included in the incident. Since every policy template has a name, this should mean every policy template in our list will be included in the incident.
+* The `summary_template` field contains a new Go templating construct. `len` returns the number of items in a list and "data" refers to the full contents of the datasource. As a result, `{{ len data }}` will be converted to a number representing the number of policy templates in the incident.
+* The "item" reserved word is only valid in the `check` field when using `validate_each` and refers to each individual item in the list that we're iterating through.
+  * In this case, we're using the "val" function to check the `name` field of each item to see if is an empty string. If it's not, the check statement resolves to false, and that item is included in the incident. Since every policy template has a name, this should mean every policy template in our list will be included in the incident.
 * Instead of a `detail_template` field, we have an `export` block. This will create a table in the incident.
   * Every `export` block contains a series of `field` blocks. The name of each `field` block corresponds to a key in each item of the list.
     * You can use the `path` field within a `field` block to specify the key if you need the key to be different than the name of the field itself. This is only necessary for a handful of niche use cases.
