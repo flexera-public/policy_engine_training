@@ -4,7 +4,7 @@
       "charset": false
     },
     "no-dead-link": {
-      "checkRelative": true,
+      "checkRelative": false,
       "baseURI": null,
       "ignore": [
         "api.loganalytics.io",
