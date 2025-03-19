@@ -16,6 +16,8 @@ require 'yaml'
 require_relative '.dangerfile/github_tests'
 require_relative '.dangerfile/general_tests'
 require_relative '.dangerfile/code_tests'
+require_relative '.dangerfile/policy_parser'
+require_relative '.dangerfile/policy_tests'
 
 ###############################################################################
 # File Sorting
@@ -35,6 +37,8 @@ changed_dot_files = changed_files.select{ |file| file.start_with?(".") && !file.
 # Changed Config Files
 config_files = ["Gemfile", "Gemfile.lock", "package.json", "package-lock.json"]
 changed_config_files = changed_files.select{ |file| config_files.include?(file) }
+# Changed Policy Template files. Ignore meta policy files.
+changed_pt_files = changed_files.select{ |file| file.end_with?(".pt") && !file.end_with?("broken.pt") }
 # Changed Ruby files.
 changed_rb_files = changed_files.select{ |file| file.end_with?(".rb") || file == "Dangerfile" || file == "Rakefile" }
 # Changed Python files.
@@ -237,6 +241,43 @@ changed_md_files.each do |file|
 
   # Raise error if improper markdown is found via linter
   test = general_bad_markdown?(file); failures << test if test
+
+  # Output final list of failures and warnings
+  fail "### **#{file}**\n\n#{failures.join("\n\n---\n\n")}" if !failures.empty?
+  warn "### **#{file}**\n\n#{warnings.join("\n\n---\n\n")}" if !warnings.empty?
+end
+
+###############################################################################
+# Policy Testing
+###############################################################################
+
+puts Time.now.strftime("%H:%M:%S.%L") + " * Testing all changed Policy Template files..."
+
+# Check policies for issues for each file
+changed_pt_files.each do |file|
+  puts Time.now.strftime("%H:%M:%S.%L") + " ** Testing " + file + "..."
+
+  # Run policy through various methods that test for problems.
+  # These methods will return false if no problems are found.
+  # Otherwise, they return the warning or error message that should be raised.
+  warnings = []
+  failures = []
+
+  # Preread file to avoid reading it multiple times for each method
+  file_parsed = PolicyParser.new
+  file_parsed.parse(file)
+  file_text = File.read(file)
+  file_lines = File.readlines(file)
+  file_diff = git.diff_for_file(file)
+
+  # Run policy through fpt testing. Only raise error if there is a syntax error.
+  test = policy_fpt_syntax_error?(file); failures << test if test
+
+  # Raise error if policy filename/path contains any uppercase letters
+  test = policy_bad_filename_casing?(file); failures << test if test
+
+  # Raise warning if policy's name has changed
+  test = policy_name_changed?(file, file_diff); warnings << test if test
 
   # Output final list of failures and warnings
   fail "### **#{file}**\n\n#{failures.join("\n\n---\n\n")}" if !failures.empty?
