@@ -24,7 +24,10 @@
         "contoso.okta.com",
         "login.flexera.com",
         "login.flexera.eu",
-        "login.flexera.au"
+        "login.flexera.au",
+        "app.flexera.com",
+        "app.flexera.eu",
+        "app.flexera.au"
       ],
       "preferGET": [],
       "ignoreRedirects": true,
