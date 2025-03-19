@@ -35,8 +35,8 @@ General Resources:
 * [Underscore.js](https://underscorejs.org/): Documentation for the Underscore.js library.
 * [Go Template](https://pkg.go.dev/text/template): Information on Go template syntax.
 * [Markdown](https://www.markdownguide.org/): Information on Markdown.
-* [Team Treehouse](https://teamtreehouse.com/): Training on various programming languages. JavaScript is used in policy templates, and general coding knowledge is a requirement for policy development.
 * [LinkedIn Learning](https://www.linkedin.com/learning/): Training on JavaScript, public clouds, APIs, and other concepts relevant to the policy engine.
+* [Team Treehouse](https://teamtreehouse.com/): Training on various programming languages. JavaScript is used in policy templates, and general coding knowledge is a requirement for policy development.
 
 ## Syllabus
 
