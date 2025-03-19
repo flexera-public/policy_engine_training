@@ -1,0 +1,11 @@
+MD013: false
+
+MD005: false
+
+MD009: false
+
+MD026:
+  punctuation: ".,;:!"
+
+MD029:
+  style: ordered
