@@ -182,7 +182,7 @@ The policy template we've been developing already followed some recommended conv
 
 Many blocks allow you to use a `label` field and a `description` field. We recommended that you always include both of these fields.
 
-The `label` field should always be short (less than 30 characters when possible), capitalized, and act as the name for the block. This is how the user will see the block labelled in the UI.
+The `label` field should always be short (less than 30 characters when possible), capitalized, and act as the name for the block. This is how the user will see the block labeled in the UI.
 
 The `description` field should be a longer description written in 1 to 3 complete sentences. The UI will show this to the user in smaller text to explain what the block does.
 

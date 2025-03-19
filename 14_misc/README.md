@@ -64,7 +64,7 @@ parameter "param_azure_endpoint" do
 end
 ```
 
-This is a string parameter and the `allowed_values` field has two values. When the user applies this policy template in the Flexera One UI, they will see a dropdown menu with only these two strings as options. If this were a list parameter, the values would appear as options they can add to a list. In both cases, they will not be able to type a custom value.
+This is a string parameter and the `allowed_values` field has two values. When the user applies this policy template in the Flexera One UI, they will see a drop-down menu with only these two strings as options. If this were a list parameter, the values would appear as options they can add to a list. In both cases, they will not be able to type a custom value.
 
 Note that, for both `allowed_values` and `allowed_pattern`, if you specify a default value, it must be valid. For `allowed_values`, that means it must be one of the listed values, and for `allowed_pattern`, it must match the regex pattern.
 

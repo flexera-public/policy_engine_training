@@ -21,7 +21,10 @@
         "us-4.rightscale.com",
         "https://demo.flexnetmanager.com/*",
         "https://wstunnel1-1.rightscale.com/*",
-        "contoso.okta.com"
+        "contoso.okta.com",
+        "login.flexera.com",
+        "login.flexera.eu",
+        "login.flexera.au"
       ],
       "preferGET": [],
       "ignoreRedirects": true,
