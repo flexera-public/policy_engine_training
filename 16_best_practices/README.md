@@ -16,7 +16,7 @@ We're changing the patch version instead of the minor version because our change
 
 ## Step 2: Policy Block Order & Comments
 
-You should always keep `policy` blocks of the same type, such as `credentials` blocks, `parameter` blocks, etc. in a group next to each other. The only exception are `datasource` and `script` blocks, where it is recommended that the `script` block immediately follow the `datasource` block calling the script.
+You should always keep `policy` blocks of the same type, such as `credentials` blocks, `parameter` blocks, etc. in a group next to each other. The only exception are `datasource` and `script` blocks, where we recommended that the `script` block immediately follow the `datasource` block calling the script.
 
 Additionally, we recommend ordering these groups within a policy template to follow a logical flow like the below. This ensures that, when reading the policy template from top to bottom, you can follow what the policy template will do upon execution.
 
@@ -85,7 +85,7 @@ Now add equivalent comments to the appropriate sections throughout the policy te
 
 ## Step 3: Naming Script Parameters & Result Variables
 
-It is recommended that, in most cases, the parameters in your `script` block match the names of those parameters in the `run_script` field of the `datasource` block calling the `script` block. The exception of course is when parameters in the `run_script` field don't have clean names, such as manual values/strings or calls to built-in policy language functions.
+We recommended that, in most cases, the parameters in your `script` block match the names of those parameters in the `run_script` field of the `datasource` block calling the `script` block. The exception of course is when parameters in the `run_script` field don't have clean names, such as manual values/strings or calls to built-in policy language functions.
 
 It is also recommended that the `result` field of the `script` block be set to either "result" or "request" depending on whether the script is being called within a `request` block.
 
@@ -180,9 +180,9 @@ The policy template we've been developing already followed some recommended conv
 
 ## Label & Description Fields
 
-Many blocks allow you to use a `label` field and a `description` field. It is recommended that you always include both of these fields.
+Many blocks allow you to use a `label` field and a `description` field. We recommended that you always include both of these fields.
 
-The `label` field should always be short (less than 30 characters when possible), capitalized, and act as the name for the block. This is how the user will see the block labelled in the UI.
+The `label` field should always be short (less than 30 characters when possible), capitalized, and act as the name for the block. This is how the user will see the block labeled in the UI.
 
 The `description` field should be a longer description written in 1 to 3 complete sentences. The UI will show this to the user in smaller text to explain what the block does.
 

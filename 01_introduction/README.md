@@ -2,7 +2,7 @@
 
 This lesson won't involve any development and is intended to provide a general overview of what policy templates are and how they work.
 
-Please note that this is only a summary. It is recommended that you also read the [official documentation on policy templates](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm) for a general overview.
+Please note that this is only a summary. We recommended that you also read the [official documentation on policy templates](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm) for a general overview.
 
 ## The Basics
 

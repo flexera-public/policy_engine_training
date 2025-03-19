@@ -3,10 +3,10 @@ name: Test Changes
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
   # Workflow dispatch trigger allows manually running workflow
   workflow_dispatch: {}

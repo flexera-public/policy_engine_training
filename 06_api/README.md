@@ -2,7 +2,7 @@
 
 Thus far we've only used the policy engine to produce an output based on values provided by the user, but the real power of the policy engine is its ability to leverage REST APIs to gather data from external sources.
 
-In this lesson, we will use one of Flexera's REST APIs to get a list of policy templates and show them in an incident. If you are unfamiliar with REST APIs and how they work, it is recommended that you use an external resource, such as LinkedIn Learning or Udemy, to learn about them before proceeding with this lesson.
+In this lesson, we will use one of Flexera's REST APIs to get a list of policy templates and show them in an incident. If you are unfamiliar with REST APIs and how they work, we recommended that you use an external resource, such as LinkedIn Learning or Udemy, to learn about them before proceeding with this lesson.
 
 Note: To actually run the policy template we will be creating in this lesson, you will need to create a Flexera credential in your Flexera One organization as described in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup).
 
@@ -178,7 +178,7 @@ You'll notice some new fields in this `policy` block. Let's go over them:
 * Instead of a `detail_template` field, we have an `export` block. This will create a table in the incident.
   * Every `export` block contains a series of `field` blocks. The name of each `field` block corresponds to a key in each item of the list.
     * You can use the `path` field within a `field` block to specify the key if you need the key to be different than the name of the field itself. This is only necessary for a handful of niche use cases.
-  * Each `field` block contains a `label` field that dictates what that column in the incident table will be labelled. This is generally something more human-readable than the name of the key itself.
+  * Each `field` block contains a `label` field that dictates what that column in the incident table will be labeled. This is generally something more human-readable than the name of the key itself.
   * Every `validate` or `validate_each` block must contain either a `detail_template` field, an `export` block, or both. If both are present, the table produced by the `export` block will appear beneath the text of the `detail_template` in the incident.
 
 ## Step 7: Email Escalation Block

@@ -72,7 +72,7 @@ This block has the following fields:
 
 * `type` is always on the same line as the `script` block's name and is always set to `javascript`.
 * `result` contains the name of the variable that will contain the result. When the script finishes execution, whatever is stored in this variable name will become the value of the datasource calling this `script` block.
-* `code` contains the JavaScript code that the `script` block will execute. While you can technically put all of your code on a single line contained in double-quotes, it is recommended that you use the "<<-'EOS'" and "EOS" formatting shown above to allow the use of multiple lines.
+* `code` contains the JavaScript code that the `script` block will execute. While you can technically put all of your code on a single line contained in double-quotes, we recommended that you use the "<<-'EOS'" and "EOS" formatting shown above to allow the use of multiple lines.
 
 ## Step 5: JavaScript Code
 

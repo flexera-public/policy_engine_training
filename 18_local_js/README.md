@@ -79,7 +79,7 @@ We could run the script now, but we won't actually see anything if we do. Let's 
 console.log(JSON.stringify(result, null, 2))
 ```
 
-It is recommended that you use the "JSON.stringify" function when outputting JSON objects or lists. This ensures that the output is formatted in a way that is easy to read.
+We recommend that you use the "JSON.stringify" function when outputting JSON objects or lists. This ensures that the output is formatted in a way that is easy to read.
 
 ## Step 6: Run Script
 
@@ -134,7 +134,7 @@ Now run the script again. You should see only one item in the response:
 
 If you're running a `script` block locally, you're likely trying to troubleshoot a problem with your script. Since the script is running as a local JS file, you can very quickly experiment with changes and observe the result. Once you have a working version of the script, you can simply paste it into the policy template.
 
-You can also use "console.log" commands to identify issues during execution. Suppose we had an issue that we suspected was with the "policy_table" variable. Add the following "console.log" command after we've assembled the table:
+You can also use the "console.log" function to identify issues during execution. Suppose we had an issue that we suspected was with the "policy_table" variable. Add the following "console.log" function call after we've assembled the table:
 
 ```javascript
 policy_table = {}

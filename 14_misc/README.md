@@ -26,9 +26,9 @@ parameter "param_email" do
 end
 ```
 
-Currently, the `category` field does not have any effect, but it is likely that a future UI update in Flexera One will label and sort parameters by their category in the UI for ease of use. For this reason, it is recommended that you include this field and use it to group your parameters together by function.
+Currently, the `category` field does not have any effect, but it is likely that a future UI update in Flexera One will label and sort parameters by their category in the UI for ease of use. For this reason, we recommended that you include this field and use it to group your parameters together by function.
 
-You can categorize your parameters however you like, but it is recommended that you use a consistent set of category values across your policy templates to make things easier for your users. If you're not sure what values to use, the [Flexera Policy Templates GitHub Repository](https://github.com/flexera-public/policy_templates) provides many examples that may help.
+You can categorize your parameters however you like, but we recommended that you use a consistent set of category values across your policy templates to make things easier for your users. If you're not sure what values to use, the [Flexera Policy Templates GitHub Repository](https://github.com/flexera-public/policy_templates) provides many examples that may help.
 
 ## Step 3: Add allowed_pattern to Parameter
 
@@ -64,7 +64,7 @@ parameter "param_azure_endpoint" do
 end
 ```
 
-This is a string parameter and the `allowed_values` field has two values. When the user applies this policy template in the Flexera One UI, they will see a dropdown menu with only these two strings as options. If this were a list parameter, the values would appear as options they can add to a list. In both cases, they will not be able to type a custom value.
+This is a string parameter and the `allowed_values` field has two values. When the user applies this policy template in the Flexera One UI, they will see a drop-down menu with only these two strings as options. If this were a list parameter, the values would appear as options they can add to a list. In both cases, they will not be able to type a custom value.
 
 Note that, for both `allowed_values` and `allowed_pattern`, if you specify a default value, it must be valid. For `allowed_values`, that means it must be one of the listed values, and for `allowed_pattern`, it must match the regex pattern.
 
@@ -160,7 +160,7 @@ Let's add a `hash_exclude` field in our `validate_each` block for the "id" data 
 
 ## Step 7: Add Resource Level to Export
 
-When writing policy templates that report individual resources, it is recommended that you add the `resource_level` field and set it to "true". This will allow the user to perform actions against individual resources in the UI if your policy template has actions. When setting `resource_level` to true, your `export` block must contain an "id" field.
+When writing policy templates that report individual resources, we recommended that you add the `resource_level` field and set it to "true". This will allow the user to perform actions against individual resources in the UI if your policy template has actions. When setting `resource_level` to true, your `export` block must contain an "id" field.
 
 Since policy templates can be considered resources, let's add this statement to our policy like so:
 

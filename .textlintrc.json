@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "editorconfig": {
+      "charset": false
+    }
+  },
+  "filters": {
+    "comments": true
+  }
+}

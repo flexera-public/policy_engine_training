@@ -6,7 +6,7 @@ In this lesson, we're going to edit the "hello_world.pt" policy template created
 
 ## Step 1: Update the Version
 
-It is recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the `info` block like so:
+We recommended that you use versioning to track changes in policy templates you develop. Let's update the policy template to version `0.2.0` by updating the `info` block like so:
 
 ```ruby
 info(
