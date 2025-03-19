@@ -59,7 +59,7 @@ To install VSCode, please follow the instructions on the [VSCode website](https:
 
 fpt is Flexera's native policy template development and testing tool. Installation will vary depending on your operating system and command line configuration.
 
-Run the following commands to download fpt and configure PowerShell to add it to your PATH. It is recommended that you restart your PowerShell terminal after doing this to ensure the new configurations are in effect.
+Run the following commands to download fpt and configure PowerShell to add it to your PATH. We recommended that you restart your PowerShell terminal after doing this to ensure the new configurations are in effect.
 
 ```powershell
 Invoke-WebRequest -Uri "https://binaries.rightscale.com/rsbin/fpt/v1.5.0/fpt-windows-amd64.zip" -OutFile "$env:USERPROFILE\fpt-windows-amd64.zip"
@@ -76,11 +76,13 @@ Once you've completed the installation steps above, you can verify that fpt is i
 fpt v1.5.0 - 2022-04-27 21:17:14 - 4a0a2e0052c9081144087448231e8b6fb6306906
 ```
 
+Note: The version number you see may be higher than the above if fpt has been updated since these lessons were created.
+
 ## Step 7: Configure fpt for Flexera One
 
 If you do not have access to a Flexera One organization, you should skip this section. You will still be able to follow the tutorial, but you will not be able to do the sections that involve the `fpt` command.
 
-In order to configure `fpt`, you will need access to a Flexera One organization with access to Flexera's automation engine. While nothing that will be done in this tutorial is destructive, it is recommended that you use a UAT or test account for this tutorial to avoid cluttering a production environment.
+In order to configure `fpt`, you will need access to a Flexera One organization with access to Flexera's automation engine. While nothing that will be done in this tutorial is destructive, we recommended that you use a UAT or test account for this tutorial to avoid cluttering a production environment.
 
 ### Gather Necessary Info
 
@@ -104,7 +106,7 @@ The final piece of information we'll need is the API host. You can infer this fr
 * app.flexera.eu: `api.eu-central-1.policy-eu.flexeraeng.com`
 * app.flexera.au: `api.ap-southeast-2.policy-apac.flexeraeng.com`
 
-Unfortunately, there is not an easy way to know which of the above two hosts is correct if you use the `app.flexera.com` instance. It is recommended that you try `governance-4.rightscale.com` first and then redo the configuration below with `governance-3.rightscale.com` instead if you run into problems.
+Unfortunately, there is not an easy way to know which of the above two hosts is correct if you use the `app.flexera.com` instance. We recommended that you try `governance-4.rightscale.com` first and then redo the configuration below with `governance-3.rightscale.com` instead if you run into problems.
 
 ### Configure fpt
 
@@ -159,6 +161,6 @@ cd ~/policy_engine_training
 code .
 ```
 
-VSCode should launch. This repository contains configuration files for VSCode to recommend certain extensions to assist in policy template development, so if you are prompted to install extensions, it is recommended that you install them.
+VSCode should launch. This repository contains configuration files for VSCode to recommend certain extensions to assist in policy template development, so if you are prompted to install extensions, we recommended that you install them.
 
 You should now be configured and ready for the tutorial. Please proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md).

@@ -2,7 +2,7 @@
 
 Thus far we've only used the policy engine to produce an output based on values provided by the user, but the real power of the policy engine is its ability to leverage REST APIs to gather data from external sources.
 
-In this lesson, we will use one of Flexera's REST APIs to get a list of policy templates and show them in an incident. If you are unfamiliar with REST APIs and how they work, it is recommended that you use an external resource, such as LinkedIn Learning or Udemy, to learn about them before proceeding with this lesson.
+In this lesson, we will use one of Flexera's REST APIs to get a list of policy templates and show them in an incident. If you are unfamiliar with REST APIs and how they work, we recommended that you use an external resource, such as LinkedIn Learning or Udemy, to learn about them before proceeding with this lesson.
 
 Note: To actually run the policy template we will be creating in this lesson, you will need to create a Flexera credential in your Flexera One organization as described in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup).
 

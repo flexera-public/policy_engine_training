@@ -126,7 +126,7 @@ Note how the Go template syntax was replaced with the values we wanted. We're no
 
 ![Markdown Example](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/19_go_template/solution/markdown.png "Markdown Example")
 
-## A Note On HTML
+## A Note on HTML
 
 HTML is not legitimately supported by the policy engine and it is not recommended that you put HTML code in your `detail_template` field. *Some* HTML will render correctly when an incident is emailed, but the raw HTML code will be displayed instead when viewing the incident in the Flexera One UI. [Markdown](https://www.markdownguide.org/) should be used instead.
 

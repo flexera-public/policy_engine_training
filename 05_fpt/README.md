@@ -2,7 +2,7 @@
 
 So far, we've used fpt to check the syntax of policy templates and to run them. fpt also offers other functionality that can be very useful in policy template development which we'll explore here.
 
-Note: If you are not able to use fpt because you do not have access to a Flexera One account, it is recommended that you still read along to get a sense of how to use fpt before moving on to the next lesson.
+Note: If you are not able to use fpt because you do not have access to a Flexera One account, we recommended that you still read along to get a sense of how to use fpt before moving on to the next lesson.
 
 ## Step 1: --help
 

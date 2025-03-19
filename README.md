@@ -8,15 +8,15 @@ This Github repository contains lessons and resources intended to train someone 
 
 These lessons are intended to get someone familiar with policy template development by starting simple and gradually introducing new concepts along the way. Most the lessons will walk you through creating or modifying a policy template in order to achieve specific functionality. The actual development will occur on your local workstation, but each lesson will have a "solution" folder containing correct versions of the assets that you will be creating during the lesson as a reference.
 
-These lessons will *not* provide full coverage of every aspect of the policy template language. Once you've completed these lessons and are confident in your understanding of their contents, it is recommended that you review the official documentation for more detail. Scroll down to the Additional Resources section for more information.
+These lessons will *not* provide full coverage of every aspect of the policy template language. Once you've completed these lessons and are confident in your understanding of their contents, we recommended that you review the official documentation for more detail. Scroll down to the Additional Resources section for more information.
 
-**NOTE: Some aspects of this training require access to a functioning Flexera One organization. It is highly recommended that you have access to a UAT or other low risk environment to test in. None of the policy templates developed in these lessons have the potential to do anything destructive, but it is recommended that you not use a production Flexera One organization to avoid cluttering it with training assets.**
+**NOTE: Some aspects of this training require access to a functioning Flexera One organization. It is highly recommended that you have access to a UAT or other low risk environment to test in. None of the policy templates developed in these lessons have the potential to do anything destructive, but we recommended that you not use a production Flexera One organization to avoid cluttering it with training assets.**
 
 **If you do not have this access, you can still follow along and write policy templates, but you may need to read along the sections that involve the Flexera One user interface and the fpt command line tool rather than perform those steps directly.**
 
 ## Where to Begin?
 
-It is recommended that you begin by following the steps in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/README.md) guide to create a functioning development environment on your local workstation, and then proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md).
+We recommended that you begin by following the steps in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/README.md) guide to create a functioning development environment on your local workstation, and then proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/01_introduction/README.md).
 
 ## Additional Resources
 
@@ -40,7 +40,7 @@ General Resources:
 
 ## Syllabus
 
-Note: Each lesson builds upon ideas and concepts in the previous lesson. It is recommended that you proceed in order rather than skip around.
+Note: Each lesson builds upon ideas and concepts in the previous lesson. We recommended that you proceed in order rather than skip around.
 
 * **[Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/README.md)**
   * **[Windows (PowerShell)](https://github.com/flexera-public/policy_engine_training/blob/main/00_setup/windows_powershell/README.md)**

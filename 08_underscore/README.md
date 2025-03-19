@@ -2,7 +2,7 @@
 
 In order to overcome some of the syntactic limitations of JavaScript, the JavaScript interpreter included in the policy template language is bundled with the [Underscore.js](https://underscorejs.org/) library. This library adds a lot of functionality common in other high-level programming languages.
 
-**NOTE: This section assumes a basic familiarity with writing JavaScript code. If you are not familiar with JavaScript, it is recommended that you use an external resource, such as [Team Treehouse](https://teamtreehouse.com/) or [LinkedIn Learning](https://www.linkedin.com/learning/), to get a good basic foundation in JavaScript development before proceeding.**
+**NOTE: This section assumes a basic familiarity with writing JavaScript code. If you are not familiar with JavaScript, we recommended that you use an external resource, such as [Team Treehouse](https://teamtreehouse.com/) or [LinkedIn Learning](https://www.linkedin.com/learning/), to get a good basic foundation in JavaScript development before proceeding.**
 
 ## Basic Syntax
 
@@ -406,6 +406,6 @@ When you run the script, you should see the first value and last value of the li
 
 ## Further Reading
 
-This is far from a complete list of everything Underscore.js has to offer. The above are just the most commonly used functions. It is recommended that you read the [Underscore.js documentation](https://underscorejs.org/) to get a better sense of everything it can do, and use this as a reference if you encounter any Underscore.js functions that you do not recognize.
+This is far from a complete list of everything Underscore.js has to offer. The above are just the most commonly used functions. We recommended that you read the [Underscore.js documentation](https://underscorejs.org/) to get a better sense of everything it can do, and use this as a reference if you encounter any Underscore.js functions that you do not recognize.
 
 After doing so, please move on to [Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/09_relational_data/README.md), where we will make use of some of this functionality to relate some data sets.
