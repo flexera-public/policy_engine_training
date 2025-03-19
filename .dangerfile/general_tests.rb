@@ -65,7 +65,7 @@ def general_bad_markdown?(file)
   puts Time.now.strftime("%H:%M:%S.%L") + " *** Testing file using markdown linter..."
 
   # Adjust testing based on which file we're doing
-  mdl = `markdownlint-cli2 #{file}`.lines.drop(4).join.strip
+  mdl = `node_modules/.bin/markdownlint-cli2 #{file}`.lines.drop(4).join.strip
 
   # Return the problems found if the mdl file is not empty. Otherwise, return false
   return "Markdown syntax errors found:\n\n#{mdl}" if !mdl.empty?
