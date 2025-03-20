@@ -44,7 +44,7 @@ changed_rb_files = changed_files.select{ |file| file.end_with?(".rb") || file ==
 # Changed Python files.
 changed_py_files = changed_files.select{ |file| file.end_with?(".py") }
 # Changed MD files other than the above.
-changed_md_files = changed_files.select{ |file| file.end_with?(".md") }
+changed_md_files = changed_files.select{ |file| file.end_with?(".md") && !file.start_with?(".github/") }
 # Changed JSON files.
 changed_json_files = changed_files.select{ |file| file.end_with?(".json") }
 # Changed YAML files.
