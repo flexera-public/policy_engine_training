@@ -30,7 +30,7 @@ end
 
 Notice the new `iterate` field. This field tells the datasource to iterate through another datasource and make an API request for each item in that datasource.
 
-Notice how we're iterating through the smaller list of policy templates that have already been filtered to just the ones with lessons associated; this is because we don't actually *need* information about the other policy templates, since they won't be included in the incident. It's always good to develop your policy templates with efficiency in mind, avoiding unnecessary API calls when necessary.
+Notice how we're iterating through the smaller list of policy templates that have already been filtered to just the ones with lessons associated; this is because we don't actually *need* information about the other policy templates, since they won't be included in the incident. It's always good to develop your policy templates with efficiency in mind, avoiding unnecessary API requests when necessary.
 
 ## Step 3: Add the Request Block
 
@@ -51,7 +51,7 @@ Notice the "iter_item" reserved word. When a datasource is iterating through a l
 
 Also notice the new `query` field. This field allows us to specify query parameters for API requests. In this case, setting the view parameter to "extended" will give us additional information about the policy template. Note that, when using a `script` block for the API request, this field must be "query_params" instead of "query".
 
-More information about this specific API call is in [our documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_show) if you're curious.
+More information about this specific API request is in [our documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_show) if you're curious.
 
 ## Step 4: Add the Result Block
 
@@ -72,7 +72,7 @@ You'll notice that we're not using a `collect` statement. This is because each i
 
 This is also why the `field` statement for "created_at" uses the "response" reserved word instead of "col_item". "col_item" is only valid within a collect statement, and in this case, we're pulling the value directly from the API response.
 
-Note also that the rest of the `field` fields are pulling values from "iter_item". This means they will contain information stored in the datasource we're iterating through rather than information from the API call being made. Only the "created_at" field contains information from the API call.
+Note also that the rest of the `field` fields are pulling values from "iter_item". This means they will contain information stored in the datasource we're iterating through rather than information from the API request being made. Only the "created_at" field contains information from the API request.
 
 Your completed datasource should look like this:
 

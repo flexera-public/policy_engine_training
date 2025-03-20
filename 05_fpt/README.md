@@ -22,7 +22,7 @@ You should see a brief description of what the run option does and the various f
 
 ## Step 2: retrieve_data
 
-One of the most useful functions of fpt is the ability to retrieve a datasource and store its contents as a local file. This can be handy for debugging or when you need to know what the output of a specific API call looks like.
+One of the most useful functions of fpt is the ability to retrieve a datasource and store its contents as a local file. This can be handy for debugging or when you need to know what the output of a specific API request looks like.
 
 Let's test this with our Hello World policy template. First, let's view the help info for *retrieve_data*:
 

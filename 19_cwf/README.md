@@ -71,7 +71,7 @@ end
 
 The "define" reserved word is used to create a Cloud Workflow block. It is followed by the name of the block, and then the parameters for the block encapsulated in parentheses. The "return" reserved word is then followed by the name of the variable whose value to return when the block executions; this is very similar to the `result` field in a `script` block, and is mostly relevant when a Cloud Workflow block calls another Cloud Workflow block.
 
-We won't go into the details of Cloud Workflow language here, but at a surface level, you can likely see that we're iterating through "$data" and calling another Cloud Workflow block named "delete_snapshot" for each item in the list. We're then raising an error in the UI if any errors occurred.
+In this block, we're iterating through "$data" and calling another Cloud Workflow block named "delete_snapshot" for each item in the list. We're then raising an error in the UI if any errors occurred.
 
 Let's take a look at the "delete_snapshot" block being called above:
 
@@ -186,14 +186,14 @@ Cloud Workflow Language has numerous built-in functions for various operations. 
 json_stuff = to_json(my_hash)
 ```
 
-The following are commonly used:
+The following functions are especially useful to know:
 
-* **http_request(*request_hash*):** Makes an API request. Discussed in more detail in the "API Requests" section below.
+* **http_request(*request_hash*):** Makes an API request and returns the API response. Discussed in more detail in the "API Requests" section below.
   * Note: Functions also exist for "http_get", "http_post", etc. but the above is recommended instead.
-* **sleep(*seconds*):** Pause execution for the specified number of seconds.
+* **sleep(*seconds*):** Pause execution for the specified number of seconds. Useful when you're making API requests within a loop and need to ensure a delay between each individual request.
 * **task_label(*string*):** Inserts a label into the execution log. Can be very useful for debugging.
 * **type(*variable*):** Returns a string containing the type of a variable. Example: "array"
-* **to_json(*hash*):** Converts a hash to a JSON string. Can be useful for some API calls or for use with "task_label" to display a hash in the UI.
+* **to_json(*hash*):** Converts a hash to a JSON string. Can be useful for some API requests, with "task_label" to store a hash in the execution logs, or when raising errors
 
 ### Calling Blocks
 
@@ -229,6 +229,8 @@ $response = http_request(
   body: { "filter": "none" }
 )
 ```
+
+Note that, unlike a `script` block used to make an API request, an "http_request" function in Cloud Workflow executes in real time rather than simply passing request details back to a `datasource` block. This means you can do logic around the results of the request, make a request multiple times inside of a loop, etc.
 
 ### Error Handling
 

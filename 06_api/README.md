@@ -60,7 +60,7 @@ This block has the following fields:
 
 ## Step 4: Datasource Request
 
-So far, we've only used datasources to run JavaScript. Their primary use, however, is in making API calls. In this policy template, we're going to make an API call to retrieve a list of policy templates. You can learn more about this API call in the [documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_index).
+So far, we've only used datasources to run JavaScript. Their primary use, however, is in making API requests. In this policy template, we're going to make an API request to retrieve a list of policy templates. You can learn more about this API request in the [documentation](https://reference.rightscale.com/governance-policies/#/PolicyTemplate/PolicyTemplate_index).
 
 Underneath the `credentials` block, add the following code:
 
@@ -85,7 +85,7 @@ The `request` block provides the details needed to make a call to a REST API. Th
 * `host` contains the fully-qualified domain name of the API that we're making the request to. Examples: api.flexera.com, management.azure.com
   * In this specific instance, we're making use of the reserved word `rs_governance_host`. Reserved words are constants built into the policy template language that are populated with a value upon policy execution. In this case, `rs_governance_host` will always be populated with the appropriate host for making API requests to the Flexera Governance API. A full list of reserved words is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/ReservedWordReference.htm#automationrefinfo_2159364277_1123431).
 * `path` contains the URL path that we're making the request against. Examples: /optima/orgs/12345/billUploads, /subscriptions/
-  * The "rs_project_id" reserved word will always be populated with the Flexera project that the policy template is being executed within. This value is needed for some API calls to Flexera APIs.
+  * The "rs_project_id" reserved word will always be populated with the Flexera project that the policy template is being executed within. This value is needed for some API requests to Flexera APIs.
   * The "join" function is being used to combine a list of strings into a single string. Functions, like reserved words, are built into the policy template language. A full list of functions is in the [documentation](https://docs.flexera.com/flexera/EN/Automation/Functions.htm#automationrefinfo_2159364277_1123433)
 
 ## Step 5: Datasource Result

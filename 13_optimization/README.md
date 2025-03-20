@@ -6,7 +6,7 @@ For that reason, it is good to follow a few best practices when developing polic
 
 ## Efficient Use of APIs
 
-Often, just changing how your API calls are made can increase the efficiency of your policy. Always consider the following:
+Often, just changing how your API requests are made can increase the efficiency of your policy. Always consider the following:
 
 ### Reduce # of API Requests
 

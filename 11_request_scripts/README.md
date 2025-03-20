@@ -2,7 +2,7 @@
 
 While most REST API requests made in the policy engine are made by specifying various fields in a `request` block within the datasource, it is also possible to call a `script` block within a `request` block instead. This can be useful for a handful of scenarios:
 
-* Sometimes you might need to do some logic for the API call that will determine headers, query parameters, or the path of the API call. A common use case here is when you need to send in a date range; if your `request` block calls a script, a script can calculate the date values to send in.
+* Sometimes you might need to do some logic for the API request that will determine headers, query parameters, or the path of the API request. A common use case here is when you need to send in a date range; if your `request` block calls a script, a script can calculate the date values to send in.
 
 * The `verb` field in a `request` block will only take a string; it cannot reference a parameter or datasource, which means it can't be dynamically determined during execution. You *can* do this in a `script` block though. This can be relevant in situations where, for example, you might need to do either a POST or a PATCH request depending on whether you are creating a new item or modifying an existing one.
 
@@ -30,7 +30,7 @@ The first thing we need to do is update the `request` block on the datasource to
 
 Notice how, in this instance, the `run_script` field is *inside* of a `request` block. This will execute the script and then the result of the script will be used by the datasource to call a REST API. The parameters we are passing are all information that we will need to create the API request. Note that, in this instance, we're passing the raw string "GET" as a parameter; parameters for a `run_script` statement can include string or numerical values in addition to variables.
 
-**NOTE: The REST API call is not made during execution of the `script` block. JavaScript executed within the `script` block is entirely self-contained and has no access to the internet. The result of the `script` block contains the information about the REST API call and is passed to the policy engine, which then makes the API call the same as it would with the method previously used.**
+**NOTE: The REST API request is not made during execution of the `script` block. JavaScript executed within the `script` block is entirely self-contained and has no access to the internet. The result of the `script` block contains the information about the REST API request and is passed to the policy engine, which then makes the API request the same as it would with the method previously used.**
 
 ## Step 3: Create a Script Block
 
@@ -54,7 +54,7 @@ EOS
 end
 ```
 
-When this script finishes execution, the result will be an object with fields that correspond to the various parts of an API call. Note that the `auth` field is in quotes and without the `$` symbol; only within a `script` block is this the correct formatting to reference a `credentials` block. Any other values needed for the API call, such as parameters, datasources, and reserved words, should be passed as parameters to the `script` block and referenced accordingly.
+When this script finishes execution, the result will be an object with fields that correspond to the various parts of an API request. Note that the `auth` field is in quotes and without the `$` symbol; only within a `script` block is this the correct formatting to reference a `credentials` block. Any other values needed for the API request, such as parameters, datasources, and reserved words, should be passed as parameters to the `script` block and referenced accordingly.
 
 ## Step 4: Testing
 
@@ -72,4 +72,4 @@ fpt run list_policy_templates.pt --credentials="auth_flexera=your_credential_ide
 
 The policy template should complete execution just as it did before we changed it. This means the `script` block is working as expected.
 
-That's it for Lesson 11. Please move on to [Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_iterating/README.md), where we will learn how to iterate through a datasource to make several API calls.
+That's it for Lesson 11. Please move on to [Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_iterating/README.md), where we will learn how to iterate through a datasource to make several API requests.

@@ -21,6 +21,6 @@ The [Flexera Policy Templates GitHub Repository](https://github.com/flexera-publ
 
 ## Cloud Workflow Language Documentation
 
-The Cloud Workflow Language is essentially a high-level programming language unto itself, which is why it is not covered in detail in these lessons. To learn more, we recommended that you read through the [Cloud Workflow Language Documentation](https://docs.flexera.com/flexera/EN/Automation/CWL.htm).
+The Cloud Workflow Language is essentially a high-level programming language unto itself, which is why it is not covered in full detail in these lessons. To learn more, we recommended that you read through the [Cloud Workflow Language Documentation](https://docs.flexera.com/flexera/EN/Automation/CWL.htm).
 
-Note that the Cloud Workflow Language was originally developed for the Flexera Cloud Management Platform. You will see references to resources beginning with the `@` symbol and other artifacts specific to the Cloud Management Platform that you can largely ignore for policy template development. The main things to focus on are the basic syntax of the language itself as well as how to make API calls.
+Note that the Cloud Workflow Language was originally developed for the Flexera Cloud Management Platform. You will see references to resources beginning with the `@` symbol and other artifacts specific to the Cloud Management Platform that you can largely ignore for policy template development. The main things to focus on are the basic syntax of the language itself as well as how to make API requests.
