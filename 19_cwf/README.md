@@ -178,6 +178,17 @@ while $status == "off" do
 end
 ```
 
+In the event that you need something more like a traditional for loop, you can simply implement this within a while loop:
+
+```ruby
+$index = 0
+
+while $index < 5 do
+  call power_off($instance) retrieve $response
+  $index = $index + 1
+end
+```
+
 ### Built-in Functions
 
 Cloud Workflow Language has numerous built-in functions for various operations. Parameters are passed to functions within `()` characters following the function's name:
