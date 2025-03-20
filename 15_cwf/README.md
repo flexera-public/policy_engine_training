@@ -2,7 +2,7 @@
 
 So far, we've only used `escalation` blocks to send emails, but they can do more than just that. Sometimes a user doesn't simply want a report of problems that they need to fix; they want to be able to quickly and easily action on them. `escalation` blocks, combined with Flexera's [Cloud Workflow Language](https://docs.flexera.com/flexera/EN/Automation/CWL.htm), can be used to allow the user to take direct action from the Flexera One user interface or even automatically upon policy execution to do things like resize or delete cloud resources.
 
-The Cloud Workflow Language was originally developed for Flexera's Cloud Management Platform product but was extended to enable policy templates to take actions on cloud resources. This lesson will not be a deep dive into the Cloud Workflow Language itself so much as a demonstration of how it is used in policy templates. Because actions are potentially destructive, we won't build and run a policy template in this lesson, but instead we'll use an example from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to explain how it works.
+The Cloud Workflow Language was originally developed for Flexera's Cloud Management Platform product but was extended to enable policy templates to take actions on cloud resources. This lesson will not be a deep dive into the Cloud Workflow Language itself so much as a demonstration of how it is used in policy templates and an overview of some of its basic syntax. Because actions are potentially destructive, we won't build and run a policy template in this lesson, but instead we'll use an example from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to explain how it works.
 
 ## Parameter Block
 
@@ -104,5 +104,180 @@ end
 ```
 
 This Cloud Workflow block takes a single snapshot instance as a parameter and then issues a delete request to the Azure API, deleting that snapshot. As the "delete_snapshots" Cloud Workflow block called by the `escalation` block iterates through the list of snapshots, they will be deleted one by one.
+
+## Cloud Workflow Syntax
+
+The [Cloud Workflow Language Documentation](https://docs.flexera.com/flexera/EN/Automation/CWL.htm) should be reviewed for a full deep dive into the language, but we will go over some basic syntax here so that you can get started with Cloud Workflow in your own policy templates. If you already know another high level programming language, most of this should feel familiar.
+
+### Comments
+
+Comments can be made using `#`. Comments can be placed at the end of instructions as well as on their own lines.
+
+```ruby
+# Set number to 1
+$number = 1 # We just set the number
+```
+
+### Variables
+
+All variables begin with a `$` character. A single `$` means the variable is scoped to the specific `define` block being executed, and `$$` means the variable is globally scoped and will persist as `define` blocks call other `define` blocks.
+
+Variables can be numbers, strings, array, or hashes. Lists and hashes can be created using JSON notation and the array index or hash fields are referenced by placing a string or number within `[]` characters just like you would in JavaScript. Values can be appended to an array using `<<`.
+
+```ruby
+$number = 1
+
+$string = "Hello"
+
+$$global_array = [ "apple", "banana", "pear" ]
+$$global_array[1] = "orange"
+$$global_array << "cherry"
+
+$local_hash = { "name": "apple", "type": "fruit" }
+$local_hash["price"] = 0.99
+```
+
+### Boolean Logic
+
+Boolean logic is done similarly to other languages. `&&` and `||` are used for "and" and "or". `==` and `!=` are used to determine if something is equal or not equal. `>`, `<`, `>=`, and `<=` are also available to compare numbers.
+
+```ruby
+$size == 2 && $volume >= 3 && $type == "fruit"
+```
+
+### Branching
+
+Branching is done via "if" statements. All code between "if" and "end" is executed only if the "if" statement is true. Optionally, "elsif" and "else" statements can be used.
+
+```ruby
+if $type == "fruit"
+  seeds = 1
+elsif $type == "tuber"
+  seeds = 0
+else
+  seeds = -1
+end
+```
+
+### Looping
+
+You can iterate through an array using "foreach". The first variable is the name of your iterator, and the second is the name of the array itself:
+
+```ruby
+foreach $instance in $data do
+  call restart($instance) retrieve $response
+end
+```
+
+You can also do a while loop to loop until a condition is no longer satisfied:
+
+```ruby
+while $status == "off" do
+  call status($instance) retrieve $status
+  sleep(10)
+end
+```
+
+### Built-in Functions
+
+Cloud Workflow Language has numerous built-in functions for various operations. Parameters are passed to functions within `()` characters following the function's name:
+
+```ruby
+json_stuff = to_json(my_hash)
+```
+
+The following are commonly used:
+
+* **http_request(*request_hash*):** Makes an API request. Discussed in more detail in the "API Requests" section below.
+  * Note: Functions also exist for "http_get", "http_post", etc. but the above is recommended instead.
+* **sleep(*seconds*):** Pause execution for the specified number of seconds.
+* **task_label(*string*):** Inserts a label into the execution log. Can be very useful for debugging.
+* **type(*variable*):** Returns a string containing the type of a variable. Example: "array"
+* **to_json(*hash*):** Converts a hash to a JSON string. Can be useful for some API calls or for use with "task_label" to display a hash in the UI.
+
+### Calling Blocks
+
+You can have multiple `define` blocks in a policy template that call each other using the "call" function. When the called block completes execution, the value of the variable after the word "return" in the `define` block will be stored in the variable after the word "retrieve" in the "call" function. This allows `define` blocks to be used similarly to functions in a typical high-level programming language.
+
+```ruby
+# Within a define block
+call delete_snapshot($instance, $param_azure_endpoint) retrieve $delete_response
+
+# The first line define block being called
+define delete_snapshot($instance, $param_azure_endpoint) return $response do
+```
+
+### API Requests
+
+The simplest way to make an API request is with the "http_request" function. This function takes a single parameter; a hash containing the details of the request. After attempting to make the API request, it will return a hash with the following fields:
+
+* **code:** HTTP response code
+* **headers:** Hash of HTTP response headers
+* **body:** Response body
+
+The response body will automatically be parsed as a hash if the API request returns JSON. You can reference `credentials` blocks in your policy template using the global variable syntax of `$$`. The `verb` field, despite common convention to the contrary, must be in lowercase to work correctly.
+
+```ruby
+$response = http_request(
+  auth: $$auth_azure,
+  https: true,
+  verb: "get",
+  host: "management.azure.com",
+  href: "/subscriptions",
+  query_strings: { "api-version": "2019-07-01" }
+  headers: { "content-type": "application/json" },
+  body: { "filter": "none" }
+)
+```
+
+### Error Handling
+
+An error can be raised using a "raise" statement followed by a string. This will terminate execution of the Cloud Workflow and show the error in the Flexera One UI.
+
+```ruby
+raise "Missing instance! Does this instance still exist?"
+```
+
+A "sub on_error:" statement can be used to call a specific `define` block if an error occurs instead of ending execution and raising the error. Note this sub statement from our policy template example:
+
+```ruby
+sub on_error: handle_error() do
+  call delete_snapshot($instance, $param_azure_endpoint) retrieve $delete_response
+end
+```
+
+If an error happens during execution of "delete_snapshot", the below "handle_error" `define` block will be called:
+
+```ruby
+define handle_error() do
+  if !$$errors
+    $$errors = []
+  end
+  $$errors << $_error["type"] + ": " + $_error["message"]
+  # We check for errors at the end, and raise them all together
+  # Skip errors handled by this definition
+  $_error_behavior = "skip"
+end
+```
+
+The details of the error are stored in "$_error" automatically to be referenced as needed. This block creates a global "$$errors" array if it doesn't already exist and stores the error details in it. By setting "$_error_behavior" to "skip", the Cloud Workflow will not cease executing because of the error.
+
+If we look at the original `define` block, we'll see that, once the loop finishes, an error will be raised to report all of the errors that occurred. This means that only one error will be reported in the Flexera One UI, and it also means that, if the user is trying to delete several snapshots, an error in one snapshot won't prevent the rest from being deleted.
+
+```ruby
+define delete_snapshots($data, $param_azure_endpoint) return $all_responses do
+  $$all_responses = []
+
+  foreach $instance in $data do
+    sub on_error: handle_error() do
+      call delete_snapshot($instance, $param_azure_endpoint) retrieve $delete_response
+    end
+  end
+
+  if inspect($$errors) != "null"
+    raise join($$errors, "\n")
+  end
+end
+```
 
 Please proceed to [Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md), where we will learn about some policy template best practices.
