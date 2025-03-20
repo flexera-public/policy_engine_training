@@ -7,10 +7,10 @@ assignees: XOmniverse
 
 ---
 
-**Description**
+## Description
 
 <!-- Provide your feedback here -->
 
-**Files Affected**
+## Files Affected
 
 <!-- Names or links to relevant files if applicable -->
