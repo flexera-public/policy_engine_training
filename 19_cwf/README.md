@@ -122,7 +122,7 @@ $number = 1 # We just set the number
 
 All variables begin with a `$` character. A single `$` means the variable is scoped to the specific `define` block being executed, and `$$` means the variable is globally scoped and will persist as `define` blocks call other `define` blocks.
 
-Variables can be numbers, strings, array, or hashes. Lists and hashes can be created using JSON notation and the array index or hash fields are referenced by placing a string or number within `[]` characters just like you would in JavaScript. Values can be appended to an array using `<<`.
+Variables can be numbers, strings, array, or hashes. Arrays and hashes can be created using JSON notation and the array index or hash fields are referenced by placing a string or number within `[]` characters just like you would in JavaScript. Values can be appended to an array using `<<`.
 
 ```ruby
 $number = 1
