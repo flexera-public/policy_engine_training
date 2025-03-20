@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 15 - Cloud Workflow
+# Flexera Policy Development - Lesson 19 - Cloud Workflow
 
 So far, we've only used `escalation` blocks to send emails, but they can do more than just that. Sometimes a user doesn't simply want a report of problems that they need to fix; they want to be able to quickly and easily action on them. `escalation` blocks, combined with Flexera's [Cloud Workflow Language](https://docs.flexera.com/flexera/EN/Automation/CWL.htm), can be used to allow the user to take direct action from the Flexera One user interface or even automatically upon policy execution to do things like resize or delete cloud resources.
 
@@ -280,4 +280,4 @@ define delete_snapshots($data, $param_azure_endpoint) return $all_responses do
 end
 ```
 
-Please proceed to [Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md), where we will learn about some policy template best practices.
+Please proceed to [Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/20_further_learning/README.md) for more information on how to learn about the policy engine and policy template language.

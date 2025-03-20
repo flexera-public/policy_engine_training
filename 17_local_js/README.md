@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 18 - Local JavaScript Testing
+# Flexera Policy Development - Lesson 17 - Local JavaScript Testing
 
 While fpt's script functionality is very useful, it can sometimes be a bit awkward to use and limiting when testing complex `script` blocks. For that reason, you may sometimes want to test your JavaScript directly with a local JavaScript interpreter such as Node.js. In this lesson, we'll walk through how to do this using the "list_policy_templates.pt" policy template we've been developing.
 
@@ -162,4 +162,4 @@ Now when we run the script, we should only see the value of the "policy_table" v
 }
 ```
 
-That's it for now. Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/README.md) to learn more about Go template syntax.
+That's it for now. Please proceed to [Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_go_template/README.md) to learn more about Go template syntax.

@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 19 - Go Template Syntax & Markdown
+# Flexera Policy Development - Lesson 18 - Go Template Syntax & Markdown
 
 The `summary_template` and `detail_template` fields within a `validate` or `validate_each` block support both [Go Template Syntax](https://pkg.go.dev/text/template) and [Markdown](https://www.markdownguide.org/). This allows variables to be interpolated, text to be formatted, images to be added, and tables to be created within the incident.
 
@@ -130,4 +130,4 @@ Note how the Go template syntax was replaced with the values we wanted. We're no
 
 HTML is not legitimately supported by the policy engine and it is not recommended that you put HTML code in your `detail_template` field. *Some* HTML will render correctly when an incident is emailed, but the raw HTML code will be displayed instead when viewing the incident in the Flexera One UI. [Markdown](https://www.markdownguide.org/) should be used instead.
 
-Please proceed to [Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/20_further_learning/README.md) for more information on how to learn about the policy engine and policy template language.
+Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_cwf/README.md), where we will learn about Cloud Workflow and how to use it for policy actions.

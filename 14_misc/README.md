@@ -236,4 +236,4 @@ If you scroll up through the output, you should see that only one item was retur
 ```
 ````
 
-Please proceed to [Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_cwf/README.md), where we will learn about Cloud Workflow and how to use it for policy actions.
+Please proceed to [Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_best_practices/README.md), where we will learn about some policy template best practices.

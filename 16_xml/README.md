@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 17 - XML & Text Responses
+# Flexera Policy Development - Lesson 16 - XML & Text Responses
 
 Most REST APIs support or default to JSON for their responses, and this is what we recommend when possible. That said, occasionally a REST API will return results in XML or plain text; the policy engine provides tools for managing this.
 
@@ -63,4 +63,4 @@ end
 
 The above is only an example and is in no way a complete CSV parsing implementation. For example, the above would fail if the CSV file had entries contained within `"` quotes. This is just a demonstration to show how you might have to parse and reformat data retrieved as plain text.
 
-Please proceed to [Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md), where we will learn about how to test `script` blocks locally.
+Please proceed to [Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/17_local_js/README.md), where we will learn about how to test `script` blocks locally.

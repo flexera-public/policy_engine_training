@@ -61,9 +61,9 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. We reco
 * **[Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/12_iterating/README.md) - Iterating:** Learn how to iterate through a datasource to make multiple API requests.
 * **[Lesson 13](https://github.com/flexera-public/policy_engine_training/blob/main/13_optimization/README.md) - Optimization:** Learn how to optimize policy templates for lower memory usage and faster execution.
 * **[Lesson 14](https://github.com/flexera-public/policy_engine_training/blob/main/14_misc/README.md) - Miscellaneous:** Learn a few miscellaneous things not covered in previous lessons.
-* **[Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_cwf/README.md) - Cloud Workflow:** Learn about how Cloud Workflow language can be used to add policy actions.
-* **[Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_best_practices/README.md) - Best Practices:** Learn some best practices for policy template formatting.
-* **[Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/17_xml/README.md) - XML & Text Responses:** Learn how to parse XML and text responses from APIs.
-* **[Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_local_js/README.md) - Local JavaScript Testing:** Learn how to test script blocks locally using node.js.
-* **[Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_go_template/README.md) - Go Template Syntax:** Learn how to use Go template syntax and Markdown in incidents.
+* **[Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/15_best_practices/README.md) - Best Practices:** Learn some best practices for policy template formatting.
+* **[Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_xml/README.md) - XML & Text Responses:** Learn how to parse XML and text responses from APIs.
+* **[Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/17_local_js/README.md) - Local JavaScript Testing:** Learn how to test script blocks locally using node.js.
+* **[Lesson 18](https://github.com/flexera-public/policy_engine_training/blob/main/18_go_template/README.md) - Go Template Syntax:** Learn how to use Go template syntax and Markdown in incidents.
+* **[Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/19_cwf/README.md) - Cloud Workflow:** Learn about how Cloud Workflow language can be used to add policy actions.
 * **[Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/20_further_learning/README.md) - Further Learning:** Learn where to go to continue learning about policy development.

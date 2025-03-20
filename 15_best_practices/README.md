@@ -1,4 +1,4 @@
-# Flexera Policy Development - Lesson 16 - Best Practices
+# Flexera Policy Development - Lesson 15 - Best Practices
 
 In this lesson, we'll go over some best practices when it comes to formatting your policy templates. Following formatting guidelines will make your templates readable to others and easier to update. We will modify the "list_policy_templates.pt" policy template to bring it up to standard.
 
@@ -198,4 +198,4 @@ parameter "param_regions_list" do
 end
 ```
 
-Please proceed to [Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/17_xml/README.md), where we will learn about how to parse XML and text responses from APIs.
+Please proceed to [Lesson 16](https://github.com/flexera-public/policy_engine_training/blob/main/16_xml/README.md), where we will learn about how to parse XML and text responses from APIs.
