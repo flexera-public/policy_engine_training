@@ -1,6 +1,6 @@
 # Flexera Policy Development - Lesson 07 - Pagination
 
-Sometimes a REST API will return results in a paginated fashion where additional API calls need to be made to retrieve the additional pages. Different APIs handle this differently, and the policy engine uses `pagination` blocks to define how to handle pagination for a particular API call.
+Sometimes a REST API will return results in a paginated fashion where additional API requests need to be made to retrieve the additional pages. Different APIs handle this differently, and the policy engine uses `pagination` blocks to define how to handle pagination for a particular API request.
 
 Since these lessons are focusing very specifically on the Flexera policy API, where pagination is not used, this lesson will use examples from the [Policy Catalog](https://github.com/flexera-public/policy_templates) to show how `pagination` blocks work. It is also recommended that you read the [official documentation](https://docs.flexera.com/flexera/EN/Automation/RetrieveData.htm#automationrefinfo_2830531361_1127423) for more detail.
 
