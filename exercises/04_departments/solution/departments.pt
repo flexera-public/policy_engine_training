@@ -1,0 +1,78 @@
+name "Departments"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all departments, including employee count and budgets."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+datasource "ds_departments" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/departments.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "department", jmes_path(col_item, "department")
+      field "head", jmes_path(col_item, "head")
+    end
+  end
+end
+
+datasource "ds_departments_detailed" do
+  iterate $ds_departments
+  request do
+    host "raw.githubusercontent.com"
+    path join(["/flexera-public/policy_engine_training/refs/heads/main/.data/departments/", val(iter_item, "department"), ".json"])
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", val(iter_item, "department")
+      field "head", val(iter_item, "head")
+      field "employee_count", jmes_path(col_item, "employee_count")
+      field "annual_budget", jmes_path(col_item, "annual_budget.amount")
+    end
+  end
+end
+
+policy "pol_departments_detailed" do
+  validate_each $ds_departments_detailed do
+    summary_template "{{ len data }} Departments"
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+    export do
+      field "name" do
+        label "Name"
+      end
+      field "head" do
+        label "Department Head"
+      end
+      field "employee_count" do
+        label "Employees (#)"
+      end
+      field "annual_budget" do
+        label "Annual Budget (USD)"
+      end
+    end
+  end
+end
+
+escalation "esc_email" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end

@@ -1,0 +1,13 @@
+{
+  "name": "Sales",
+  "head": "Jane Doe",
+  "teams": [
+    "Green",
+    "Blue"
+  ],
+  "employee_count": 2,
+  "annual_budget": {
+    "amount": 898233,
+    "currency": "USD"
+  }
+}

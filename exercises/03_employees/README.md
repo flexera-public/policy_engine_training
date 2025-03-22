@@ -7,26 +7,26 @@ Create a new policy template with the name "Employees and Department Heads". The
 * **ds_employee**
   * Request:
     * Host: raw.githubusercontent.com
-    * Path: /flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/employees.json
+    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/employees.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/employees.json) is a JSON list. Each object in the list has the following fields: name, location, team
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/employees.json) is a JSON list. Each object in the list has the following fields: name, location, team
 
 * **ds_teams**
   * Request:
     * Host: raw.githubusercontent.com
-    * Path: /flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/teams.json
+    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/teams.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/teams.json) is a JSON list. Each object in the list has the following fields: team, department
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/teams.json) is a JSON list. Each object in the list has the following fields: team, department
 
 * **ds_departments**
   * Request:
     * Host: raw.githubusercontent.com
-    * Path: /flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/departments.json
+    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/departments.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/departments.json) is a JSON list. Each object in the list has the following fields: department, head
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/departments.json) is a JSON list. Each object in the list has the following fields: department, head
 
 These datasources are meant to mimic a common pattern seen in REST APIs. The first list, "ds_employees", is a list of employees, their location, and what teams they are on. The second list, "ds_teams", is a list of teams and what departments they belong to. The final list, "ds_departments", is a list of departments and their respective department heads.
 
@@ -36,4 +36,4 @@ When you've finished the policy template, test it using the "fpt run" command an
 
 When you've completed the exercise, or if you need additional help, you can review the [completed policy template in the "solution" directory](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/03_employees/solution/employees.pt). Note that your policy template may not look identical; there is more than one way to complete this exercise.
 
-If you're following the lesson plan, please move on to [Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/11_request_scripts/README.md).
+If you're following the lessons in order, please move on to [Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/11_request_scripts/README.md).

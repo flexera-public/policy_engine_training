@@ -6,4 +6,4 @@ Create a new policy template with the name "Sum of Two Numbers". The file name c
 
 When you've completed the exercise, or if you need help, you can review the [completed policy template in the "solution" directory](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/01_summation/solution/summation.pt). Note that your policy template may not look identical; there is more than one way to complete this exercise.
 
-If you're following the lesson plan, please move on to [Lesson 04](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/04_escalations/README.md).
+If you're following the lessons in order, please move on to [Lesson 04](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/04_escalations/README.md).

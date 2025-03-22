@@ -1,0 +1,12 @@
+{
+  "name": "Marketing",
+  "head": "John Johnson",
+  "teams": [
+    "Orange"
+  ],
+  "employee_count": 7,
+  "annual_budget": {
+    "amount": 1140000,
+    "currency": "USD"
+  }
+}
