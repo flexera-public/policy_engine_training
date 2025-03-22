@@ -18,65 +18,59 @@ parameter "param_email" do
 end
 
 datasource "ds_employees" do
-  run_script $js_employees
-end
-
-script "js_employees", type: "javascript" do
-  result "list"
-  code <<-'EOS'
-  list = [
-    { name: "Jane Austen", location: "APAC", team: "Violet" },
-    { name: "John Adams", location: "EMEA", team: "Red" },
-    { name: "Alice Cooper", location: "US", team: "Green" },
-    { name: "Edgar Allan Poe", location: "US", team: "Blue" },
-    { name: "Charlie Chaplin", location: "US", team: "Orange" }
-  ]
-EOS
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/employees.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "location", jmes_path(col_item, "location")
+      field "team", jmes_path(col_item, "team")
+    end
+  end
 end
 
 datasource "ds_teams" do
-  run_script $js_teams
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/teams.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "team", jmes_path(col_item, "team")
+      field "department", jmes_path(col_item, "department")
+    end
+  end
 end
 
-script "js_teams", type: "javascript" do
-  result "list"
-  code <<-'EOS'
-  list = [
-    { team: "Violet", department: "Engineering" },
-    { team: "Red", department: "Engineering" },
-    { team: "Green", department: "Sales" },
-    { team: "Blue", department: "Sales" },
-    { team: "Orange", department: "Marketing" }
-  ]
-EOS
-end
-
-datasource "ds_department_heads" do
-  run_script $js_department_heads
-end
-
-script "js_department_heads", type: "javascript" do
-  result "list"
-  code <<-'EOS'
-  list = [
-    { department: "Engineering", head: "Jim Smith" },
-    { department: "Sales", head: "Jane Doe" },
-    { department: "Marketing", head: "John Johnson" }
-  ]
-EOS
+datasource "ds_departments" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/departments.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "department", jmes_path(col_item, "department")
+      field "head", jmes_path(col_item, "head")
+    end
+  end
 end
 
 datasource "ds_employees_enriched" do
-  run_script $js_employees_enriched, $ds_employees, $ds_teams, $ds_department_heads
+  run_script $js_employees_enriched, $ds_employees, $ds_teams, $ds_departments
 end
 
 script "js_employees_enriched", type: "javascript" do
-  parameters "employees", "teams", "department_heads"
+  parameters "employees", "teams", "departments"
   result "employees_enriched"
   code <<-'EOS'
   department_table = {}
 
-  _.each(department_heads, function(department) {
+  _.each(departments, function(department) {
     department_table[department['department']] = department['head']
   })
 

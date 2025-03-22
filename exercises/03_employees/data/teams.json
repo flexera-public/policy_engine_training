@@ -1,0 +1,7 @@
+[
+  { "team": "Violet", "department": "Engineering" },
+  { "team": "Red", "department": "Engineering" },
+  { "team": "Green", "department": "Sales" },
+  { "team": "Blue", "department": "Sales" },
+  { "team": "Orange", "department": "Marketing" }
+]

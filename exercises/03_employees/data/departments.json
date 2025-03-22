@@ -1,0 +1,5 @@
+[
+  { "department": "Engineering", "head": "Jim Smith" },
+  { "department": "Sales", "head": "Jane Doe" },
+  { "department": "Marketing", "head": "John Johnson" }
+]

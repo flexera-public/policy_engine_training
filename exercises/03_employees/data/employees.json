@@ -1,0 +1,7 @@
+[
+  { "name": "Jane Austen", "location": "APAC", "team": "Violet" },
+  { "name": "John Adams", "location": "EMEA", "team": "Red" },
+  { "name": "Alice Cooper", "location": "US", "team": "Green" },
+  { "name": "Edgar Allan Poe", "location": "US", "team": "Blue" },
+  { "name": "Charlie Chaplin", "location": "US", "team": "Orange" }
+]
