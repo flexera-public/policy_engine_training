@@ -10,10 +10,7 @@ Create a new policy template with the name "Employees and Department Heads". The
     * Path: /flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/employees.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * Collect [*]
-      * field "name" comes from the field "name" in the response
-      * field "location" comes from the field "location" in the response
-      * field "team" comes from the field "team" in the response
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/employees.json) is a JSON list. Each object in the list has the following fields: name, location, team
 
 * **ds_teams**
   * Request:
@@ -21,9 +18,7 @@ Create a new policy template with the name "Employees and Department Heads". The
     * Path: /flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/teams.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * Collect [*]
-      * field "team" comes from the field "team" in the response
-      * field "department" comes from the field "department" in the response
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/teams.json) is a JSON list. Each object in the list has the following fields: team, department
 
 * **ds_departments**
   * Request:
@@ -31,9 +26,7 @@ Create a new policy template with the name "Employees and Department Heads". The
     * Path: /flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/departments.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * Collect [*]
-      * field "department" comes from the field "department" in the response
-      * field "head" comes from the field "head" in the response
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/exercises/03_employees/data/departments.json) is a JSON list. Each object in the list has the following fields: department, head
 
 These datasources are meant to mimic a common pattern seen in REST APIs. The first list, "ds_employees", is a list of employees, their location, and what teams they are on. The second list, "ds_teams", is a list of teams and what departments they belong to. The final list, "ds_departments", is a list of departments and their respective department heads.
 
