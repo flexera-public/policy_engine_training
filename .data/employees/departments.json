@@ -1,14 +1,14 @@
 [
   {
-    "department": "Engineering",
+    "name": "Engineering",
     "head": "Jim Smith"
   },
   {
-    "department": "Sales",
+    "name": "Sales",
     "head": "Jane Doe"
   },
   {
-    "department": "Marketing",
+    "name": "Marketing",
     "head": "John Johnson"
   }
 ]

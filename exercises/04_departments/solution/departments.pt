@@ -34,7 +34,7 @@ datasource "ds_departments" do
   result do
     encoding "json"
     collect jmes_path(response, "[*]") do
-      field "department", jmes_path(col_item, "department")
+      field "name", jmes_path(col_item, "name")
       field "head", jmes_path(col_item, "head")
     end
   end
@@ -51,7 +51,7 @@ script "js_departments_filtered", type: "javascript" do
   result "filtered_departments"
   code <<-'EOS'
   filtered_departments = _.reject(departments, function(department) {
-    return _.contains(department_filter, department['department'])
+    return _.contains(department_filter, department['name'])
   })
 EOS
 end
@@ -68,7 +68,7 @@ datasource "ds_departments_detailed" do
     encoding "json"
     # Since each response is an object, not a list, we do not use a collect statement.
     # The final results will be assembled into a list automatically.
-    field "name", val(iter_item, "department")
+    field "name", val(iter_item, "name")
     field "head", val(iter_item, "head")
     # We use response instead of col_item because we're pulling results directly from the response
     field "employee_count", jmes_path(response, "employee_count")

@@ -58,7 +58,7 @@ datasource "ds_departments" do
   result do
     encoding "json"
     collect jmes_path(response, "[*]") do
-      field "department", jmes_path(col_item, "department")
+      field "name", jmes_path(col_item, "name")
       field "head", jmes_path(col_item, "head")
     end
   end
@@ -76,7 +76,7 @@ script "js_employees_enriched", type: "javascript" do
   department_table = {}
 
   _.each(departments, function(department) {
-    department_table[department['department']] = department['head']
+    department_table[department['name']] = department['head']
   })
 
   team_table = {}
