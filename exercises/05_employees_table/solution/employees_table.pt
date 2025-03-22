@@ -38,7 +38,7 @@ end
 datasource "ds_employees" do
   request do
     host "raw.githubusercontent.com"
-    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees.json"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/employees.json"
   end
   result do
     encoding "json"
@@ -53,7 +53,7 @@ end
 datasource "ds_teams" do
   request do
     host "raw.githubusercontent.com"
-    path "/flexera-public/policy_engine_training/refs/heads/main/.data/teams.json"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/teams.json"
   end
   result do
     encoding "json"
@@ -67,7 +67,7 @@ end
 datasource "ds_departments" do
   request do
     host "raw.githubusercontent.com"
-    path "/flexera-public/policy_engine_training/refs/heads/main/.data/departments.json"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments.json"
   end
   result do
     encoding "json"

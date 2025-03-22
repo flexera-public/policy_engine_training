@@ -22,7 +22,7 @@ Place the following datasource after your parameters and before the "ds_list_pol
 datasource "ds_policy_lesson_list" do
   request do
     host "raw.githubusercontent.com"
-    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lesson_list.json"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lessons/lessons.json"
   end
   result do
     encoding "json"

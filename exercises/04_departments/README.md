@@ -7,21 +7,21 @@ Create a new policy template with the name "Departments". The file name can be a
 * **ds_departments**
   * Request:
     * Host: raw.githubusercontent.com
-    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/departments.json
+    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments.json
     * *Note: No authentication is needed for this request.*
   * Result:
-    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/departments.json) is a JSON list. Each object in the list has the following fields: department, head
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments.json) is a JSON list. Each object in the list has the following fields: department, head
 
 Make a second datasource that iterates through "ds_departments" to gather detailed information for each department:
 
 * **ds_departments_detailed**
   * Request:
     * Host: raw.githubusercontent.com
-    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/departments/{{ Name of Department }}.json
+    * Path: /flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments/{{ Name of Department }}.json
       * Replace {{ Name of Department }} with the name of the department that you're gathering details for. This will correspond to the "department" field in "ds_departments".
     * *Note: No authentication is needed for this request.*
   * Result:
-    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/departments/Engineering.json) is a JSON object with the following fields: name, head, teams, employee_count, annual_budget.
+    * The [response](https://raw.githubusercontent.com/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments/Engineering.json) is a JSON object with the following fields: name, head, teams, employee_count, annual_budget.
       * "annual_budget" is an object with two fields: amount, currency
 
 Include a parameter, and appropriate datasources/scripts, to allow the user to exclude a list of departments from the results. For example, if the parameter had the value "Engineering" in the list, the "Engineering" department should not be in the incident.
