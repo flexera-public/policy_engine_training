@@ -34,7 +34,7 @@ datasource "ds_policy_lesson_list" do
 end
 ```
 
-Note the following differences from the previous datasource:
+Note the following differences from the original version:
 
 * The `path` field now points to an XML file instead of a JSON one. Note that, in real world usage, your path typically won't be an actual file but an API endpoint of some sort.
 * The `encoding` field is now set to "xml". This tells the policy engine to parse the results as XML.
