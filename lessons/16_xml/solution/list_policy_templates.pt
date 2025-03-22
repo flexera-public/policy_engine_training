@@ -7,7 +7,7 @@ severity "low"
 category "Tutorial"
 default_frequency "weekly"
 info(
-  version: "0.5.1"
+  version: "0.5.2"
 )
 
 ###############################################################################
@@ -54,7 +54,7 @@ datasource "ds_policy_lesson_list" do
   end
   result do
     encoding "xml"
-    collect xpath(response, "//Lessons/item", "array") do
+    collect xpath(response, "//lessons/item", "array") do
       field "name", xpath(col_item, "name")
       field "lesson", xpath(col_item, "lesson")
     end
