@@ -4,6 +4,12 @@ This Github repository contains lessons and resources intended to train someone 
 
 **This is a work in progress. Please use the [Issues](https://github.com/flexera-public/policy_engine_training/issues) page both for errors and general feedback.**
 
+## Prerequisites
+
+* These lessons focus specifically on *developing* policy templates and assume that you are already familiar with making use of policy templates as an end-user. Some basics are covered in the first lesson, but if you're unfamiliar with policy templates more generally, it is recommended that you review the [Policy Engine Documentation](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm) and experiment with using policy templates from the catalog.
+
+* You will need a basic level of proficiency in JavaScript. If you've never used JavaScript, but are already well-versed in another high-level programming language, you should be able to pick it up quickly. There are many resources available for learning JavaScript, such as [Team Treehouse](https://teamtreehouse.com/), if you need to get up to speed.
+
 ## Where to Begin?
 
 We recommended that you begin by following the steps in the [Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/setup/README.md) guide to create a functioning development environment on your local workstation, and then proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/01_introduction/README.md).
@@ -47,15 +53,13 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. We reco
 
 These lessons are intended to get someone familiar with policy template development by starting simple and gradually introducing new concepts along the way. Most the lessons will walk you through creating or modifying a policy template in order to achieve specific functionality. The actual development will occur on your local workstation, but each lesson will have a "solution" folder containing correct versions of the assets that you will be creating during the lesson as a reference.
 
-These lessons will *not* provide full coverage of every aspect of the policy template language. Once you've completed these lessons and are confident in your understanding of their contents, we recommended that you review the official documentation for more detail. Scroll down to the Additional Resources section for more information.
+These lessons will *not* provide full coverage of every aspect of the policy template language. Once you've completed these lessons and are confident in your understanding of their contents, we recommended that you review the official documentation for more detail. Scroll down to the Reference Materials section for more information.
 
 **NOTE: Some aspects of this training require access to a functioning Flexera One organization. It is highly recommended that you have access to a UAT or other low risk environment to test in. None of the policy templates developed in these lessons have the potential to do anything destructive, but we recommended that you not use a production Flexera One organization to avoid cluttering it with training assets.**
 
 **If you do not have this access, you can still follow along and write policy templates, but you may need to read along the sections that involve the Flexera One user interface and the fpt command line tool rather than perform those steps directly.**
 
 ## Reference Materials
-
-Materials specific to Flexera and the Policy Engine:
 
 * [Policy Engine Documentation](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm)
 * [Policy Template Language Documentation](https://docs.flexera.com/flexera/EN/Automation/PTL.htm)
@@ -65,7 +69,7 @@ Materials specific to Flexera and the Policy Engine:
 * [Flexera CMP Documentation](https://docs.rightscale.com/)
 * [fpt Documentation](https://github.com/flexera-public/policy_sdk/blob/master/cmd/fpt/README.md)
 
-General materials:
+## Other Useful Resources
 
 * [Underscore.js](https://underscorejs.org/): Documentation for the Underscore.js library.
 * [Go Template](https://pkg.go.dev/text/template): Information on Go template syntax.
