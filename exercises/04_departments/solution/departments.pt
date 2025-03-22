@@ -17,6 +17,13 @@ parameter "param_email" do
   default []
 end
 
+parameter "param_department_filter" do
+  type "list"
+  label "Exclude Departments"
+  description "A list of departments to not include in the results."
+  default []
+end
+
 datasource "ds_departments" do
   request do
     host "raw.githubusercontent.com"
@@ -31,8 +38,22 @@ datasource "ds_departments" do
   end
 end
 
+datasource "ds_departments_filtered" do
+  run_script $js_departments_filtered, $ds_departments, $param_department_filter
+end
+
+script "js_departments_filtered", type: "javascript" do
+  parameters "departments", "department_filter"
+  result "filtered_departments"
+  code <<-'EOS'
+  filtered_departments = _.reject(departments, function(department) {
+    return _.contains(department_filter, department['department'])
+  })
+EOS
+end
+
 datasource "ds_departments_detailed" do
-  iterate $ds_departments
+  iterate $ds_departments_filtered
   request do
     host "raw.githubusercontent.com"
     path join(["/flexera-public/policy_engine_training/refs/heads/main/.data/departments/", val(iter_item, "department"), ".json"])
