@@ -72,7 +72,7 @@ datasource "ds_departments_detailed" do
     field "head", val(iter_item, "head")
     # We use response instead of col_item because we're pulling results directly from the response
     field "employee_count", jmes_path(response, "employee_count")
-    # Using a . allows us to get keys from objects contained within objects
+    # Using a . (period character) allows us to get keys from objects contained within objects
     field "annual_budget", jmes_path(response, "annual_budget.amount")
   end
 end

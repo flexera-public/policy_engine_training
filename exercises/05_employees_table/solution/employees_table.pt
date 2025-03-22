@@ -1,0 +1,142 @@
+name "Employees and Department Heads"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all employees, their teams, their departments, and their department heads."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+credentials "auth_flexera" do
+  schemes "oauth2"
+  label "Flexera"
+  description "Select Flexera One OAuth2 credentials"
+  tags "provider=flexera"
+end
+
+# We add the datasource to get the applied policy details.
+# We'll mainly use this for the name later.
+datasource "ds_applied_policy" do
+  request do
+    auth $auth_flexera
+    host rs_governance_host
+    path join(["/api/governance/projects/", rs_project_id, "/applied_policies/", policy_id])
+    header "Api-Version", "1.0"
+  end
+end
+
+datasource "ds_employees" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "location", jmes_path(col_item, "location")
+      field "team", jmes_path(col_item, "team")
+    end
+  end
+end
+
+datasource "ds_teams" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/teams.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "team", jmes_path(col_item, "team")
+      field "department", jmes_path(col_item, "department")
+    end
+  end
+end
+
+datasource "ds_departments" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/departments.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "department", jmes_path(col_item, "department")
+      field "head", jmes_path(col_item, "head")
+    end
+  end
+end
+
+datasource "ds_employees_enriched" do
+  # Add $ds_applied_policy as a parameter so that we can include the policy name in the results
+  run_script $js_employees_enriched, $ds_employees, $ds_teams, $ds_departments, $ds_applied_policy
+end
+
+script "js_employees_enriched", type: "javascript" do
+  parameters "employees", "teams", "departments", "ds_applied_policy"
+  result "employees_enriched"
+  code <<-'EOS'
+  department_table = {}
+
+  _.each(departments, function(department) {
+    department_table[department['department']] = department['head']
+  })
+
+  team_table = {}
+
+  _.each(teams, function(team) {
+    team_table[team['team']] = team['department']
+  })
+
+  employees_enriched = _.map(employees, function(employee) {
+    return {
+      name: employee['name'],
+      location: employee['location'],
+      team: employee['team'],
+      department: team_table[employee['team']],
+      department_head: department_table[team_table[employee['team']]],
+      // Add the policy name to each result
+      policy_name: ds_applied_policy['name']
+    }
+  })
+EOS
+end
+
+policy "pol_employees_enriched" do
+  validate_each $ds_employees_enriched do
+    # Use Go template syntax to add the policy name
+    summary_template "{{ with index data 0 }}{{ .policy_name }}{{ end }}: {{ len data }} Employees"
+    # Use a mix of Go template syntax and Markdown to create the detail table.
+    # We use the Go template syntax `range` function to loop through the data.
+    # We use the Markdown |---| syntax to create the table.
+    detail_template <<-'EOS'
+    ## {{ len data }} Employees
+
+    | Name | Location | Team | Department | Department Head |
+    | ---- | -------- | ---- | ---------- | --------------- |
+    {{ range data -}}
+      | {{ .name }} | {{ .location }} | {{ .team }} | {{ .department }} | {{ .department_head }} |
+    {{ end -}}
+    EOS
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+  end
+end
+
+escalation "esc_email" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end
