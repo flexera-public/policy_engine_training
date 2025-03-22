@@ -218,4 +218,6 @@ fpt retrieve_data list_policy_templates.pt param_email='["not_a_real@emailaddres
 
 This should create a file named "datasource_ds_list_policy_templates.json" that contains the list of policy templates stored in that datasource. Note that your list may differ from the example in this repository; your Flexera organization may contain additional policy templates.
 
-Please move on to [Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/07_pagination/README.md), where we will learn about API pagination.
+We recommend completing [Exercise 02](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/02_tutorial_templates/README.md) before moving on to the next lesson.
+
+In [Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/07_pagination/README.md), we will learn about API pagination.

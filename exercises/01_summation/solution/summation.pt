@@ -1,0 +1,45 @@
+name "Sum of Two Numbers"
+rs_pt_ver 20180301
+type "policy"
+short_description "Sum of Two Numbers"
+long_description ""
+category "Tutorial"
+severity "low"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_first_number" do
+  type "number"
+  label "First Number"
+  description "First number we're adding."
+  default 1
+end
+
+parameter "param_second_number" do
+  type "number"
+  label "Second Number"
+  description "Second number we're adding."
+  default 2
+end
+
+datasource "ds_sum" do
+  run_script $js_sum, $param_first_number, $param_second_number
+end
+
+script "js_sum", type: "javascript" do
+  parameters "first_number", "second_number"
+  result "sum"
+  code <<-'EOS'
+  sum = { sum: first_number + second_number }
+EOS
+end
+
+policy "pol_sum" do
+  validate $ds_sum do
+    summary_template "{{ data.sum }}"
+    detail_template "{{ data.sum }}"
+    check eq(0, 1)
+  end
+end

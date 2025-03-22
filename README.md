@@ -20,9 +20,11 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. We reco
 * **[Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/01_introduction/README.md) - Introduction:** A basic description of policy templates, what they do, and how they are used.
 * **[Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/02_hello_world/README.md) - Hello World:** Create a very basic policy template.
 * **[Lesson 03](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/03_parameters/README.md) - Parameters:** Learn how to enable user input in policy templates with parameters.
+  * **[Exercise 01](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/01_summation/README.md) - Summation:** Create a policy template to report the sum of two numbers.
 * **[Lesson 04](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/04_escalations/README.md) - Escalations:** Learn how to escalate incidents in policy templates.
 * **[Lesson 05](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/05_fpt/README.md) - fpt:** Deep dive into the fpt command line tool.
 * **[Lesson 06](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/06_api/README.md) - APIs:** Learn how to call REST APIs within a policy template.
+  * **[Exercise 02](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/02_tutorial_templates/README.md) - Tutorial Policy Templates:** Create a policy template to report a list of tutorial policy templates.
 * **[Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/07_pagination/README.md) - Pagination:** Learn how to handle paginated results from REST APIs.
 * **[Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/08_underscore/README.md) - Underscore.js:** Learn more about the Underscore.js library included in the policy engine.
 * **[Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/09_relational_data/README.md) - Relational Data:** Learn how to relate data from two different datasources.

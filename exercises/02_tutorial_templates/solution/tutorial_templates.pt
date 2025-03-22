@@ -1,0 +1,93 @@
+name "List Tutorial Policy Templates"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all tutorial policy templates."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+credentials "auth_flexera" do
+  schemes "oauth2"
+  label "Flexera"
+  description "Select Flexera One OAuth2 credentials"
+  tags "provider=flexera"
+end
+
+datasource "ds_list_policy_templates" do
+  request do
+    auth $auth_flexera
+    verb "GET"
+    host rs_governance_host
+    path join(["/api/governance/projects/", rs_project_id, "/policy_templates"])
+    header "Api-Version", "1.0"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "items[*]") do
+      field "category", jmes_path(col_item, "category")
+      field "id", jmes_path(col_item, "id")
+      field "name", jmes_path(col_item, "name")
+      field "short_description", jmes_path(col_item, "short_description")
+    end
+  end
+end
+
+datasource "ds_tutorial_policy_templates" do
+  run_script $js_tutorial_policy_templates, $ds_list_policy_templates
+end
+
+script "js_tutorial_policy_templates", type: "javascript" do
+  parameters "policy_templates"
+  result "tutorial_policy_templates"
+  code <<-'EOS'
+  tutorial_policy_templates = []
+
+  for (var i = 0; i < policy_templates.length; i++) {
+    policy_template = policy_templates[i]
+
+    if (policy_templates[i]['category'] == 'Tutorial') {
+      tutorial_policy_templates.push(policy_templates[i])
+    }
+  }
+EOS
+end
+
+policy "pol_list_policy_templates" do
+  validate_each $ds_tutorial_policy_templates do
+    summary_template "{{ len data }} Tutorial Policy Templates Found"
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+    export do
+      field "id" do
+        label "ID"
+      end
+      field "name" do
+        label "Name"
+      end
+      field "category" do
+        label "Category"
+      end
+      field "short_description" do
+        label "Description"
+      end
+    end
+  end
+end
+
+escalation "esc_email" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end
