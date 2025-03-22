@@ -53,7 +53,7 @@ These lessons will *not* provide full coverage of every aspect of the policy tem
 
 **If you do not have this access, you can still follow along and write policy templates, but you may need to read along the sections that involve the Flexera One user interface and the fpt command line tool rather than perform those steps directly.**
 
-## Additional Resources
+## Reference Materials
 
 Resources specific to Flexera and the Policy Engine:
 
