@@ -47,6 +47,11 @@ datasource "ds_tutorial_policy_templates" do
   run_script $js_tutorial_policy_templates, $ds_list_policy_templates
 end
 
+# Use a for loop to iterate through the list of policy templates
+# and filter out the ones that are in the Tutorial category.
+
+# You can also use the _.filter function to achieve the same result.
+# This will be covered in later lessons.
 script "js_tutorial_policy_templates", type: "javascript" do
   parameters "policy_templates"
   result "tutorial_policy_templates"

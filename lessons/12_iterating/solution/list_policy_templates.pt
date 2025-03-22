@@ -25,17 +25,17 @@ credentials "auth_flexera" do
 end
 
 datasource "ds_policy_lesson_list" do
-  run_script $js_policy_lesson_list
-end
-
-script "js_policy_lesson_list", type: "javascript" do
-  result "list"
-  code <<-'EOS'
-  list = [
-    { name: "Hello World", lesson: "Lesson 02" },
-    { name: "List Policy Templates", lesson: "Lesson 06" }
-  ]
-EOS
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lesson_list.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "lesson", jmes_path(col_item, "lesson")
+    end
+  end
 end
 
 datasource "ds_list_policy_templates" do

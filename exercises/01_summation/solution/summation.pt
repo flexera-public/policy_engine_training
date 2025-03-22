@@ -1,4 +1,4 @@
-name "Sum of Two Numbers"
+name "Sum of Two Numbers" # Name of the policy template as it will appear in the Flexera One UI
 rs_pt_ver 20180301
 type "policy"
 short_description "Sum of Two Numbers"
@@ -10,6 +10,8 @@ info(
   version: "0.1.0"
 )
 
+# Parameter to gather the first number
+# Setting the "type" to "number" ensures that the parameter will contain a number and not a string
 parameter "param_first_number" do
   type "number"
   label "First Number"
@@ -17,6 +19,7 @@ parameter "param_first_number" do
   default 1
 end
 
+# Parameter to gather the second number
 parameter "param_second_number" do
   type "number"
   label "Second Number"
@@ -24,10 +27,12 @@ parameter "param_second_number" do
   default 2
 end
 
+# Datasource to call a script and pass both parameters to the script
 datasource "ds_sum" do
   run_script $js_sum, $param_first_number, $param_second_number
 end
 
+# Script to add the numbers and return the sum
 script "js_sum", type: "javascript" do
   parameters "first_number", "second_number"
   result "sum"
@@ -36,6 +41,7 @@ script "js_sum", type: "javascript" do
 EOS
 end
 
+# Policy block to raise an incident with the result
 policy "pol_sum" do
   validate $ds_sum do
     summary_template "{{ data.sum }}"

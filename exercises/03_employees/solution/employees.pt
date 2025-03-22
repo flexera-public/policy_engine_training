@@ -17,13 +17,17 @@ parameter "param_email" do
   default []
 end
 
+# Datasources to gather the various bits of data
 datasource "ds_employees" do
+  # No authentication is needed because we're just grabbing a publicly-accessible JSON file
+  # This will be interpreted just like a JSON response from an API
   request do
     host "raw.githubusercontent.com"
     path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees.json"
   end
   result do
     encoding "json"
+    # We're using "[*]" because the result is a flat list of objects
     collect jmes_path(response, "[*]") do
       field "name", jmes_path(col_item, "name")
       field "location", jmes_path(col_item, "location")
@@ -68,6 +72,7 @@ script "js_employees_enriched", type: "javascript" do
   parameters "employees", "teams", "departments"
   result "employees_enriched"
   code <<-'EOS'
+  // Create tables to easily lookup department heads and departments
   department_table = {}
 
   _.each(departments, function(department) {
@@ -80,6 +85,7 @@ script "js_employees_enriched", type: "javascript" do
     team_table[team['team']] = team['department']
   })
 
+  // Use _.map to transform each entry in the list and add the department and department head
   employees_enriched = _.map(employees, function(employee) {
     return {
       name: employee['name'],

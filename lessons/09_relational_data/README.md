@@ -14,23 +14,23 @@ info(
 
 ## Step 2: Lesson Data
 
-Next, let's add a datasource that contains a list of policy names and which lessons they correspond to. While we're manually creating this data, in the real world you will often be pulling this data from a REST API.
+Next, let's add a datasource that grabs a list of policy names and which lessons they correspond to. While we're pulling this data from a JSON file stored in this GitHub repository, in the real world you will usually be pulling this kind of data from an actual REST API.
 
-Place the following datasource and script after your parameters and before the "ds_list_policy_templates" datasource:
+Place the following datasource after your parameters and before the "ds_list_policy_templates" datasource:
 
 ```ruby
 datasource "ds_policy_lesson_list" do
-  run_script $js_policy_lesson_list
-end
-
-script "js_policy_lesson_list", type: "javascript" do
-  result "list"
-  code <<-'EOS'
-  list = [
-    { name: "Hello World", lesson: "Lesson 02" },
-    { name: "List Policy Templates", lesson: "Lesson 06" }
-  ]
-EOS
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lesson_list.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "lesson", jmes_path(col_item, "lesson")
+    end
+  end
 end
 ```
 
