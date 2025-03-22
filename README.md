@@ -55,7 +55,7 @@ These lessons will *not* provide full coverage of every aspect of the policy tem
 
 ## Reference Materials
 
-Resources specific to Flexera and the Policy Engine:
+Materials specific to Flexera and the Policy Engine:
 
 * [Policy Engine Documentation](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm)
 * [Policy Template Language Documentation](https://docs.flexera.com/flexera/EN/Automation/PTL.htm)
@@ -65,7 +65,7 @@ Resources specific to Flexera and the Policy Engine:
 * [Flexera CMP Documentation](https://docs.rightscale.com/)
 * [fpt Documentation](https://github.com/flexera-public/policy_sdk/blob/master/cmd/fpt/README.md)
 
-General Resources:
+General materials:
 
 * [Underscore.js](https://underscorejs.org/): Documentation for the Underscore.js library.
 * [Go Template](https://pkg.go.dev/text/template): Information on Go template syntax.
