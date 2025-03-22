@@ -222,4 +222,4 @@ Items: 2
 Summary: 2 Policy Templates With Lessons Found
 ```
 
-Please move on to [Lesson 10](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/10_debugging/README.md), where we will go over some common pitfalls of policy template development and how to debug a broken policy template.
+In [Lesson 10](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/10_debugging/README.md), we will go over some common pitfalls of policy template development and how to debug a broken policy template.

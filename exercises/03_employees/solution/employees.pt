@@ -1,0 +1,131 @@
+name "Employees and Department Heads"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all employees, their teams, their departments, and their department heads."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+datasource "ds_employees" do
+  run_script $js_employees
+end
+
+script "js_employees", type: "javascript" do
+  result "list"
+  code <<-'EOS'
+  list = [
+    { name: "Jane Austen", location: "APAC", team: "Violet" },
+    { name: "John Adams", location: "EMEA", team: "Red" },
+    { name: "Alice Cooper", location: "US", team: "Green" },
+    { name: "Edgar Allan Poe", location: "US", team: "Blue" },
+    { name: "Charlie Chaplin", location: "US", team: "Orange" }
+  ]
+EOS
+end
+
+datasource "ds_teams" do
+  run_script $js_teams
+end
+
+script "js_teams", type: "javascript" do
+  result "list"
+  code <<-'EOS'
+  list = [
+    { team: "Violet", department: "Engineering" },
+    { team: "Red", department: "Engineering" },
+    { team: "Green", department: "Sales" },
+    { team: "Blue", department: "Sales" },
+    { team: "Orange", department: "Marketing" }
+  ]
+EOS
+end
+
+datasource "ds_department_heads" do
+  run_script $js_department_heads
+end
+
+script "js_department_heads", type: "javascript" do
+  result "list"
+  code <<-'EOS'
+  list = [
+    { department: "Engineering", head: "Jim Smith" },
+    { department: "Sales", head: "Jane Doe" },
+    { department: "Marketing", head: "John Johnson" }
+  ]
+EOS
+end
+
+datasource "ds_employees_enriched" do
+  run_script $js_employees_enriched, $ds_employees, $ds_teams, $ds_department_heads
+end
+
+script "js_employees_enriched", type: "javascript" do
+  parameters "employees", "teams", "department_heads"
+  result "employees_enriched"
+  code <<-'EOS'
+  department_table = {}
+
+  _.each(department_heads, function(department) {
+    department_table[department['department']] = department['head']
+  })
+
+  team_table = {}
+
+  _.each(teams, function(team) {
+    team_table[team['team']] = team['department']
+  })
+
+  employees_enriched = _.map(employees, function(employee) {
+    return {
+      name: employee['name'],
+      location: employee['location'],
+      team: employee['team'],
+      department: team_table[employee['team']],
+      department_head: department_table[team_table[employee['team']]]
+    }
+  })
+EOS
+end
+
+policy "pol_employees_enriched" do
+  validate_each $ds_employees_enriched do
+    summary_template "{{ len data }} Employees"
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+    export do
+      field "name" do
+        label "Name"
+      end
+      field "location" do
+        label "Location"
+      end
+      field "team" do
+        label "Team"
+      end
+      field "department" do
+        label "Department"
+      end
+      field "department_head" do
+        label "Department Head"
+      end
+    end
+  end
+end
+
+escalation "esc_email" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end

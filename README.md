@@ -27,8 +27,9 @@ Note: Each lesson builds upon ideas and concepts in the previous lesson. We reco
   * **[Exercise 02](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/02_tutorial_templates/README.md) - Tutorial Policy Templates:** Create a policy template to report a list of tutorial policy templates.
 * **[Lesson 07](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/07_pagination/README.md) - Pagination:** Learn how to handle paginated results from REST APIs.
 * **[Lesson 08](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/08_underscore/README.md) - Underscore.js:** Learn more about the Underscore.js library included in the policy engine.
-* **[Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/09_relational_data/README.md) - Relational Data:** Learn how to relate data from two different datasources.
+* **[Lesson 09](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/09_relational_data/README.md) - Relational Data:** Learn how to relate data from two different datasources..
 * **[Lesson 10](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/10_debugging/README.md) - Debugging:** Learn the flow and process for debugging malfunctioning policy templates.
+  * **[Exercise 03](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/03_employees/README.md) - Employees:** Create a policy template to report a list of employees and their department heads
 * **[Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/11_request_scripts/README.md) - Request Scripts:** Learn how to encapsulate API requests within script blocks.
 * **[Lesson 12](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/12_iterating/README.md) - Iterating:** Learn how to iterate through a datasource to make multiple API requests.
 * **[Lesson 13](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/13_optimization/README.md) - Optimization:** Learn how to optimize policy templates for lower memory usage and faster execution.
