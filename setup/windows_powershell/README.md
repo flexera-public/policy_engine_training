@@ -80,7 +80,9 @@ Note: The version number you see may be higher than the above if fpt has been up
 
 ## Step 7: Configure fpt for Flexera One
 
-If you do not have access to a Flexera One organization, you should skip this section. You will still be able to follow the tutorial, but you will not be able to do the sections that involve the `fpt` command.
+Configuring fpt requires access to a Flexera One organization. If you do not have access to such an organization, but should, please reach out to the appropriate individuals within your organization to obtain access.
+
+If such access is not currently available to you, you should skip this section. You will still be able to follow the tutorial, but you will not be able to do the sections that involve the `fpt` command.
 
 In order to configure `fpt`, you will need access to a Flexera One organization with access to Flexera's automation engine. While nothing that will be done in this tutorial is destructive, we recommended that you use a UAT or test account for this tutorial to avoid cluttering a production environment.
 
