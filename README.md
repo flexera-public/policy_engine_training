@@ -16,7 +16,7 @@ We recommended that you begin by following the steps in the [Initial Setup](http
 
 ## Syllabus
 
-Note: Each lesson builds upon ideas and concepts in the previous lesson. We recommended that you proceed in order rather than skip around.
+*Note: Each lesson builds upon ideas and concepts in the previous lesson. We recommended that you proceed in order rather than skip around.*
 
 * **[Initial Setup](https://github.com/flexera-public/policy_engine_training/blob/main/setup/README.md)**
   * **[Windows (PowerShell)](https://github.com/flexera-public/policy_engine_training/blob/main/setup/windows_powershell/README.md)**
@@ -76,3 +76,39 @@ These lessons will *not* provide full coverage of every aspect of the policy tem
 * [Markdown](https://www.markdownguide.org/): Information on Markdown.
 * [LinkedIn Learning](https://www.linkedin.com/learning/): Training on JavaScript, public clouds, APIs, and other concepts relevant to the policy engine.
 * [Team Treehouse](https://teamtreehouse.com/): Training on various programming languages. JavaScript is used in policy templates, and general coding knowledge is a requirement for policy development.
+
+## Repository Information
+
+*Note: This is not of interest if you're just here to learn policy development. This section is intended for developers and other interested parties that need more detailed information about how this GitHub repository is configured.*
+
+### Pull Requests
+
+Anyone can make a pull request to the "main" branch. Pull requests can only be merged once the pull request has been reviewed and approved by at least one person on the "Policy Developers" team. This team consists of Flexera employees with expertise on policy development.
+
+When a pull request is made, the following automated tests will occur:
+
+* [CodeQL](https://codeql.github.com/) will check the code in the pull request for vulnerabilities.
+* [Dangerfile](https://danger.systems/guides/dangerfile) will do tests for syntax and spelling. The [Dangerfile file](https://github.com/flexera-public/policy_engine_training/blob/main/Dangerfile) in the root directory of the repository, along with the files in the [.dangerfile directory](https://github.com/flexera-public/policy_engine_training/blob/main/.dangerfile/), contain the specific tests that are performed.
+
+Any issues identified by automated testing will be raised as notes within the pull request as either warnings or errors. There is no hard requirement for all tests to pass to merge a pull request but every warning or error should be reviewed in detail to ensure it hasn't identified a legitimate problem.
+
+### Branch Structure
+
+The "main" branch is the production branch intended for day-to-day usage. Other branches are for development and, once development work is done, should be merged into the "main" branch via pull request. Branches should be deleted after being merged.
+
+### Directory Structure
+
+* **/**: The root directory of the repository contains various configuration files used by git, GitHub, Dangerfile, VSCode, etc. as well as this [README.md](https://github.com/flexera-public/policy_engine_training/blob/main/README.md) file.
+* **/.dangerfile**: Contains various tests that are executed via [Dangerfile](https://danger.systems/guides/dangerfile) when a pull request is made to the "main" branch.
+* **/.data**: Contains fake data for simulating API responses.
+* **/.github**: Contains Github-specific configurations, such as issue templates and workflows.
+* **/.vscode**: Contains configuration data for VSCode.
+* **/exercises**: Contains exercises where the student needs to build their own policy template.
+* **/lessons**: Contains lessons with interactive development to learn policy template development.
+* **/setup**: Contains instructions for the student to configure their local workstation.
+
+### GitHub Workflows
+
+The following GitHub Workflows perform automated tasks for this repository:
+
+* **[Test Changes](https://github.com/flexera-public/policy_engine_training/blob/main/.github/workflows/test-changes.yaml)**: Performs Dangerfile testing when a pull request to the "main" branch is made.
