@@ -86,7 +86,8 @@ changed_files.each do |file|
   failures = []
 
   # Perform a basic text lint on all changed files
-  test = general_textlint?(file); warnings << test if test
+  # Disabled for now because we have no specific things to test for
+  #test = general_textlint?(file); warnings << test if test
 
   # Output final list of failures and warnings
   fail "### **#{file}**\n\n#{failures.join("\n\n---\n\n")}" if !failures.empty?

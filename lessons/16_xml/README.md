@@ -36,7 +36,7 @@ end
 
 Note the following differences from the original version:
 
-* The `path` field now points to an XML file instead of a JSON one. Note that, in real world usage, your path typically won't be an actual file but an API endpoint of some sort.
+* The `path` field now points to an XML file instead of a JSON one. Note that, in real world usage, your path typically won't be an actual file but an API endpoint of some sort. You can [view this XML file here](https://github.com/flexera-public/policy_engine_training/blob/main/.data/lessons/lessons.xml) to see how it is formatted.
 * The `encoding` field is now set to "xml". This tells the policy engine to parse the results as XML.
 * The `collect` field is now using the "xpath" function. This is the XML equivalent of the "jmes_path" function.
   * You can specify a third parameter for the "xpath" function to indicate whether you're parsing a "simple_element" (e.g. a single data item) or an "array". If unspecified, this defaults to "simple_element", which is why you don't see this parameter being specified in the `field` fields.
