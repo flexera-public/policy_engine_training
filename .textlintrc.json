@@ -1,9 +1,5 @@
 {
-  "rules": {
-    "editorconfig": {
-      "charset": false
-    }
-  },
+  "rules": {},
   "filters": {
     "comments": true
   }
