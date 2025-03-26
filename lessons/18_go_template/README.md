@@ -130,4 +130,6 @@ Note how the Go template syntax was replaced with the values we wanted. We're no
 
 HTML is not legitimately supported by the policy engine and it is not recommended that you put HTML code in your `detail_template` field. *Some* HTML will render correctly when an incident is emailed, but the raw HTML code will be displayed instead when viewing the incident in the Flexera One UI. [Markdown](https://www.markdownguide.org/) should be used instead.
 
-Please proceed to [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/19_cwf/README.md), where we will learn about Cloud Workflow and how to use it for policy actions.
+We recommend completing [Exercise 05](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/05_employees_table/README.md) before moving on to the next lesson.
+
+In [Lesson 19](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/19_cwf/README.md), we will learn about Cloud Workflow and how to use it for policy actions.

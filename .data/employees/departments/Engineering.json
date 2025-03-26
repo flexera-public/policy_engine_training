@@ -1,0 +1,13 @@
+{
+  "name": "Engineering",
+  "head": "Jim Smith",
+  "teams": [
+    "Violet",
+    "Red"
+  ],
+  "employee_count": 10,
+  "annual_budget": {
+    "amount": 1250000,
+    "currency": "USD"
+  }
+}

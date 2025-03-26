@@ -126,4 +126,6 @@ Detail:
 Hello Jupiter
 ```
 
+We recommend completing [Exercise 01](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/01_summation/README.md) before moving on to the next lesson.
+
 In [Lesson 04](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/04_escalations/README.md), we'll learn about parameters containing lists and how to email incidents.

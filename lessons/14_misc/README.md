@@ -236,4 +236,6 @@ If you scroll up through the output, you should see that only one item was retur
 ```
 ````
 
-Please proceed to [Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/15_best_practices/README.md), where we will learn about some policy template best practices.
+We recommend completing [Exercise 04](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/04_departments/README.md) before moving on to the next lesson.
+
+In [Lesson 15](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/15_best_practices/README.md), we will learn about some policy template best practices.

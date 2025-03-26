@@ -1,0 +1,131 @@
+name "Employees and Department Heads"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all employees, their teams, their departments, and their department heads."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+# Datasources to gather the various bits of data
+datasource "ds_employees" do
+  # No authentication is needed because we're just grabbing a publicly-accessible JSON file
+  # This will be interpreted just like a JSON response from an API
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/employees.json"
+  end
+  result do
+    encoding "json"
+    # We're using "[*]" because the result is a flat list of objects
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "location", jmes_path(col_item, "location")
+      field "team", jmes_path(col_item, "team")
+    end
+  end
+end
+
+datasource "ds_teams" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/teams.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "team", jmes_path(col_item, "team")
+      field "department", jmes_path(col_item, "department")
+    end
+  end
+end
+
+datasource "ds_departments" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "head", jmes_path(col_item, "head")
+    end
+  end
+end
+
+datasource "ds_employees_enriched" do
+  run_script $js_employees_enriched, $ds_employees, $ds_teams, $ds_departments
+end
+
+script "js_employees_enriched", type: "javascript" do
+  parameters "employees", "teams", "departments"
+  result "employees_enriched"
+  code <<-'EOS'
+  // Create tables to easily lookup department heads and departments
+  department_table = {}
+
+  _.each(departments, function(department) {
+    department_table[department['name']] = department['head']
+  })
+
+  team_table = {}
+
+  _.each(teams, function(team) {
+    team_table[team['team']] = team['department']
+  })
+
+  // Use _.map to transform each entry in the list and add the department and department head
+  employees_enriched = _.map(employees, function(employee) {
+    return {
+      name: employee['name'],
+      location: employee['location'],
+      team: employee['team'],
+      department: team_table[employee['team']],
+      department_head: department_table[team_table[employee['team']]]
+    }
+  })
+EOS
+end
+
+policy "pol_employees_enriched" do
+  validate_each $ds_employees_enriched do
+    summary_template "{{ len data }} Employees"
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+    export do
+      field "name" do
+        label "Name"
+      end
+      field "location" do
+        label "Location"
+      end
+      field "team" do
+        label "Team"
+      end
+      field "department" do
+        label "Department"
+      end
+      field "department_head" do
+        label "Department Head"
+      end
+    end
+  end
+end
+
+escalation "esc_email" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end

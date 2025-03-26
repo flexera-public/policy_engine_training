@@ -91,7 +91,7 @@ Normally you would not need pagination after only 2 results, but this is just an
 
 Not every API handles pagination the same way. For this reason, different field options are available for the `get_page_marker` and `set_page_marker` blocks.
 
-### header
+### get_page_marker: header
 
 The `header` field can be used to get the next page from a field in the API's response header. You would just specify the name of the "header" field expected in the response like so:
 
@@ -101,7 +101,7 @@ The `header` field can be used to get the next page from a field in the API's re
   end
 ```
 
-### body_path
+### get_page_marker: body_path
 
 The `body_path` field can be used to get the next page from a field in the API's response body. You would just specify the name of the field in the body like so:
 
@@ -115,7 +115,7 @@ The `body_path` field can be used to get the next page from a field in the API's
 
 The following fields can be used within the `set_page_marker` block to interpret the data gathered in the `get_page_marker` block.
 
-### query
+### set_page_marker: query
 
 The `query` field should be used when the data gathered in the `get_page_marker` block is the value for a query parameter. The field should be set to the query parameter key that we need to set the value for:
 
@@ -125,7 +125,7 @@ The `query` field should be used when the data gathered in the `get_page_marker`
   end
 ```
 
-### header
+### set_page_marker: header
 
 The `header` field should be used when the data gathered in the `get_page_marker` block is the value for a "header" field. The field should be set to the "header" field that we need to set the value for:
 
@@ -135,7 +135,7 @@ The `header` field should be used when the data gathered in the `get_page_marker
   end
 ```
 
-### body_field
+### set_page_marker: body_field
 
 The `body_field` field should be used when the data gathered in the `get_page_marker` block is the value for a field in the JSON body of the request. The field should be set to the "body" field that we need to set the value for:
 
@@ -145,7 +145,7 @@ The `body_field` field should be used when the data gathered in the `get_page_ma
   end
 ```
 
-### uri
+### set_page_marker: uri
 
 The `uri` field should be used when the data gathered in the `get_page_marker` block is the full URL to request the next page from. This field should always be given a value of true when used.
 

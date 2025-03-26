@@ -1,0 +1,107 @@
+name "Departments"
+rs_pt_ver 20180301
+type "policy"
+short_description "Lists all departments, including employee count and budgets."
+long_description ""
+severity "low"
+category "Tutorial"
+default_frequency "weekly"
+info(
+  version: "0.1.0"
+)
+
+parameter "param_email" do
+  type "list"
+  label "Email Addresses"
+  description "A list of email addresses to notify."
+  default []
+end
+
+# Parameter to allow the user to exclude certain departments.
+# It's a list so that the user can exclude multiple departments if desired.
+parameter "param_department_filter" do
+  type "list"
+  label "Exclude Departments"
+  description "A list of departments to not include in the results."
+  default []
+end
+
+datasource "ds_departments" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments.json"
+  end
+  result do
+    encoding "json"
+    collect jmes_path(response, "[*]") do
+      field "name", jmes_path(col_item, "name")
+      field "head", jmes_path(col_item, "head")
+    end
+  end
+end
+
+# We filter the departments *before* we make requests for each department's detailed information.
+# This way, we don't waste time making requests for departments that the user doesn't want to see.
+datasource "ds_departments_filtered" do
+  run_script $js_departments_filtered, $ds_departments, $param_department_filter
+end
+
+script "js_departments_filtered", type: "javascript" do
+  parameters "departments", "department_filter"
+  result "filtered_departments"
+  code <<-'EOS'
+  filtered_departments = _.reject(departments, function(department) {
+    return _.contains(department_filter, department['name'])
+  })
+EOS
+end
+
+datasource "ds_departments_detailed" do
+  # We iterate through the filtered list to get detailed info for each department
+  iterate $ds_departments_filtered
+  request do
+    host "raw.githubusercontent.com"
+    # We use join() and val(iter_item, "department") to include the department name in the path of the request.
+    path join(["/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments/", val(iter_item, "department"), ".json"])
+  end
+  result do
+    encoding "json"
+    # Since each response is an object, not a list, we do not use a collect statement.
+    # The final results will be assembled into a list automatically.
+    field "name", val(iter_item, "name")
+    field "head", val(iter_item, "head")
+    # We use response instead of col_item because we're pulling results directly from the response
+    field "employee_count", jmes_path(response, "employee_count")
+    # Using a . (period character) allows us to get keys from objects contained within objects
+    field "annual_budget", jmes_path(response, "annual_budget.amount")
+  end
+end
+
+policy "pol_departments_detailed" do
+  validate_each $ds_departments_detailed do
+    summary_template "{{ len data }} Departments"
+    check eq(val(item, "name"), "")
+    escalate $esc_email
+    export do
+      field "name" do
+        label "Name"
+      end
+      field "head" do
+        label "Department Head"
+      end
+      field "employee_count" do
+        label "Employees (#)"
+      end
+      field "annual_budget" do
+        label "Annual Budget (USD)"
+      end
+    end
+  end
+end
+
+escalation "esc_email" do
+  automatic true
+  label "Send Email"
+  description "Send incident email"
+  email $param_email
+end

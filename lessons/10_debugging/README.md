@@ -534,4 +534,6 @@ Validation of **$ds\_policy\_templates\_with\_lessons** failed
 
 There are of course many more errors and problems that can occur, and in more complex policy templates, diagnosis may be more involved, but the basic process is always the same.
 
-That's it for Lesson 10. Please move on to [Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/11_request_scripts/README.md), where we will go over some common pitfalls of policy template development and how to debug a broken policy template.
+That's it for Lesson 10. We recommend completing [Exercise 03](https://github.com/flexera-public/policy_engine_training/blob/main/exercises/03_employees/README.md) before moving on to the next lesson.
+
+In [Lesson 11](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/11_request_scripts/README.md), we will go over how to use scripts to define an API request.
