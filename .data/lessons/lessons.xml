@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lessons>
+  <item>
+    <name>Hello World</name>
+    <lesson>Lesson 02</lesson>
+  </item>
+  <item>
+    <name>List Policy Templates</name>
+    <lesson>Lesson 06</lesson>
+  </item>
+</lessons>

@@ -1,28 +1,66 @@
 # Flexera Policy Development - Lesson 16 - XML & Text Responses
 
-Most REST APIs support or default to JSON for their responses, and this is what we recommend when possible. That said, occasionally a REST API will return results in XML or plain text; the policy engine provides tools for managing this.
+Most REST APIs support or default to JSON for their responses, and this is what we recommend when possible. That said, occasionally a REST API will return results in XML or plain text; the policy engine provides tools for managing this. We will modify the "list_policy_templates.pt" policy template to pull some of our data via XML.
 
-Since Flexera's APIs all use JSON, we will be using examples from the [Flexera Policy Templates GitHub Repository](https://github.com/flexera-public/policy_templates) to go over these.
+## Step 1: Update the Version
 
-## XML Responses
-
-If a REST API is going to provide results in xml, you will need to set the `encoding` field to "xml". You will also need to use the "xpath" function, which is the xml equivalent of the "jmes_path" function you've seen before. Consider the below example:
+It's considered best practice to use [semantic versioning](https://github.com/flexera-public/policy_templates/blob/master/VERSIONING.md) when versioning your policy templates. Let's update the policy template to version `0.5.1` by updating the `info` block like so:
 
 ```ruby
-result do
-  encoding "xml"
-  collect xpath(response, "//DescribeRegionsResponse/regionInfo/item", "array") do
-    field "region", xpath(col_item, "regionName")
-    field "endpoint", xpath(col_item, "regionEndpoint")
+info(
+  version: "0.5.2"
+)
+```
+
+We're changing the patch version instead of the minor version because our changes won't actually impact how the policy template functions.
+
+## Step 2: Modify the ds_policy_lesson_list Datasource
+
+We're going to modify the "ds_policy_lesson_list" datasource to pull the list of lessons from an XML source instead of a JSON source. Modify the datasource to match the following:
+
+```ruby
+datasource "ds_policy_lesson_list" do
+  request do
+    host "raw.githubusercontent.com"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lessons/lessons.xml"
+  end
+  result do
+    encoding "xml"
+    collect xpath(response, "//lessons/item", "array") do
+      field "name", xpath(col_item, "name")
+      field "lesson", xpath(col_item, "lesson")
+    end
   end
 end
 ```
 
-Paths should follow xml conventions rather than JSON ones, using `/` characters where appropriate. Unlike the "jmes_path" function, you can specify a third parameter for the "xpath" function to indicate whether you're parsing a "simple_element" (e.g. a single data item) or an "array". If unspecified, this defaults to "simple_element", which is why you don't see this parameter being specified in the `field` fields.
+Note the following differences from the original version:
 
-Otherwise, functionality is very similar to parsing JSON, including when to use a `collect` block and when to use the reserved words "response" and "col_item".
+* The `path` field now points to an XML file instead of a JSON one. Note that, in real world usage, your path typically won't be an actual file but an API endpoint of some sort.
+* The `encoding` field is now set to "xml". This tells the policy engine to parse the results as XML.
+* The `collect` field is now using the "xpath" function. This is the XML equivalent of the "jmes_path" function.
+  * You can specify a third parameter for the "xpath" function to indicate whether you're parsing a "simple_element" (e.g. a single data item) or an "array". If unspecified, this defaults to "simple_element", which is why you don't see this parameter being specified in the `field` fields.
+  * XML paths should be expressed using standard XML notation with the `/` character.
+* The `field` statements now use "xpath" instead of "jmes_path" to parse XML.
+* The reserved words "response" and "col_item" are used in the same way they are used for JSON.
 
-## Text Responses
+## Step 3: Testing
+
+Let's verify that none of our changes broke the policy template. Do an fpt check to make sure there are no syntax errors or other code problems:
+
+```bash
+fpt check list_policy_templates.pt
+```
+
+Once we've verified there are no syntax errors, let's run the policy template. Once the policy template finishes execution, scroll through the output and make sure everything looks normal.
+
+```bash
+fpt run list_policy_templates.pt --credentials="auth_flexera=your_credential_identifier"
+```
+
+The results should be exactly the same as they were previously.
+
+## A Note on Text Responses
 
 Occasionally, a REST API will return some form of plain text as the response. In those cases, you can store the entire response as a string with the following `result` block:
 
@@ -61,6 +99,6 @@ EOS
 end
 ```
 
-The above is only an example and is in no way a complete CSV parsing implementation. For example, the above would fail if the CSV file had entries contained within `"` quotes. This is just a demonstration to show how you might have to parse and reformat data retrieved as plain text.
+The above is only an example and is in no way a complete CSV parsing implementation. For example, the above would fail if the CSV file had entries contained within `"` quotes. This is just a demonstration to show how you might have to parse and reformat data retrieved as plain text using various JSON functions.
 
 Please proceed to [Lesson 17](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/17_local_js/README.md), where we will learn about how to test `script` blocks locally.

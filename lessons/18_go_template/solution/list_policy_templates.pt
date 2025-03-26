@@ -59,13 +59,13 @@ end
 datasource "ds_policy_lesson_list" do
   request do
     host "raw.githubusercontent.com"
-    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lessons/lessons.json"
+    path "/flexera-public/policy_engine_training/refs/heads/main/.data/lessons/lessons.xml"
   end
   result do
-    encoding "json"
-    collect jmes_path(response, "[*]") do
-      field "name", jmes_path(col_item, "name")
-      field "lesson", jmes_path(col_item, "lesson")
+    encoding "xml"
+    collect xpath(response, "//lessons/item", "array") do
+      field "name", xpath(col_item, "name")
+      field "lesson", xpath(col_item, "lesson")
     end
   end
 end
