@@ -670,3 +670,7 @@ foreach
 elsif
 Dangerfile
 dangerfile
+CSV
+csv
+CSVs
+csvs
