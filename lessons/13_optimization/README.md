@@ -105,4 +105,42 @@ policy_templates_with_lessons = _.map(policy_templates, function(template) {
 })
 ```
 
+### Avoid \_.filter And \_.find Within Loops
+
+While very useful, the \_.filter and \_.find functions are computationally expensive. This typically isn't a big deal when they are only executing once, but if placed within a loop where they might execute thousands of times, they are very inefficient. Consider the following code that uses \_.filter within a loop:
+
+```javascript
+customers_with_orders = _.map(customer_list, function(customer) {
+  return {
+    id: customer['id'],
+    name: customer['name'],
+    address: customer['address'],
+    orders: _.filter(order_list, function(order) { return order["customer_id"] == customer['id'] })
+  }
+})
+```
+
+The inclusion of \_.filter within the loop effectively creates the same problem that using a nested loop does. The solution is also the same; we should create an object that stores the orders by customer ID and then use that:
+
+```javascript
+orders_by_customer = {}
+
+_.each(order_list, function(order) {
+  if (orders_by_customer[order['customer_id']] == undefined) {
+    orders_by_customer[order['customer_id']] = []
+  }
+
+  orders_by_customer[order['customer_id']].push(order)
+})
+
+customers_with_orders = _.map(customer_list, function(customer) {
+  return {
+    id: customer['id'],
+    name: customer['name'],
+    address: customer['address'],
+    orders: orders_by_customer[customer['id']]
+  }
+})
+```
+
 No policy work this time! You've completed Lesson 13. Please move on to [Lesson 14](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/14_misc/README.md).

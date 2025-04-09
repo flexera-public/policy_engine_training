@@ -8,7 +8,9 @@ This Github repository contains lessons and resources intended to train someone 
 
 * These lessons focus specifically on *developing* policy templates and assume that you are already familiar with making use of policy templates as an end-user. Some basics are covered in the first lesson, but if you're unfamiliar with policy templates more generally, it is recommended that you review the [Policy Engine Documentation](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm) and experiment with using policy templates from the catalog.
 
-* You will need a basic level of proficiency in JavaScript. If you've never used JavaScript, but are already well-versed in another high-level programming language, you should be able to pick it up quickly. There are many resources available for learning JavaScript, such as [Team Treehouse](https://teamtreehouse.com/), if you need to get up to speed.
+* You will need a basic level of familiarity with REST APIs and how they work. The [Learning REST APIs](https://www.linkedin.com/learning/learning-rest-apis/welcome?u=2217194) course on LinkedIn Learning is recommended, but many other resources for learning about REST APIs are available on most technical learning platforms.
+
+* You will need a basic level of proficiency in JavaScript. If you've never used JavaScript, but are already well-versed in another high-level programming language, you should be able to pick it up quickly. There are many resources available for learning JavaScript, such as the [JavaScript Essential Training](https://www.linkedin.com/learning/javascript-essential-training/javascript-the-soil-from-which-the-modern-web-grows?u=2217194) course on LinkedIn Learning, if you need to get up to speed.
 
 ## Where to Begin?
 
@@ -74,8 +76,7 @@ These lessons will *not* provide full coverage of every aspect of the policy tem
 * [Underscore.js](https://underscorejs.org/): Documentation for the Underscore.js library.
 * [Go Template](https://pkg.go.dev/text/template): Information on Go template syntax.
 * [Markdown](https://www.markdownguide.org/): Information on Markdown.
-* [LinkedIn Learning](https://www.linkedin.com/learning/): Training on JavaScript, public clouds, APIs, and other concepts relevant to the policy engine.
-* [Team Treehouse](https://teamtreehouse.com/): Training on various programming languages. JavaScript is used in policy templates, and general coding knowledge is a requirement for policy development.
+* [LinkedIn Learning](https://www.linkedin.com/learning/): Training on JavaScript, public clouds, APIs, and other concepts relevant to the policy engine. The [JavaScript Essential Training](https://www.linkedin.com/learning/javascript-essential-training/javascript-the-soil-from-which-the-modern-web-grows?u=2217194) course should cover what is needed for policy template development.
 
 ## Repository Information
 
