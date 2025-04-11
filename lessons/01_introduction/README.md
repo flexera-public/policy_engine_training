@@ -31,7 +31,7 @@ A policy template will broadly follow the following structure:
 1. Metadata that describes the policy template.
 2. Parameters that the end user can set values for when applying the policy template.
 3. Credentials that enable the policy template to authenticate to various APIs.
-4. Datasources that connect to those APIs to gather data. Sometimes these will also execute blocks of JavaScript code to process, manipulate, combine, or filter data.
+4. Datasources that connect to those APIs to gather data or execute blocks of JavaScript code to process, manipulate, combine, or filter data.
 5. A policy block that will assess one or more datasources and will raise incidents if a problem is found.
 6. Escalation block(s) that will take various actions on resources listed within incidents.
 
@@ -44,6 +44,8 @@ For example, suppose you wanted to write a policy template that reported on unus
 5. The policy block would assess the datasource containing the final list of VMs and raise an incident if it contains unused VMs. The incident would only contain the unused VMs.
 6. Escalation blocks would enable the incident to be emailed as well as enable the user to delete unused VMs within the Flexera One website.
 
-A policy template does not execute in the order in which it is written. The policy engine will look at the policy block to find the datasource that will be assessed, and then will work backwards to find the various other datasources it will need to create that final datasource. It will then execute everything in the appropriate order.
+A policy template does not necessarily execute in the order in which it is written. The policy engine will look at the policy block to find the datasource(s) that will be assessed, and then will work backwards to find the various other datasources it will need to create that final datasource(s). It will then create an execution flow that will ensure that no datasource executes unless the datasources it depends on have already executed. Finally, it will execute everything in the appropriate order.
+
+![Policy Flow](./policy_flow.png "Policy Flow")
 
 This should be enough for us to dive into developing a very simple policy template. Please proceed to [Lesson 02](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/02_hello_world/README.md).
