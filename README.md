@@ -6,11 +6,13 @@ This Github repository contains lessons and resources intended to train someone 
 
 ## Prerequisites
 
-* These lessons focus specifically on *developing* policy templates and assume that you are already familiar with making use of policy templates as an end-user. Some basics are covered in the first lesson, but if you're unfamiliar with policy templates more generally, it is recommended that you review the [Policy Engine Documentation](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm) and experiment with using policy templates from the catalog.
+* These lessons focus specifically on *developing* policy templates and assume that you are already familiar with making use of policy templates as an end-user in the Flexera One platform. Some basics are covered in the first lesson, but if you're unfamiliar with policy templates more generally, it is recommended that you review the [Policy Engine Documentation](https://docs.flexera.com/flexera/EN/Automation/AboutPolicies.htm) and experiment with using policy templates from the Policy Catalog.
 
 * You will need a basic level of familiarity with REST APIs and how they work. The [Learning REST APIs](https://www.linkedin.com/learning/learning-rest-apis/welcome?u=2217194) course on LinkedIn Learning is recommended, but many other resources for learning about REST APIs are available on most technical learning platforms.
 
 * You will need a basic level of proficiency in JavaScript. If you've never used JavaScript, but are already well-versed in another high-level programming language, you should be able to pick it up quickly. There are many resources available for learning JavaScript, such as the [JavaScript Essential Training](https://www.linkedin.com/learning/javascript-essential-training/javascript-the-soil-from-which-the-modern-web-grows?u=2217194) course on LinkedIn Learning, if you need to get up to speed.
+
+* While Git is only very lightly used during these lessons, some familiarity with Git and version control is recommended if you intend to develop policy templates. Resources for learning how to use Git are widely available, such as the [Git Essential Training](https://www.linkedin.com/learning/git-essential-training-19417064/get-started-with-git?u=2217194) course on LinkedIn Learning.
 
 ## Where to Begin?
 
