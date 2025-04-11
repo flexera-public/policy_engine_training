@@ -44,7 +44,7 @@ For example, suppose you wanted to write a policy template that reported on unus
 5. The policy block would assess the datasource containing the final list of VMs and raise an incident if it contains unused VMs. The incident would only contain the unused VMs.
 6. Escalation blocks would enable the incident to be emailed as well as enable the user to delete unused VMs within the Flexera One website.
 
-A policy template does not necessarily execute in the order in which it is written. The policy engine will look at the policy block to find the datasource that will be assessed, and then will work backwards to find the various other datasources it will need to create that final datasource. It will then create an execution flow that will ensure that no datasource executes unless the datasources it depends on have already executed. Finally, it will execute everything in the appropriate order.
+A policy template does not necessarily execute in the order in which it is written. The policy engine will look at the policy block to find the datasource(s) that will be assessed, and then will work backwards to find the various other datasources it will need to create that final datasource(s). It will then create an execution flow that will ensure that no datasource executes unless the datasources it depends on have already executed. Finally, it will execute everything in the appropriate order.
 
 ![Policy Flow](./policy_flow.png "Policy Flow")
 
