@@ -3,6 +3,7 @@ rs_pt_ver 20180301
 type "policy"
 short_description "Lists all tutorial policy templates."
 long_description ""
+doc_link "https://github.com/flexera-public/policy_engine_training/tree/main/exercises/02_tutorial_templates"
 severity "low"
 category "Tutorial"
 default_frequency "weekly"
