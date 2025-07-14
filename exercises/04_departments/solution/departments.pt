@@ -3,6 +3,7 @@ rs_pt_ver 20180301
 type "policy"
 short_description "Lists all departments, including employee count and budgets."
 long_description ""
+doc_link "https://github.com/flexera-public/policy_engine_training/tree/main/exercises/04_departments"
 severity "low"
 category "Tutorial"
 default_frequency "weekly"

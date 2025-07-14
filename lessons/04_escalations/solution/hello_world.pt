@@ -3,6 +3,7 @@ rs_pt_ver 20180301
 type "policy"
 short_description "Hello World"
 long_description ""
+doc_link "https://github.com/flexera-public/policy_engine_training/tree/main/lessons/02_hello_world"
 category "Tutorial"
 severity "low"
 default_frequency "weekly"

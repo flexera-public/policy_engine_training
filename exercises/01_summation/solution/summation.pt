@@ -3,6 +3,7 @@ rs_pt_ver 20180301
 type "policy"
 short_description "Sum of Two Numbers"
 long_description ""
+doc_link "https://github.com/flexera-public/policy_engine_training/tree/main/exercises/01_summation"
 category "Tutorial"
 severity "low"
 default_frequency "weekly"

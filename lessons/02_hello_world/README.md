@@ -18,6 +18,7 @@ rs_pt_ver 20180301
 type "policy"
 short_description "Hello World"
 long_description ""
+doc_link "https://github.com/flexera-public/policy_engine_training/tree/main/lessons/02_hello_world"
 category "Tutorial"
 severity "low"
 default_frequency "weekly"
@@ -33,6 +34,7 @@ To briefly go over what each of these defines:
 * `type` simply indicates that this is a policy template and should always be set to "policy"
 * `short_description` is a brief description of what the policy template does. This will appear in Flexera One underneath the name when the policy template is uploaded.
 * `long_description` is defunct and should always be an empty string.
+* `doc_link` contains a link to documentation for the policy template. In this case, we're linking to this lesson.
 * `category` is the category of the policy template. In most cases, this will be something like "Cost", "Compliance", "Security", etc.
 * `severity` is the default severity level of any incidents raised by the policy template.
 * `default_frequency` is the default schedule for the policy template to execute.

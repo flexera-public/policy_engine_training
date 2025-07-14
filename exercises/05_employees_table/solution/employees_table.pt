@@ -3,6 +3,7 @@ rs_pt_ver 20180301
 type "policy"
 short_description "Lists all employees, their teams, their departments, and their department heads."
 long_description ""
+doc_link "https://github.com/flexera-public/policy_engine_training/tree/main/exercises/05_employees_table"
 severity "low"
 category "Tutorial"
 default_frequency "weekly"
