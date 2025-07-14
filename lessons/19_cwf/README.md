@@ -293,4 +293,4 @@ define delete_snapshots($data, $param_azure_endpoint) return $all_responses do
 end
 ```
 
-Please proceed to [Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/20_further_learning/README.md) for more information on how to learn about the policy engine and policy template language.
+Please proceed to [Lesson 20](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/20_further_learning/README.md) for more information on how to learn about the policy engine and policy template language.
