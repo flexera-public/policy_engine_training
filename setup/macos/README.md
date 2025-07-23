@@ -95,6 +95,8 @@ What the `fpt` tool refers to as an Account ID is actually the Project ID. You c
 https://app.flexera.com/orgs/23456/automation/projects/78901/policy-templates
 ```
 
+**NOTE: The Project ID is not the same as the Org ID. In the above example, the correct ID is `78901`, not `23456`.**
+
 #### Obtain Flexera One API Host
 
 The final piece of information we'll need is the API host. You can infer this from the specific geographic instance of Flexera One that you log into:
@@ -115,7 +117,7 @@ fpt config account example
 
 When prompted, enter the information we gathered above.
 
-* `Account ID` should be the Project ID we obtained from the URL in the address bar.
+* `Account ID` should be the Project ID we obtained from the URL in the address bar. *NOTE: The Project ID is not the same as the Org ID.*
 * `API endpoint host` should be the matching endpoint from the table above.
 * `Refresh token` should be the one you generated in Flexera One from the instructions in the documentation.
 * `Flexera One` should always be `true`. The RightScale dashboard is defunct and no longer in use.
