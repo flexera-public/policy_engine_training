@@ -211,6 +211,8 @@ fpt run list_policy_templates.pt param_email='["not_a_real@emailaddress.com", "a
 
 You should see the policy template execution complete successfully. If you scroll through the output, you should see a full list of policy templates that would be included in the incident.
 
+**NOTE: If you receive a "Credential Not Found" error, make sure the credential name matches the *id* (not the name) shown for the credential in Flexera One. If it does, you may need to modify your fpt configuration to use `governance-3.rightscale.com` instead of `governance-4.rightscale.com` or vice versa. Please see the [setup guide](https://github.com/flexera-public/policy_engine_training/blob/main/setup/windows_powershell/README.md#obtain-flexera-one-api-host) for more information.**
+
 Finally, let's store the list of policies locally to review at our leisure using the retrieve_data command:
 
 ```bash
