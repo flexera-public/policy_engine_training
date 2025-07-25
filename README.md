@@ -109,6 +109,7 @@ The "main" branch is the production branch intended for day-to-day usage. Other 
 * **/exercises**: Contains exercises where the student needs to build their own policy template.
 * **/lessons**: Contains lessons with interactive development to learn policy template development.
 * **/setup**: Contains instructions for the student to configure their local workstation.
+* **/supplemental**: Contains supplemental materials that may be useful for learning or teaching policy development that are not part of the training itself.
 
 ### GitHub Workflows
 
