@@ -97,7 +97,7 @@ datasource "ds_policy_templates_with_lessons" do
 end
 
 script "js_policy_templates_with_lessons", type: "javascript" do
-  parameters "policy_lesson_list", "policy_templates", "param_limit"
+  parameters "policy_lesson_list", "policy_templates", "limit"
 ```
 
 Then add the following to the end of the script. This will automatically limit the number of values in the list that we're returning.
