@@ -63,7 +63,7 @@ datasource "ds_departments_detailed" do
   request do
     host "raw.githubusercontent.com"
     # We use join() and val(iter_item, "department") to include the department name in the path of the request.
-    path join(["/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments/", val(iter_item, "department"), ".json"])
+    path join(["/flexera-public/policy_engine_training/refs/heads/main/.data/employees/departments/", val(iter_item, "name"), ".json"])
   end
   result do
     encoding "json"
