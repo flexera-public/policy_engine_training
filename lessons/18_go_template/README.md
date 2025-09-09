@@ -83,6 +83,7 @@ Every `validate_each` block must contain at least an `export` block or a `detail
 {{ range data -}}
   | {{ .id }} | {{ .name }} | {{ .category }} | {{ .lesson }} | {{ .created_at }} |
 {{ end -}}
+EOS
 ```
 
 Note the use of "<<-'EOS'" and "EOS"; you can do this anywhere in the policy template language where you need a string to use multiple lines. While the most common use case for this is `script` blocks, it's also useful sometimes for the `detail_template` field.
