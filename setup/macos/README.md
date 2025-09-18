@@ -64,6 +64,11 @@ echo 'export PATH=$PATH:$HOME/fpt' >> ~/.zshrc
 source ~/.zshrc
 ```
 
+For Apple Silicon MacOS, install Apple's rosetta2 compatibility layer to use fpt's amd64 binary.
+```sh
+if [[ "$(uname -m)" == "arm64" ]]; then /usr/sbin/softwareupdate --install-rosetta --agree-to-license; fi
+```
+
 Once you've completed the installation steps below, you can verify that fpt is installed with the `fpt -v` command, like so:
 
 ```zsh
