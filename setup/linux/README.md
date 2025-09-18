@@ -140,7 +140,7 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
   * **Europe**: https:&#8203;\/\/login\.flexera\.eu\/oidc\/token
   * **APAC**: https:&#8203;\/\/login\.flexera\.au\/oidc\/token
 * **Client Authentication Method**: Token
-* **Token**: The API token you generated in Step 6.
+* **Token**: the API Refresh token you generated in step 7.
 * **Additional Headers**: Leave blank.
 * **Scopes**: Leave blank.
 * **Provider**: flexera
