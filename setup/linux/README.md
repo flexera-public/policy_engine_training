@@ -48,13 +48,34 @@ To install VSCode, please follow the instructions on the [VSCode website](https:
 
 ## Step 6: fpt
 
-fpt is Flexera's native policy template development and testing tool. Run the following commands to download fpt and configure bash to add it to your PATH. Note that the below assumes you have access to the `wget` command line tool and are using bash; this should be the case for most Linux distributions.
+fpt is Flexera's native policy template development and testing tool.
+You can download the latest version of fpt for your platform from the releases page at [FTP releases on github.com](https://github.com/flexera-public/policy_sdk/releases).
 
-```bash
-wget https://binaries.rightscale.com/rsbin/fpt/v1.5.0/fpt-linux-amd64.tgz -O ~/fpt-linux-amd64.tgz
+Flexera provides AMD64 and ARM binaries. First, check your system architecture to determine which file to download:
 
-tar -xzvf ~/fpt-linux-amd64.tgz -C ~/
+```zsh
+uname -a
+```
 
+Based on the output, download the appropriate file from the GitHub releases page and then extract it:
+
+**For AMD64/x86_64 systems (most common):**
+
+```zsh
+# Download fpt-linux-amd64-[version].tgz from GitHub releases, then:
+tar -xzvf ~/fpt-linux-amd64-[version].tgz -C ~/
+```
+
+**For ARM64/aarch64 systems:**
+
+```zsh
+# Download fpt-linux-arm64-[version].tgz from GitHub releases, then:
+tar -xzvf ~/fpt-linux-arm64-[version].tgz -C ~/
+```
+
+After extracting the appropriate file, configure bash to add fpt to your PATH:
+
+```zsh
 echo 'export PATH=$PATH:$HOME/fpt' >> ~/.bashrc
 
 source ~/.bashrc
@@ -64,7 +85,7 @@ Once you've completed the installation steps above, you can verify that fpt is i
 
 ```bash
 > fpt -v
-fpt v1.5.0 - 2022-04-27 21:17:14 - 4a0a2e0052c9081144087448231e8b6fb6306906
+fpt v1.7.0 - 2025-09-03 23:30:54 - 3d7bff671883382ccce950bb404fc3095a26c752
 ```
 
 Note: The version number you see may be higher than the above if fpt has been updated since these lessons were created.
@@ -136,11 +157,11 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 * **Credential Description**: Can be any arbitrary value. Describe the credential here for anyone else that might need to know what it is used for.
 * **Grant Type**: Refresh Token
 * **Token URL**: Depends on the region.
-  * **North America**: https:&#8203;\/\/login\.flexera\.com\/oidc\/token
-  * **Europe**: https:&#8203;\/\/login\.flexera\.eu\/oidc\/token
-  * **APAC**: https:&#8203;\/\/login\.flexera\.au\/oidc\/token
+  * **North America**: `https://login.flexera.com/oidc/token`
+  * **Europe**: `https://login.flexera.eu/oidc/token`
+  * **APAC**: `https://login.flexera.au/oidc/token`
 * **Client Authentication Method**: Token
-* **Token**: The API token you generated in Step 6.
+* **Token**: the API Refresh token you generated in step 7.
 * **Additional Headers**: Leave blank.
 * **Scopes**: Leave blank.
 * **Provider**: flexera

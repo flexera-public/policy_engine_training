@@ -57,15 +57,34 @@ To install VSCode, please follow the instructions on the [VSCode website](https:
 
 ## Step 6: fpt
 
-fpt is Flexera's native policy template development and testing tool. Installation will vary depending on your operating system and command line configuration.
+fpt is Flexera's native policy template development and testing tool.
+You can download the latest version of fpt for your platform from the releases page at [FTP releases on github.com](https://github.com/flexera-public/policy_sdk/releases).
 
-Run the following commands to download fpt and configure PowerShell to add it to your PATH. We recommended that you restart your PowerShell terminal after doing this to ensure the new configurations are in effect.
+Flexera provides AMD64 and ARM binaries. First, check your system architecture to determine which file to download:
 
 ```powershell
-Invoke-WebRequest -Uri "https://binaries.rightscale.com/rsbin/fpt/v1.5.0/fpt-windows-amd64.zip" -OutFile "$env:USERPROFILE\fpt-windows-amd64.zip"
+$env:PROCESSOR_ARCHITECTURE
+```
 
-Expand-Archive -Path "$env:USERPROFILE\fpt-windows-amd64.zip" -DestinationPath "$env:USERPROFILE"
+Based on the output, download the appropriate file from the GitHub releases page and then extract it:
 
+**For AMD64/x64 systems (most common):**
+
+```powershell
+# Download fpt-windows-amd64-[version].zip from GitHub releases, then:
+Expand-Archive -Path "$env:USERPROFILE\fpt-windows-amd64-[version].zip" -DestinationPath "$env:USERPROFILE"
+```
+
+**For ARM64 systems:**
+
+```powershell
+# Download fpt-windows-arm64-[version].zip from GitHub releases, then:
+Expand-Archive -Path "$env:USERPROFILE\fpt-windows-arm64-[version].zip" -DestinationPath "$env:USERPROFILE"
+```
+
+After extracting the appropriate file, configure PowerShell to add fpt to your PATH. We recommended that you restart your PowerShell terminal after doing this to ensure the new configurations are in effect:
+
+```powershell
 [System.Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";$env:USERPROFILE\fpt", [System.EnvironmentVariableTarget]::User)
 ```
 
@@ -73,7 +92,7 @@ Once you've completed the installation steps above, you can verify that fpt is i
 
 ```powershell
 > fpt -v
-fpt v1.5.0 - 2022-04-27 21:17:14 - 4a0a2e0052c9081144087448231e8b6fb6306906
+fpt v1.7.0 - 2025-09-03 23:30:54 - 3d7bff671883382ccce950bb404fc3095a26c752
 ```
 
 Note: The version number you see may be higher than the above if fpt has been updated since these lessons were created.
@@ -145,11 +164,11 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 * **Credential Description**: Can be any arbitrary value. Describe the credential here for anyone else that might need to know what it is used for.
 * **Grant Type**: Refresh Token
 * **Token URL**: Depends on the region.
-  * **North America**: https:&#8203;\/\/login\.flexera\.com\/oidc\/token
-  * **Europe**: https:&#8203;\/\/login\.flexera\.eu\/oidc\/token
-  * **APAC**: https:&#8203;\/\/login\.flexera\.au\/oidc\/token
+  * **North America**: `https://login.flexera.com/oidc/token`
+  * **Europe**: `https://login.flexera.eu/oidc/token`
+  * **APAC**: `https://login.flexera.au/oidc/token`
 * **Client Authentication Method**: Token
-* **Token**: The API token you generated in Step 6.
+* **Token**: the API Refresh token you generated in step 7.
 * **Additional Headers**: Leave blank.
 * **Scopes**: Leave blank.
 * **Provider**: flexera
