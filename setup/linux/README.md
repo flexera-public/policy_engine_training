@@ -181,7 +181,7 @@ VSCode should launch. This repository contains configuration files for VSCode to
 
 Once your extensions are installed, you should install Flexera Policy Template Language Support from this repository by doing the following:
 
-1. Open the VSCode command palette (Ctrl+Shift+P on Windows/Linux, Cmd+Shift+P on macOS)
+1. Open the VSCode command palette (Ctrl+Shift+P)
 1. Type or select "Developer: Install Extension from Location..." from the menu.
 1. Navigate to the "supplemental/pt-vscode-extension" folder.
 1. Click OK to select the folder.

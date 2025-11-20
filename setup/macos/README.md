@@ -174,15 +174,23 @@ In order to make calls to the Flexera API via the policy engine, we'll need to c
 
 Note: Your user in Flexera One will need access to everything in the "Automation" category in order to make proper use of this credential in these lessons.
 
-## Step 10: Launch VSCode
+## Step 10: Configure VSCode
 
-The final step is to launch VSCode and verify everything works as expected. You should be able to run the following commands to launch VSCode with the repository loaded in:
+The final step is to launch and configure VSCode and verify everything works as expected. You should be able to run the following commands to launch VSCode with the repository loaded in:
 
-```zsh
+```bash
 cd ~/policy_engine_training
 code .
 ```
 
 VSCode should launch. This repository contains configuration files for VSCode to recommend certain extensions to assist in policy template development, so if you are prompted to install extensions, we recommended that you install them.
 
+Once your extensions are installed, you should install Flexera Policy Template Language Support from this repository by doing the following:
+
+1. Open the VSCode command palette (Cmd+Shift+P)
+1. Type or select "Developer: Install Extension from Location..." from the menu.
+1. Navigate to the "supplemental/pt-vscode-extension" folder.
+1. Click OK to select the folder.
+
 You should now be configured and ready for the tutorial. Please proceed to [Lesson 01](https://github.com/flexera-public/policy_engine_training/blob/main/lessons/01_introduction/README.md).
+
